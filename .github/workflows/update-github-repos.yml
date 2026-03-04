@@ -41,6 +41,8 @@ jobs:
               ("package_lock", "starkzap path:package-lock.json"),
               ("pnpm_lock", "starkzap path:pnpm-lock.yaml"),
               ("yarn_lock", "starkzap path:yarn.lock"),
+              ("ts_code", "starkzap language:TypeScript"),
+              ("js_code", "starkzap language:JavaScript"),
           ]
 
           headers = {
@@ -78,7 +80,8 @@ jobs:
               page = 1
               while True:
                   qs = urllib.parse.urlencode({"q": query, "per_page": PER_PAGE, "page": page})
-                  data = request_json(f"https://api.github.com/search/code?{qs}")
+                  url = f"https://api.github.com/search/code?{qs}"
+                  data = request_json(url)
                   items = data.get("items", [])
 
                   for item in items:
@@ -91,7 +94,7 @@ jobs:
                   if page * PER_PAGE >= 1000:
                       break
                   page += 1
-                  time.sleep(0.2)
+                  time.sleep(0.35)
 
               return found
 

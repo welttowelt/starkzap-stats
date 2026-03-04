@@ -1,12 +1,125 @@
 {
-  "updated": "2026-03-04T13:37:41Z",
-  "total": 0,
-  "repos": [],
+  "updated": "2026-03-04T13:53:26Z",
+  "total": 11,
+  "repos": [
+    {
+      "full_name": "mediolano-app/mediolano-app",
+      "url": "https://github.com/mediolano-app/mediolano-app",
+      "description": "IP Creator permissionless dapp with Zero Fees \u2013 Programmable IP for the Integrity Web",
+      "stars": 13,
+      "created_at": "2024-11-15",
+      "match_sources": [
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "The-Engineer-Network/engipay",
+      "url": "https://github.com/The-Engineer-Network/engipay",
+      "description": "EngiPay is the Venmo of Web3 - but better. We make DeFi as simple as traditional banking while adding privacy, cross-chain capabilities, and earning opportunities. Send payments, swap Bitcoin, earn yield, all in one beautiful app",
+      "stars": 3,
+      "created_at": "2025-09-20",
+      "match_sources": [
+        "js_code"
+      ]
+    },
+    {
+      "full_name": "RealAdii/portfolio-2025",
+      "url": "https://github.com/RealAdii/portfolio-2025",
+      "description": "this is me. ",
+      "stars": 1,
+      "created_at": "2025-11-08",
+      "match_sources": [
+        "js_code"
+      ]
+    },
+    {
+      "full_name": "keep-starknet-strange/starknet-agentic",
+      "url": "https://github.com/keep-starknet-strange/starknet-agentic",
+      "description": "Smart contracts, tools, and skills for AI agents that transact on Starknet",
+      "stars": 74,
+      "created_at": "2026-01-31",
+      "match_sources": [
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "starkience/winky-starkzap",
+      "url": "https://github.com/starkience/winky-starkzap",
+      "description": "Every blink is a transaction on Starknet. Powered by session keys and Gasless transactions. Seamless integration with the Starkzap SDK.",
+      "stars": 2,
+      "created_at": "2026-02-19",
+      "match_sources": [
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "RealAdii/raffletest-starknet",
+      "url": "https://github.com/RealAdii/raffletest-starknet",
+      "description": "Gasless on-chain raffles on Starknet \u2014 Cyberpunk Edition",
+      "stars": 0,
+      "created_at": "2026-02-24",
+      "match_sources": [
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "GravitySignal/skuldrift-almm",
+      "url": "https://github.com/GravitySignal/skuldrift-almm",
+      "description": "Skuldrift ALMM",
+      "stars": 0,
+      "created_at": "2026-02-25",
+      "match_sources": [
+        "js_code"
+      ]
+    },
+    {
+      "full_name": "sainathr19/starkyield",
+      "url": "https://github.com/sainathr19/starkyield",
+      "description": "One click, one Sat, one journey to yield",
+      "stars": 0,
+      "created_at": "2026-02-26",
+      "match_sources": [
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "ShauryaSwarup/satkey",
+      "url": "https://github.com/ShauryaSwarup/satkey",
+      "description": "",
+      "stars": 0,
+      "created_at": "2026-03-01",
+      "match_sources": [
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "ivedmohan/Callout",
+      "url": "https://github.com/ivedmohan/Callout",
+      "description": "",
+      "stars": 0,
+      "created_at": "2026-03-03",
+      "match_sources": [
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "eliashezron/starkdeep",
+      "url": "https://github.com/eliashezron/starkdeep",
+      "description": "",
+      "stars": 0,
+      "created_at": "2026-03-04",
+      "match_sources": [
+        "ts_code"
+      ]
+    }
+  ],
   "query_mode": "inside_and_outside_package_json",
   "queries": {
     "package_json": "starkzap path:package.json",
     "package_lock": "starkzap path:package-lock.json",
     "pnpm_lock": "starkzap path:pnpm-lock.yaml",
-    "yarn_lock": "starkzap path:yarn.lock"
+    "yarn_lock": "starkzap path:yarn.lock",
+    "ts_code": "starkzap language:TypeScript",
+    "js_code": "starkzap language:JavaScript"
   }
 }
