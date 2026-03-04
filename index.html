@@ -433,7 +433,7 @@
         </article>
         <article class="panel">
           <h2 class="chart-title" title="GitHub Code Search: starkzap path:package.json — repos that list starkzap in their package.json (default branch only).">Cumulative GitHub Mentions</h2>
-          <p class="chart-caption">Running total of public repos using starkzap, by repo creation date.</p>
+          <p class="chart-caption">Running total of public repos using starkzap.</p>
           <div class="chart-wrap"><canvas id="gh-mentions-chart"></canvas></div>
         </article>
       </section>
@@ -779,13 +779,15 @@
             backgroundColor: "rgba(168, 85, 247, 0.35)"
           });
 
+          const startDate = toUtcDate(sorted[0].created_at);
+          const endDate = new Date();
           const cumLabels = [];
           const cumValues = [];
-          let running = 0;
-          for (const [day, count] of dailyCounts) {
-            running += count;
-            cumLabels.push(day);
-            cumValues.push(running);
+          for (let d = new Date(startDate); d <= endDate; d.setUTCDate(d.getUTCDate() + 4)) {
+            const iso = d.toISOString().slice(0, 10);
+            const count = sorted.filter((r) => r.created_at <= iso).length;
+            cumLabels.push(iso);
+            cumValues.push(count);
           }
 
           renderChart("gh-mentions-chart", {
