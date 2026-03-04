@@ -21,16 +21,27 @@ jobs:
           mkdir -p data
 
           python3 << 'PYEOF'
-          import json, os, urllib.request, urllib.parse, datetime
+          import datetime
+          import json
+          import os
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
 
           TOKEN = os.environ["GH_TOKEN"]
-          QUERY = "starkzap path:package.json"
           PER_PAGE = 100
           EXCLUDE = {
               "keep-starknet-strange/starkzap",
               "welttowelt/starkzap-stats",
               "starkience/starkzap-stats",
           }
+          QUERY_SETS = [
+              ("package_json", "starkzap path:package.json"),
+              ("package_lock", "starkzap path:package-lock.json"),
+              ("pnpm_lock", "starkzap path:pnpm-lock.yaml"),
+              ("yarn_lock", "starkzap path:yarn.lock"),
+          ]
 
           headers = {
               "Authorization": f"Bearer {TOKEN}",
@@ -38,61 +49,96 @@ jobs:
               "X-GitHub-Api-Version": "2022-11-28",
           }
 
-          repos = {}
-          page = 1
-
-          while True:
-              qs = urllib.parse.urlencode({"q": QUERY, "per_page": PER_PAGE, "page": page})
-              url = f"https://api.github.com/search/code?{qs}"
+          def request_json(url):
               req = urllib.request.Request(url, headers=headers)
               with urllib.request.urlopen(req) as resp:
-                  data = json.loads(resp.read())
-              items = data.get("items", [])
+                  return json.loads(resp.read())
 
-              for item in items:
-                  repo = item["repository"]
-                  name = repo["full_name"]
-                  if name in EXCLUDE:
-                      continue
-                  if name in repos:
-                      continue
-                  repos[name] = {
+          def upsert_repo(target, repo, source):
+              name = repo.get("full_name")
+              if not name or name in EXCLUDE:
+                  return
+
+              if name not in target:
+                  target[name] = {
                       "full_name": name,
                       "url": repo["html_url"],
                       "description": repo.get("description") or "",
                       "stars": repo.get("stargazers_count", 0),
                       "created_at": "",
+                      "match_sources": [],
                   }
 
-              # GitHub code search only returns up to 1000 results.
-              if len(items) < PER_PAGE:
-                  break
-              if page * PER_PAGE >= 1000:
-                  break
-              page += 1
+              entry = target[name]
+              if source not in entry["match_sources"]:
+                  entry["match_sources"].append(source)
+
+          def search_repos(query, source):
+              found = {}
+              page = 1
+              while True:
+                  qs = urllib.parse.urlencode({"q": query, "per_page": PER_PAGE, "page": page})
+                  data = request_json(f"https://api.github.com/search/code?{qs}")
+                  items = data.get("items", [])
+
+                  for item in items:
+                      repo = item.get("repository") or {}
+                      upsert_repo(found, repo, source)
+
+                  # GitHub code search only returns up to 1000 results.
+                  if len(items) < PER_PAGE:
+                      break
+                  if page * PER_PAGE >= 1000:
+                      break
+                  page += 1
+                  time.sleep(0.2)
+
+              return found
+
+          repos = {}
+
+          for source, query in QUERY_SETS:
+              try:
+                  found = search_repos(query, source)
+              except urllib.error.HTTPError as exc:
+                  print(f"Query failed ({source}): {exc}")
+                  continue
+
+              for name, info in found.items():
+                  repos[name] = info
 
           for name, info in repos.items():
               try:
-                  req = urllib.request.Request(
-                      f"https://api.github.com/repos/{name}",
-                      headers=headers,
-                  )
-                  with urllib.request.urlopen(req) as resp:
-                      rd = json.loads(resp.read())
-                      info["created_at"] = rd.get("created_at", "")[:10]
+                  rd = request_json(f"https://api.github.com/repos/{name}")
+                  created_at = (rd.get("created_at") or "")[:10]
+                  info["created_at"] = created_at
+                  # Refresh stars/description from repo endpoint for consistency.
+                  info["stars"] = rd.get("stargazers_count", info.get("stars", 0))
+                  info["description"] = rd.get("description") or info.get("description") or ""
               except Exception:
                   pass
 
+          def sort_repos(values):
+              for item in values:
+                  item["match_sources"] = sorted(item.get("match_sources", []))
+              return sorted(values, key=lambda r: (r.get("created_at", ""), r["full_name"]))
+
+          mentions_sorted = sort_repos(list(repos.values()))
+          query_map = {source: query for source, query in QUERY_SETS}
+
+
           result = {
               "updated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-              "total": len(repos),
-              "repos": sorted(repos.values(), key=lambda r: (r.get("created_at", ""), r["full_name"])),
+              "total": len(mentions_sorted),
+              "repos": mentions_sorted,
+              "query_mode": "inside_and_outside_package_json",
+              "queries": query_map,
           }
 
           with open("data/github-repos.json", "w") as f:
               json.dump(result, f, indent=2)
 
-          print(f"Found {len(repos)} repos using starkzap")
+          print(f"Inside+outside package.json mentions: {len(mentions_sorted)} repos")
           PYEOF
 
       - name: Commit and push if changed

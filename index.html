@@ -396,9 +396,14 @@
           <p class="kpi-note" id="kpi-30d-note">Rolling monthly total</p>
         </article>
         <article class="panel kpi">
-          <p class="kpi-title" title="GitHub Code Search: starkzap path:package.json — repos that list starkzap in their package.json (default branch only).">GitHub Repos</p>
+          <p
+            class="kpi-title"
+            title="GitHub Code Search includes package.json and lockfiles (package-lock.json, pnpm-lock.yaml, yarn.lock)."
+          >
+            GitHub Repos
+          </p>
           <p class="kpi-value" id="kpi-repos">--</p>
-          <p class="kpi-note" id="kpi-repos-note">Using starkzap</p>
+          <p class="kpi-note" id="kpi-repos-note">Inside + outside package.json</p>
         </article>
       </section>
 
@@ -427,13 +432,23 @@
 
       <section class="charts" style="margin-top:1rem">
         <article class="panel">
-          <h2 class="chart-title" title="GitHub Code Search: starkzap path:package.json — repos that list starkzap in their package.json (default branch only).">Monthly GitHub Mentions</h2>
-          <p class="chart-caption">New repos per month that include starkzap in package.json.</p>
+          <h2
+            class="chart-title"
+            title="GitHub Code Search includes package.json and lockfiles (package-lock.json, pnpm-lock.yaml, yarn.lock)."
+          >
+            Monthly GitHub Mentions
+          </h2>
+          <p class="chart-caption">New repos per month mentioning starkzap inside or outside package.json.</p>
           <div class="chart-wrap"><canvas id="gh-monthly-chart"></canvas></div>
         </article>
         <article class="panel">
-          <h2 class="chart-title" title="GitHub Code Search: starkzap path:package.json — repos that list starkzap in their package.json (default branch only).">Cumulative GitHub Mentions</h2>
-          <p class="chart-caption">Running total of public repos using starkzap.</p>
+          <h2
+            class="chart-title"
+            title="GitHub Code Search includes package.json and lockfiles (package-lock.json, pnpm-lock.yaml, yarn.lock)."
+          >
+            Cumulative GitHub Mentions
+          </h2>
+          <p class="chart-caption">Running total of public repos mentioning starkzap inside or outside package.json.</p>
           <div class="chart-wrap"><canvas id="gh-mentions-chart"></canvas></div>
         </article>
       </section>
@@ -750,7 +765,7 @@
 
       function resetGithubMentions() {
         refs.kpiRepos.textContent = "--";
-        refs.kpiReposNote.textContent = "Using starkzap";
+        refs.kpiReposNote.textContent = "Inside + outside package.json";
         clearGithubCharts();
       }
 
@@ -768,7 +783,7 @@
           const updatedDay = typeof data.updated === "string" && data.updated.includes("-") ? data.updated.slice(0, 10) : "";
 
           refs.kpiRepos.textContent = formatNum(total);
-          refs.kpiReposNote.textContent = updatedDay ? `Updated ${toHumanDate(updatedDay)}` : "Using starkzap";
+          refs.kpiReposNote.textContent = updatedDay ? `Updated ${toHumanDate(updatedDay)}` : "Inside + outside package.json";
 
           const sorted = data.repos
             .filter((r) => typeof r.created_at === "string" && /^\d{4}-\d{2}-\d{2}$/.test(r.created_at))
