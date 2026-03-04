@@ -790,7 +790,23 @@
             .sort((a, b) => a.created_at.localeCompare(b.created_at));
 
           if (!sorted.length) {
-            clearGithubCharts();
+            const today = getTodayLocalIso();
+            renderChart("gh-monthly-chart", {
+              type: "bar",
+              labels: [toMonthLabel(today.slice(0, 7))],
+              values: [0],
+              label: "New repos",
+              borderColor: "#a855f7",
+              backgroundColor: "rgba(168, 85, 247, 0.35)"
+            });
+            renderChart("gh-mentions-chart", {
+              type: "line",
+              labels: [today],
+              values: [0],
+              label: "Cumulative GitHub mentions",
+              borderColor: "#a855f7",
+              backgroundColor: "rgba(168, 85, 247, 0.2)"
+            });
             return;
           }
 
