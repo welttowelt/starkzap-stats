@@ -47,8 +47,9 @@ jobs:
               req = urllib.request.Request(url, headers=headers)
               with urllib.request.urlopen(req) as resp:
                   data = json.loads(resp.read())
+              items = data.get("items", [])
 
-              for item in data.get("items", []):
+              for item in items:
                   repo = item["repository"]
                   name = repo["full_name"]
                   if name in EXCLUDE:
@@ -63,6 +64,13 @@ jobs:
                       "created_at": "",
                   }
 
+              # GitHub code search only returns up to 1000 results.
+              if len(items) < PER_PAGE:
+                  break
+              if page * PER_PAGE >= 1000:
+                  break
+              page += 1
+
           for name, info in repos.items():
               try:
                   req = urllib.request.Request(
@@ -75,16 +83,10 @@ jobs:
               except Exception:
                   pass
 
-              if len(data.get("items", [])) < PER_PAGE:
-                  break
-              if page * PER_PAGE >= 1000:
-                  break
-              page += 1
-
           result = {
               "updated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
               "total": len(repos),
-              "repos": sorted(repos.values(), key=lambda r: r.get("created_at", "")),
+              "repos": sorted(repos.values(), key=lambda r: (r.get("created_at", ""), r["full_name"])),
           }
 
           with open("data/github-repos.json", "w") as f:

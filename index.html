@@ -477,6 +477,7 @@
 
       refs.refreshBtn.addEventListener("click", () => {
         void loadDashboard();
+        void loadGithubRepos();
       });
 
       void loadDashboard();
@@ -736,21 +737,47 @@
         refs.status.textContent = text;
       }
 
+      function clearGithubCharts() {
+        const ghChartIds = ["gh-monthly-chart", "gh-mentions-chart"];
+        for (const id of ghChartIds) {
+          const chart = charts.get(id);
+          if (chart) {
+            chart.destroy();
+            charts.delete(id);
+          }
+        }
+      }
+
+      function resetGithubMentions() {
+        refs.kpiRepos.textContent = "--";
+        refs.kpiReposNote.textContent = "Using starkzap";
+        clearGithubCharts();
+      }
+
       async function loadGithubRepos() {
         try {
           const resp = await fetch("data/github-repos.json", { cache: "no-store" });
           if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
           const data = await resp.json();
-          if (!data || !Array.isArray(data.repos)) return;
+          if (!data || !Array.isArray(data.repos)) {
+            resetGithubMentions();
+            return;
+          }
 
-          refs.kpiRepos.textContent = formatNum(data.total);
-          refs.kpiReposNote.textContent = `Updated ${toHumanDate(data.updated.slice(0, 10))}`;
+          const total = Number.isFinite(Number(data.total)) ? Number(data.total) : data.repos.length;
+          const updatedDay = typeof data.updated === "string" && data.updated.includes("-") ? data.updated.slice(0, 10) : "";
+
+          refs.kpiRepos.textContent = formatNum(total);
+          refs.kpiReposNote.textContent = updatedDay ? `Updated ${toHumanDate(updatedDay)}` : "Using starkzap";
 
           const sorted = data.repos
-            .filter((r) => r.created_at)
+            .filter((r) => typeof r.created_at === "string" && /^\d{4}-\d{2}-\d{2}$/.test(r.created_at))
             .sort((a, b) => a.created_at.localeCompare(b.created_at));
 
-          if (!sorted.length) return;
+          if (!sorted.length) {
+            clearGithubCharts();
+            return;
+          }
 
           const dailyCounts = new Map();
           for (const repo of sorted) {
@@ -799,6 +826,7 @@
             backgroundColor: "rgba(168, 85, 247, 0.2)"
           });
         } catch (err) {
+          resetGithubMentions();
           console.warn("GitHub repos data not available:", err.message);
         }
       }
