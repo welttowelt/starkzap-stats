@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-04T13:53:26Z",
-  "total": 11,
+  "updated": "2026-03-04T13:54:18Z",
+  "total": 10,
   "repos": [
     {
       "full_name": "mediolano-app/mediolano-app",
@@ -60,16 +60,6 @@
       "created_at": "2026-02-24",
       "match_sources": [
         "ts_code"
-      ]
-    },
-    {
-      "full_name": "GravitySignal/skuldrift-almm",
-      "url": "https://github.com/GravitySignal/skuldrift-almm",
-      "description": "Skuldrift ALMM",
-      "stars": 0,
-      "created_at": "2026-02-25",
-      "match_sources": [
-        "js_code"
       ]
     },
     {
