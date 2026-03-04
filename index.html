@@ -426,9 +426,14 @@
       </section>
 
       <section class="charts" style="margin-top:1rem">
-        <article class="panel" style="grid-column: 1 / -1">
-          <h2 class="chart-title">GitHub Starkzap Package Mentions</h2>
-          <p class="chart-caption">Cumulative count of public GitHub repos that include starkzap in their package.json, by repo creation date.</p>
+        <article class="panel">
+          <h2 class="chart-title">Monthly GitHub Mentions</h2>
+          <p class="chart-caption">New repos per month that include starkzap in package.json.</p>
+          <div class="chart-wrap"><canvas id="gh-monthly-chart"></canvas></div>
+        </article>
+        <article class="panel">
+          <h2 class="chart-title">Cumulative GitHub Mentions</h2>
+          <p class="chart-caption">Running total of public repos using starkzap, by repo creation date.</p>
           <div class="chart-wrap"><canvas id="gh-mentions-chart"></canvas></div>
         </article>
       </section>
@@ -747,24 +752,46 @@
 
           if (!sorted.length) return;
 
-          const counts = new Map();
+          const dailyCounts = new Map();
           for (const repo of sorted) {
-            counts.set(repo.created_at, (counts.get(repo.created_at) || 0) + 1);
+            dailyCounts.set(repo.created_at, (dailyCounts.get(repo.created_at) || 0) + 1);
           }
 
-          const labels = [];
-          const values = [];
+          const monthlyCounts = new Map();
+          for (const repo of sorted) {
+            const monthKey = repo.created_at.slice(0, 7);
+            monthlyCounts.set(monthKey, (monthlyCounts.get(monthKey) || 0) + 1);
+          }
+
+          const monthlyLabels = [];
+          const monthlyValues = [];
+          for (const [key, count] of monthlyCounts) {
+            monthlyLabels.push(toMonthLabel(key));
+            monthlyValues.push(count);
+          }
+
+          renderChart("gh-monthly-chart", {
+            type: "bar",
+            labels: monthlyLabels,
+            values: monthlyValues,
+            label: "New repos",
+            borderColor: "#a855f7",
+            backgroundColor: "rgba(168, 85, 247, 0.35)"
+          });
+
+          const cumLabels = [];
+          const cumValues = [];
           let running = 0;
-          for (const [day, count] of counts) {
+          for (const [day, count] of dailyCounts) {
             running += count;
-            labels.push(day);
-            values.push(running);
+            cumLabels.push(day);
+            cumValues.push(running);
           }
 
           renderChart("gh-mentions-chart", {
             type: "line",
-            labels,
-            values,
+            labels: cumLabels,
+            values: cumValues,
             label: "Cumulative GitHub mentions",
             borderColor: "#a855f7",
             backgroundColor: "rgba(168, 85, 247, 0.2)"
