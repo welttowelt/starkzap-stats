@@ -438,7 +438,7 @@
           >
             Monthly GitHub Mentions
           </h2>
-          <p class="chart-caption">New repos per month mentioning starkzap inside or outside package.json.</p>
+          <p class="chart-caption">New repos per month mentioning starkzap since February 2026.</p>
           <div class="chart-wrap"><canvas id="gh-monthly-chart"></canvas></div>
         </article>
         <article class="panel">
@@ -448,7 +448,7 @@
           >
             Cumulative GitHub Mentions
           </h2>
-          <p class="chart-caption">Running total of public repos mentioning starkzap inside or outside package.json.</p>
+          <p class="chart-caption">Running total of public repos mentioning starkzap since February 2026.</p>
           <div class="chart-wrap"><canvas id="gh-mentions-chart"></canvas></div>
         </article>
       </section>
@@ -467,6 +467,7 @@
     <script>
       const PACKAGE_NAME = "starkzap";
       const START_DATE = "2026-02-01";
+      const GITHUB_MENTIONS_START = "2026-02-01";
       const FORMATTER = new Intl.NumberFormat(undefined);
       const COMPACT_FORMATTER = new Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 1 });
       const HUMAN_DATE = new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
@@ -796,15 +797,17 @@
             return;
           }
 
-          const total = Number.isFinite(Number(data.total)) ? Number(data.total) : data.repos.length;
           const updatedDay = typeof data.updated === "string" && data.updated.includes("-") ? data.updated.slice(0, 10) : "";
-
-          refs.kpiRepos.textContent = formatNum(total);
-          refs.kpiReposNote.textContent = updatedDay ? `Updated ${toHumanDate(updatedDay)}` : "Inside + outside package.json";
 
           const sorted = data.repos
             .filter((r) => typeof r.created_at === "string" && /^\d{4}-\d{2}-\d{2}$/.test(r.created_at))
+            .filter((r) => r.created_at >= GITHUB_MENTIONS_START)
             .sort((a, b) => a.created_at.localeCompare(b.created_at));
+
+          refs.kpiRepos.textContent = formatNum(sorted.length);
+          refs.kpiReposNote.textContent = updatedDay
+            ? `Updated ${toHumanDate(updatedDay)} · Since ${toHumanDate(GITHUB_MENTIONS_START)}`
+            : `Since ${toHumanDate(GITHUB_MENTIONS_START)}`;
 
           if (!sorted.length) {
             const today = getTodayLocalIso();
