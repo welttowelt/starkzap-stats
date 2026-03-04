@@ -287,63 +287,6 @@
         height: 280px;
       }
 
-      .repo-list {
-        list-style: none;
-        display: grid;
-        gap: 0.6rem;
-      }
-
-      .repo-item {
-        display: flex;
-        align-items: baseline;
-        gap: 0.55rem;
-        flex-wrap: wrap;
-        padding: 0.5rem 0;
-        border-bottom: 1px solid #ffffff0a;
-      }
-
-      .repo-item:last-child {
-        border-bottom: none;
-      }
-
-      .repo-name {
-        font-weight: 500;
-        color: var(--accent);
-        text-decoration: none;
-        font-size: 0.95rem;
-      }
-
-      .repo-name:hover {
-        text-decoration: underline;
-        opacity: 0.85;
-      }
-
-      .repo-desc {
-        color: var(--text-secondary);
-        font-family: "Inter", system-ui, sans-serif;
-        font-size: 0.84rem;
-        flex: 1;
-        min-width: 150px;
-      }
-
-      .repo-stars {
-        font-family: "Inter", system-ui, sans-serif;
-        font-size: 0.82rem;
-        color: var(--text-secondary);
-        white-space: nowrap;
-      }
-
-      .repos-section {
-        margin: 1rem 0;
-      }
-
-      .repos-updated {
-        color: var(--text-secondary);
-        font-family: "Inter", system-ui, sans-serif;
-        font-size: 0.82rem;
-        margin-top: 0.6rem;
-      }
-
       .footer {
         margin-top: 1rem;
         text-align: center;
@@ -459,13 +402,6 @@
         </article>
       </section>
 
-      <section class="repos-section panel" id="repos-section" style="display:none">
-        <h2 class="chart-title">GitHub Repos Using Starkzap</h2>
-        <p class="chart-caption">Public repositories with starkzap in package.json. Updated daily via GitHub Actions.</p>
-        <ul class="repo-list" id="repo-list"></ul>
-        <p class="repos-updated" id="repos-updated"></p>
-      </section>
-
       <section class="charts">
         <article class="panel">
           <h2 class="chart-title">Daily Downloads</h2>
@@ -486,6 +422,14 @@
           <h2 class="chart-title">Cumulative Downloads</h2>
           <p class="chart-caption">Running total since 01.02.2026.</p>
           <div class="chart-wrap"><canvas id="cumulative-chart"></canvas></div>
+        </article>
+      </section>
+
+      <section class="charts" style="margin-top:1rem">
+        <article class="panel" style="grid-column: 1 / -1">
+          <h2 class="chart-title">GitHub Starkzap Package Mentions</h2>
+          <p class="chart-caption">Cumulative count of public GitHub repos that include starkzap in their package.json, by repo creation date.</p>
+          <div class="chart-wrap"><canvas id="gh-mentions-chart"></canvas></div>
         </article>
       </section>
 
@@ -523,10 +467,7 @@
         kpi30d: document.getElementById("kpi-30d"),
         kpi30dNote: document.getElementById("kpi-30d-note"),
         kpiRepos: document.getElementById("kpi-repos"),
-        kpiReposNote: document.getElementById("kpi-repos-note"),
-        reposSection: document.getElementById("repos-section"),
-        repoList: document.getElementById("repo-list"),
-        reposUpdated: document.getElementById("repos-updated")
+        kpiReposNote: document.getElementById("kpi-repos-note")
       };
 
       refs.refreshBtn.addEventListener("click", () => {
@@ -800,32 +741,34 @@
           refs.kpiRepos.textContent = formatNum(data.total);
           refs.kpiReposNote.textContent = `Updated ${toHumanDate(data.updated.slice(0, 10))}`;
 
-          refs.repoList.innerHTML = "";
-          for (const repo of data.repos) {
-            const li = document.createElement("li");
-            li.className = "repo-item";
+          const sorted = data.repos
+            .filter((r) => r.created_at)
+            .sort((a, b) => a.created_at.localeCompare(b.created_at));
 
-            const a = document.createElement("a");
-            a.className = "repo-name";
-            a.href = repo.url;
-            a.target = "_blank";
-            a.rel = "noreferrer noopener";
-            a.textContent = repo.full_name;
+          if (!sorted.length) return;
 
-            const desc = document.createElement("span");
-            desc.className = "repo-desc";
-            desc.textContent = repo.description || "";
-
-            const stars = document.createElement("span");
-            stars.className = "repo-stars";
-            stars.textContent = `\u2605 ${repo.stars}`;
-
-            li.append(a, desc, stars);
-            refs.repoList.appendChild(li);
+          const counts = new Map();
+          for (const repo of sorted) {
+            counts.set(repo.created_at, (counts.get(repo.created_at) || 0) + 1);
           }
 
-          refs.reposUpdated.textContent = `Last scan: ${new Date(data.updated).toLocaleString()}`;
-          refs.reposSection.style.display = "";
+          const labels = [];
+          const values = [];
+          let running = 0;
+          for (const [day, count] of counts) {
+            running += count;
+            labels.push(day);
+            values.push(running);
+          }
+
+          renderChart("gh-mentions-chart", {
+            type: "line",
+            labels,
+            values,
+            label: "Cumulative GitHub mentions",
+            borderColor: "#a855f7",
+            backgroundColor: "rgba(168, 85, 247, 0.2)"
+          });
         } catch (err) {
           console.warn("GitHub repos data not available:", err.message);
         }

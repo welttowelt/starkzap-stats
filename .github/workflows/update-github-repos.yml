@@ -60,7 +60,20 @@ jobs:
                       "url": repo["html_url"],
                       "description": repo.get("description") or "",
                       "stars": repo.get("stargazers_count", 0),
+                      "created_at": "",
                   }
+
+          for name, info in repos.items():
+              try:
+                  req = urllib.request.Request(
+                      f"https://api.github.com/repos/{name}",
+                      headers=headers,
+                  )
+                  with urllib.request.urlopen(req) as resp:
+                      rd = json.loads(resp.read())
+                      info["created_at"] = rd.get("created_at", "")[:10]
+              except Exception:
+                  pass
 
               if len(data.get("items", [])) < PER_PAGE:
                   break
@@ -71,7 +84,7 @@ jobs:
           result = {
               "updated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
               "total": len(repos),
-              "repos": sorted(repos.values(), key=lambda r: -r["stars"]),
+              "repos": sorted(repos.values(), key=lambda r: r.get("created_at", "")),
           }
 
           with open("data/github-repos.json", "w") as f:
