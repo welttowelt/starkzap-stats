@@ -240,7 +240,7 @@
       .kpis {
         display: grid;
         gap: 1rem;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         margin: 0.95rem 0 1rem;
       }
 
@@ -302,6 +302,12 @@
 
       .footer a:hover {
         opacity: 0.85;
+      }
+
+      @media (max-width: 1100px) {
+        .kpis {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
       }
 
       @media (max-width: 980px) {
@@ -389,6 +395,11 @@
           <p class="kpi-value" id="kpi-30d">--</p>
           <p class="kpi-note" id="kpi-30d-note">Rolling monthly total</p>
         </article>
+        <article class="panel kpi">
+          <p class="kpi-title" title="GitHub Code Search: starkzap path:package.json — repos that list starkzap in their package.json (default branch only).">GitHub Repos</p>
+          <p class="kpi-value" id="kpi-repos">--</p>
+          <p class="kpi-note" id="kpi-repos-note">Using starkzap</p>
+        </article>
       </section>
 
       <section class="charts">
@@ -411,6 +422,19 @@
           <h2 class="chart-title">Cumulative Downloads</h2>
           <p class="chart-caption">Running total since 01.02.2026.</p>
           <div class="chart-wrap"><canvas id="cumulative-chart"></canvas></div>
+        </article>
+      </section>
+
+      <section class="charts" style="margin-top:1rem">
+        <article class="panel">
+          <h2 class="chart-title" title="GitHub Code Search: starkzap path:package.json — repos that list starkzap in their package.json (default branch only).">Monthly GitHub Mentions</h2>
+          <p class="chart-caption">New repos per month that include starkzap in package.json.</p>
+          <div class="chart-wrap"><canvas id="gh-monthly-chart"></canvas></div>
+        </article>
+        <article class="panel">
+          <h2 class="chart-title" title="GitHub Code Search: starkzap path:package.json — repos that list starkzap in their package.json (default branch only).">Cumulative GitHub Mentions</h2>
+          <p class="chart-caption">Running total of public repos using starkzap.</p>
+          <div class="chart-wrap"><canvas id="gh-mentions-chart"></canvas></div>
         </article>
       </section>
 
@@ -446,14 +470,18 @@
         kpi7d: document.getElementById("kpi-7d"),
         kpi7dNote: document.getElementById("kpi-7d-note"),
         kpi30d: document.getElementById("kpi-30d"),
-        kpi30dNote: document.getElementById("kpi-30d-note")
+        kpi30dNote: document.getElementById("kpi-30d-note"),
+        kpiRepos: document.getElementById("kpi-repos"),
+        kpiReposNote: document.getElementById("kpi-repos-note")
       };
 
       refs.refreshBtn.addEventListener("click", () => {
         void loadDashboard();
+        void loadGithubRepos();
       });
 
       void loadDashboard();
+      void loadGithubRepos();
 
       async function loadDashboard() {
         const to = getTodayLocalIso();
@@ -707,6 +735,100 @@
       function setStatus(text, tone) {
         refs.status.className = `status ${tone}`;
         refs.status.textContent = text;
+      }
+
+      function clearGithubCharts() {
+        const ghChartIds = ["gh-monthly-chart", "gh-mentions-chart"];
+        for (const id of ghChartIds) {
+          const chart = charts.get(id);
+          if (chart) {
+            chart.destroy();
+            charts.delete(id);
+          }
+        }
+      }
+
+      function resetGithubMentions() {
+        refs.kpiRepos.textContent = "--";
+        refs.kpiReposNote.textContent = "Using starkzap";
+        clearGithubCharts();
+      }
+
+      async function loadGithubRepos() {
+        try {
+          const resp = await fetch("data/github-repos.json", { cache: "no-store" });
+          if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+          const data = await resp.json();
+          if (!data || !Array.isArray(data.repos)) {
+            resetGithubMentions();
+            return;
+          }
+
+          const total = Number.isFinite(Number(data.total)) ? Number(data.total) : data.repos.length;
+          const updatedDay = typeof data.updated === "string" && data.updated.includes("-") ? data.updated.slice(0, 10) : "";
+
+          refs.kpiRepos.textContent = formatNum(total);
+          refs.kpiReposNote.textContent = updatedDay ? `Updated ${toHumanDate(updatedDay)}` : "Using starkzap";
+
+          const sorted = data.repos
+            .filter((r) => typeof r.created_at === "string" && /^\d{4}-\d{2}-\d{2}$/.test(r.created_at))
+            .sort((a, b) => a.created_at.localeCompare(b.created_at));
+
+          if (!sorted.length) {
+            clearGithubCharts();
+            return;
+          }
+
+          const dailyCounts = new Map();
+          for (const repo of sorted) {
+            dailyCounts.set(repo.created_at, (dailyCounts.get(repo.created_at) || 0) + 1);
+          }
+
+          const monthlyCounts = new Map();
+          for (const repo of sorted) {
+            const monthKey = repo.created_at.slice(0, 7);
+            monthlyCounts.set(monthKey, (monthlyCounts.get(monthKey) || 0) + 1);
+          }
+
+          const monthlyLabels = [];
+          const monthlyValues = [];
+          for (const [key, count] of monthlyCounts) {
+            monthlyLabels.push(toMonthLabel(key));
+            monthlyValues.push(count);
+          }
+
+          renderChart("gh-monthly-chart", {
+            type: "bar",
+            labels: monthlyLabels,
+            values: monthlyValues,
+            label: "New repos",
+            borderColor: "#a855f7",
+            backgroundColor: "rgba(168, 85, 247, 0.35)"
+          });
+
+          const startDate = toUtcDate(sorted[0].created_at);
+          const endDate = new Date();
+          const cumLabels = [];
+          const cumValues = [];
+          for (let d = new Date(startDate); d <= endDate; d.setUTCDate(d.getUTCDate() + 4)) {
+            const iso = d.toISOString().slice(0, 10);
+            const count = sorted.filter((r) => r.created_at <= iso).length;
+            cumLabels.push(iso);
+            cumValues.push(count);
+          }
+
+          renderChart("gh-mentions-chart", {
+            type: "line",
+            labels: cumLabels,
+            values: cumValues,
+            label: "Cumulative GitHub mentions",
+            borderColor: "#a855f7",
+            backgroundColor: "rgba(168, 85, 247, 0.2)"
+          });
+        } catch (err) {
+          resetGithubMentions();
+          console.warn("GitHub repos data not available:", err.message);
+        }
       }
     </script>
   </body>
