@@ -570,15 +570,15 @@
 
       function updateKpis(rows) {
         const total = rows.reduce((sum, row) => sum + row.downloads, 0);
-        const latest = rows[rows.length - 1];
+        const latestWithData = [...rows].reverse().find((row) => row.downloads > 0) || rows[rows.length - 1];
         const sum7d = rows.slice(-7).reduce((sum, row) => sum + row.downloads, 0);
         const sum30d = rows.slice(-30).reduce((sum, row) => sum + row.downloads, 0);
         const avgDay = rows.length ? Math.round(total / rows.length) : 0;
 
         refs.kpiTotal.textContent = formatNum(total);
         refs.kpiTotalNote.textContent = `Average/day: ${formatNum(avgDay)}`;
-        refs.kpiLatest.textContent = formatNum(latest.downloads);
-        refs.kpiLatestNote.textContent = `Date: ${toHumanDate(latest.day)}`;
+        refs.kpiLatest.textContent = formatNum(latestWithData.downloads);
+        refs.kpiLatestNote.textContent = `Date: ${toHumanDate(latestWithData.day)}`;
         refs.kpi7d.textContent = formatNum(sum7d);
         refs.kpi7dNote.textContent = `${formatNum(Math.round(sum7d / Math.min(7, rows.length)))} per day avg`;
         refs.kpi30d.textContent = formatNum(sum30d);
