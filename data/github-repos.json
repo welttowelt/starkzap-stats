@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-06T11:55:09Z",
-  "total": 29,
+  "updated": "2026-03-06T12:04:03Z",
+  "total": 28,
   "repos": [
     {
       "full_name": "starknet-io/starknet-docs",
@@ -196,25 +196,6 @@
       "first_seen_at": "2026-02-24",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
       "match_sources": [
-        "markdown_files",
-        "readme",
-        "repo_wide",
-        "ts_code"
-      ]
-    },
-    {
-      "full_name": "GravitySignal/skuldrift-almm",
-      "url": "https://github.com/GravitySignal/skuldrift-almm",
-      "description": "Skuldrift ALMM",
-      "summary": "Skuldrift ALMM",
-      "stars": 0,
-      "created_at": "2026-02-25",
-      "first_seen_at": "2026-02-25",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/261995388?v=4",
-      "match_sources": [
-        "docs_path",
-        "js_code",
-        "json_files",
         "markdown_files",
         "readme",
         "repo_wide",
@@ -545,14 +526,6 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/89799857?v=4",
       "sources": [
         "awesome_starkzap_contributors",
-        "repo_owner"
-      ]
-    },
-    {
-      "login": "GravitySignal",
-      "url": "https://github.com/GravitySignal",
-      "avatar_url": "https://avatars.githubusercontent.com/u/261995388?v=4",
-      "sources": [
         "repo_owner"
       ]
     },
