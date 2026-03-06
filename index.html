@@ -517,7 +517,7 @@
         left: clamp(14px, 3.2vw, 34px);
         right: clamp(14px, 3.2vw, 34px);
         bottom: clamp(12px, 2.7vw, 28px);
-        padding: clamp(7px, 1.5vw, 12px) clamp(8px, 1.8vw, 14px);
+        padding: clamp(10px, 2.2vw, 18px) clamp(10px, 2.2vw, 18px);
         border-radius: 12px;
         border: 1px solid #ffffff29;
         background: #0d0d13b8;
@@ -525,53 +525,54 @@
 
       .twitter-headline {
         font-family: "Space Grotesk", system-ui, sans-serif;
-        font-size: clamp(0.72rem, 1.9vw, 1.2rem);
+        font-size: clamp(1.14rem, 3.4vw, 2.18rem);
         font-weight: 700;
         color: #f5f5fb;
-        line-height: 1.2;
-      }
-
-      .twitter-subline {
-        margin-top: clamp(4px, 1vw, 6px);
-        font-family: "Inter", system-ui, sans-serif;
-        font-size: clamp(0.54rem, 1.3vw, 0.84rem);
-        color: #d4d4df;
-        line-height: 1.3;
+        line-height: 1.12;
+        letter-spacing: -0.014em;
+        max-width: 36ch;
       }
 
       .twitter-cta-row {
-        margin-top: clamp(5px, 1.2vw, 8px);
+        margin-top: clamp(8px, 1.7vw, 14px);
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: clamp(6px, 1.4vw, 10px);
+        gap: clamp(7px, 1.5vw, 12px);
       }
 
-      .twitter-command {
+      .twitter-cta-pill {
         display: inline-flex;
         align-items: center;
-        padding: clamp(3px, 0.7vw, 6px) clamp(7px, 1.4vw, 12px);
+        padding: clamp(4px, 0.95vw, 7px) clamp(8px, 1.6vw, 13px);
         border-radius: 999px;
-        border: 1px solid #f9731692;
-        background: #f973161f;
-        color: #ffb179;
-        font-family: "Space Grotesk", system-ui, sans-serif;
-        font-size: clamp(0.55rem, 1.25vw, 0.86rem);
+        border: 1px solid #ffffff2f;
+        background: #ffffff0f;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: clamp(0.62rem, 1.45vw, 0.98rem);
+        color: #d8d8e4;
       }
 
       .twitter-cta-installs {
-        font-family: "Inter", system-ui, sans-serif;
-        font-size: clamp(0.55rem, 1.25vw, 0.86rem);
-        color: #c8c8d3;
+        color: #e6e6ef;
       }
 
       .twitter-cta-installs strong {
-        color: #f0f0f5;
+        color: #ffffff;
+      }
+
+      .twitter-cta-builders {
+        color: #d8d8e4;
+      }
+
+      .twitter-cta-builders strong {
+        color: #ffffff;
       }
 
       .twitter-website {
         font-family: "Inter", system-ui, sans-serif;
-        font-size: clamp(0.55rem, 1.25vw, 0.86rem);
+        font-size: clamp(0.62rem, 1.45vw, 0.98rem);
+        font-weight: 600;
         color: #ffb179;
       }
 
@@ -786,21 +787,14 @@
                 <span class="twitter-brand-subtitle">Projects shipping with Starkzap</span>
               </div>
             </div>
-            <span class="twitter-builders-chip"><strong id="twitter-builder-count">--</strong> builders</span>
+            <span class="twitter-builders-chip"><strong id="twitter-builder-count">--</strong> STARKs builders</span>
           </header>
           <div class="twitter-pfp-grid" id="twitter-pfp-grid" aria-label="Builder profile images"></div>
           <footer class="twitter-share-footer">
-            <p class="twitter-headline">
-              bring the bitcoin economy into your app<br />
-              in minutes, not months
-            </p>
-            <p class="twitter-subline">
-              wallets, gasless transactions, bitcoin yield, defi rails.<br />
-              one sdk. no blockchain expertise required.
-            </p>
+            <p class="twitter-headline">Bring the Bitcoin economy into your app</p>
             <div class="twitter-cta-row">
-              <span class="twitter-command">npm install starkzap</span>
-              <span class="twitter-cta-installs"><strong id="twitter-npm-installs">--</strong> npm installs since Feb 2026</span>
+              <span class="twitter-cta-pill twitter-cta-builders"><strong id="twitter-builder-count-footer">--</strong> STARKs builders</span>
+              <span class="twitter-cta-pill twitter-cta-installs"><strong id="twitter-npm-installs">--</strong> npm installs since Feb 2026</span>
               <span class="twitter-website">starkzap.io</span>
             </div>
           </footer>
@@ -862,6 +856,7 @@
         twitterShareCard: document.getElementById("twitter-share-card"),
         twitterPfpGrid: document.getElementById("twitter-pfp-grid"),
         twitterBuilderCount: document.getElementById("twitter-builder-count"),
+        twitterBuilderCountFooter: document.getElementById("twitter-builder-count-footer"),
         twitterNpmInstalls: document.getElementById("twitter-npm-installs"),
         downloadTwitterCardBtn: document.getElementById("download-twitter-card"),
         shareTwitterLink: document.getElementById("share-twitter-link")
@@ -1283,6 +1278,9 @@
       function renderTwitterBuilderCard(repos, extraBuilders = []) {
         const builders = uniqueBuildersFromRepos(repos, extraBuilders);
         refs.twitterBuilderCount.textContent = formatNum(builders.length);
+        if (refs.twitterBuilderCountFooter) {
+          refs.twitterBuilderCountFooter.textContent = formatNum(builders.length);
+        }
         shareState.builderCount = builders.length;
         updateTwitterShareLink();
         refs.twitterPfpGrid.replaceChildren();
