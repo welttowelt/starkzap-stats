@@ -33,6 +33,9 @@ EXCLUDE_REPOS = {
     "starkience/starkzap-stats",
 }
 EXCLUDE_REPOS_LOWER = {repo.lower() for repo in EXCLUDE_REPOS}
+BUILDER_LOGIN_REPLACEMENTS = {
+    "abdelhamidbakhta": "welttowelt",
+}
 
 QUERY_SETS: List[Tuple[str, str]] = [
     ("repo_wide", "starkzap"),
@@ -270,13 +273,17 @@ def main() -> None:
         login = (login or "").strip()
         if not login:
             return
-        key = login.lower()
+        raw_key = login.lower()
+        canonical_login = BUILDER_LOGIN_REPLACEMENTS.get(raw_key, login)
+        key = canonical_login.lower()
+        if key != raw_key:
+            avatar_url = ""
         existing = previous_builder_map.get(key, {})
         if key not in builders:
             builders[key] = {
-                "login": existing.get("login") or login,
-                "url": existing.get("url") or f"https://github.com/{login}",
-                "avatar_url": existing.get("avatar_url") or avatar_url or f"https://github.com/{login}.png?size=96",
+                "login": existing.get("login") or canonical_login,
+                "url": existing.get("url") or f"https://github.com/{canonical_login}",
+                "avatar_url": existing.get("avatar_url") or avatar_url or f"https://github.com/{canonical_login}.png?size=96",
                 "sources": list(existing.get("sources") or []),
             }
         entry = builders[key]
