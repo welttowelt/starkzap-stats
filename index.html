@@ -523,10 +523,19 @@
         background: #0d0d13b8;
       }
 
-      .twitter-value-prop {
+      .twitter-headline {
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: clamp(0.72rem, 1.9vw, 1.2rem);
+        font-weight: 700;
+        color: #f5f5fb;
+        line-height: 1.2;
+      }
+
+      .twitter-subline {
+        margin-top: clamp(4px, 1vw, 6px);
         font-family: "Inter", system-ui, sans-serif;
-        font-size: clamp(0.58rem, 1.5vw, 0.94rem);
-        color: #edeef8;
+        font-size: clamp(0.54rem, 1.3vw, 0.84rem);
+        color: #d4d4df;
         line-height: 1.3;
       }
 
@@ -538,7 +547,7 @@
         gap: clamp(6px, 1.4vw, 10px);
       }
 
-      .twitter-cta-link {
+      .twitter-command {
         display: inline-flex;
         align-items: center;
         padding: clamp(3px, 0.7vw, 6px) clamp(7px, 1.4vw, 12px);
@@ -546,14 +555,8 @@
         border: 1px solid #f9731692;
         background: #f973161f;
         color: #ffb179;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Space Grotesk", system-ui, sans-serif;
         font-size: clamp(0.55rem, 1.25vw, 0.86rem);
-        text-decoration: none;
-      }
-
-      .twitter-cta-link:hover {
-        border-color: #f97316;
-        background: #f9731630;
       }
 
       .twitter-cta-installs {
@@ -773,14 +776,16 @@
           </header>
           <div class="twitter-pfp-grid" id="twitter-pfp-grid" aria-label="Builder profile images"></div>
           <footer class="twitter-share-footer">
-            <p class="twitter-value-prop">
-              Starkzap helps teams launch gasless, session-key powered Starknet app flows in minutes.
+            <p class="twitter-headline">
+              bring the bitcoin economy into your app<br />
+              in minutes, not months
+            </p>
+            <p class="twitter-subline">
+              wallets, gasless transactions, bitcoin yield, defi rails.<br />
+              one sdk. no blockchain expertise required.
             </p>
             <div class="twitter-cta-row">
-              <a class="twitter-cta-link" href="https://starkzap.io" target="_blank" rel="noreferrer noopener">starkzap.io</a>
-              <a class="twitter-cta-link" href="https://www.npmjs.com/package/starkzap" target="_blank" rel="noreferrer noopener"
-                >npm i starkzap</a
-              >
+              <span class="twitter-command">npm install starkzap</span>
               <span class="twitter-cta-installs"><strong id="twitter-npm-installs">--</strong> npm installs since Feb 2026</span>
             </div>
           </footer>
@@ -802,9 +807,6 @@
       const PACKAGE_NAME = "starkzap";
       const START_DATE = "2026-02-01";
       const GITHUB_MENTIONS_START = "2026-02-01";
-      const STARKZAP_WEBSITE_URL = "https://starkzap.io";
-      const STARKZAP_NPM_URL = "https://www.npmjs.com/package/starkzap";
-      const DASHBOARD_PUBLIC_URL = "https://welttowelt.github.io/starkzap-stats/";
       const FORMATTER = new Intl.NumberFormat(undefined);
       const COMPACT_FORMATTER = new Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 1 });
       const HUMAN_DATE = new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
@@ -1142,14 +1144,18 @@
         const builders = formatNum(shareState.builderCount);
         const installs = formatNum(shareState.npmInstalls);
         const text = [
-          "Starkzap helps teams ship gasless, session-key powered Starknet app flows.",
-          `${builders} builders + ${installs} npm installs since Feb 2026.`,
-          `Build: ${STARKZAP_WEBSITE_URL}`,
-          `Install: ${STARKZAP_NPM_URL}`
+          "bring the bitcoin economy into your app",
+          "in minutes, not months",
+          "",
+          "wallets, gasless transactions, bitcoin yield, defi rails.",
+          "one sdk. no blockchain expertise required.",
+          "",
+          "npm install starkzap",
+          "",
+          `${builders} builders + ${installs} npm installs since Feb 2026.`
         ].join("\n");
         const intent = new URL("https://twitter.com/intent/tweet");
         intent.searchParams.set("text", text);
-        intent.searchParams.set("url", DASHBOARD_PUBLIC_URL);
         refs.shareTwitterLink.href = intent.toString();
       }
 
