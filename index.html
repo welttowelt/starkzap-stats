@@ -424,8 +424,8 @@
           <div class="chart-wrap"><canvas id="monthly-chart"></canvas></div>
         </article>
         <article class="panel">
-          <h2 class="chart-title">Cumulative Downloads</h2>
-          <p class="chart-caption">Running total since 01.02.2026.</p>
+          <h2 class="chart-title">Starkzap Cumulative Downloads</h2>
+          <p class="chart-caption">Running total of Starkzap npm downloads since 01.02.2026.</p>
           <div class="chart-wrap"><canvas id="cumulative-chart"></canvas></div>
         </article>
       </section>
@@ -644,7 +644,7 @@
           type: "line",
           labels: cumulative.map((row) => row.day),
           values: cumulative.map((row) => row.value),
-          label: "Cumulative downloads",
+          label: "Starkzap cumulative downloads",
           borderColor: "#f97316",
           backgroundColor: "rgba(249, 115, 22, 0.2)"
         });
