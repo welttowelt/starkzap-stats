@@ -1239,23 +1239,49 @@
         return owner ? `https://github.com/${owner}.png?size=96` : "https://github.githubassets.com/favicons/favicon.svg";
       }
 
-      function uniqueBuildersFromRepos(repos) {
+      function repoMentionDate(repo) {
+        if (typeof repo.first_seen_at === "string" && /^\d{4}-\d{2}-\d{2}$/.test(repo.first_seen_at)) {
+          return repo.first_seen_at;
+        }
+        if (typeof repo.created_at === "string" && /^\d{4}-\d{2}-\d{2}$/.test(repo.created_at)) {
+          return repo.created_at;
+        }
+        return "";
+      }
+
+      function uniqueBuildersFromRepos(repos, extraBuilders = []) {
         const byOwner = new Map();
         for (const repo of repos) {
           if (typeof repo.full_name !== "string" || !repo.full_name.includes("/")) continue;
           const owner = repo.full_name.split("/")[0];
-          if (!owner || byOwner.has(owner)) continue;
-          byOwner.set(owner, {
+          const ownerKey = owner.toLowerCase();
+          if (!owner || byOwner.has(ownerKey)) continue;
+          byOwner.set(ownerKey, {
             owner,
             profileUrl: `https://github.com/${owner}`,
             avatarUrl: repoAvatarUrl(repo)
           });
         }
+        for (const builder of extraBuilders) {
+          if (!builder || typeof builder.login !== "string") continue;
+          const login = builder.login.trim();
+          const loginKey = login.toLowerCase();
+          if (!login || byOwner.has(loginKey)) continue;
+          const profileUrl = typeof builder.url === "string" && builder.url ? builder.url : `https://github.com/${login}`;
+          const avatarUrl = typeof builder.avatar_url === "string" && builder.avatar_url
+            ? builder.avatar_url
+            : `https://github.com/${login}.png?size=96`;
+          byOwner.set(loginKey, {
+            owner: login,
+            profileUrl,
+            avatarUrl
+          });
+        }
         return [...byOwner.values()].sort((a, b) => a.owner.localeCompare(b.owner));
       }
 
-      function renderTwitterBuilderCard(repos) {
-        const builders = uniqueBuildersFromRepos(repos);
+      function renderTwitterBuilderCard(repos, extraBuilders = []) {
+        const builders = uniqueBuildersFromRepos(repos, extraBuilders);
         refs.twitterBuilderCount.textContent = formatNum(builders.length);
         shareState.builderCount = builders.length;
         updateTwitterShareLink();
@@ -1422,7 +1448,7 @@
           return;
         }
 
-        const display = [...repos].sort((a, b) => b.created_at.localeCompare(a.created_at));
+        const display = [...repos].sort((a, b) => (b.mention_at || "").localeCompare(a.mention_at || ""));
         for (const repo of display) {
           const item = document.createElement("a");
           item.className = "repo-item";
@@ -1447,7 +1473,9 @@
           const meta = document.createElement("p");
           meta.className = "repo-meta";
           const stars = Number(repo.stars) > 0 ? ` · ${formatNum(repo.stars)}★` : "";
-          meta.textContent = `Created ${toHumanDate(repo.created_at)}${stars}`;
+          const mentionLabel = repo.mention_at ? `Mentioned ${toHumanDate(repo.mention_at)}` : "";
+          const createdLabel = repo.created_at ? `Created ${toHumanDate(repo.created_at)}` : "";
+          meta.textContent = mentionLabel || createdLabel ? `${mentionLabel || createdLabel}${stars}` : `Starkzap mention${stars}`;
 
           const summary = document.createElement("p");
           summary.className = "repo-summary";
@@ -1464,7 +1492,7 @@
         refs.kpiReposNote.textContent = "Deep repo-wide mention scan";
         refs.ghRepoListCaption.textContent = "Public repos mentioning starkzap since February 2026.";
         setGithubRepoListEmpty("Repository list unavailable right now.");
-        renderTwitterBuilderCard([]);
+        renderTwitterBuilderCard([], []);
         clearGithubCharts();
       }
 
@@ -1479,11 +1507,16 @@
           }
 
           const updatedDay = typeof data.updated === "string" && data.updated.includes("-") ? data.updated.slice(0, 10) : "";
+          const curatedBuilders = Array.isArray(data.builders) ? data.builders : [];
 
           const sorted = data.repos
-            .filter((r) => typeof r.created_at === "string" && /^\d{4}-\d{2}-\d{2}$/.test(r.created_at))
-            .filter((r) => r.created_at >= GITHUB_MENTIONS_START)
-            .sort((a, b) => a.created_at.localeCompare(b.created_at));
+            .map((repo) => ({
+              ...repo,
+              mention_at: repoMentionDate(repo)
+            }))
+            .filter((repo) => repo.mention_at)
+            .filter((repo) => repo.mention_at >= GITHUB_MENTIONS_START)
+            .sort((a, b) => a.mention_at.localeCompare(b.mention_at));
 
           refs.kpiRepos.textContent = formatNum(sorted.length);
           refs.kpiReposNote.textContent = updatedDay
@@ -1491,7 +1524,7 @@
             : `Since ${toHumanDate(GITHUB_MENTIONS_START)}`;
           refs.ghRepoListCaption.textContent = `${formatNum(sorted.length)} public repos mentioning starkzap since ${toHumanDate(GITHUB_MENTIONS_START)}.`;
           renderGithubRepoList(sorted);
-          renderTwitterBuilderCard(sorted);
+          renderTwitterBuilderCard(sorted, curatedBuilders);
 
           if (!sorted.length) {
             const today = getTodayLocalIso();
@@ -1518,7 +1551,7 @@
 
           const monthlyCounts = new Map();
           for (const repo of sorted) {
-            const monthKey = repo.created_at.slice(0, 7);
+            const monthKey = repo.mention_at.slice(0, 7);
             monthlyCounts.set(monthKey, (monthlyCounts.get(monthKey) || 0) + 1);
           }
 
@@ -1539,13 +1572,13 @@
             integerAxis: true
           });
 
-          const startDate = toUtcDate(sorted[0].created_at);
-          const endDate = toUtcDate(sorted[sorted.length - 1].created_at);
+          const startDate = toUtcDate(sorted[0].mention_at);
+          const endDate = toUtcDate(sorted[sorted.length - 1].mention_at);
           const cumLabels = [];
           const cumValues = [];
           for (let d = new Date(startDate); d <= endDate; d.setUTCDate(d.getUTCDate() + 4)) {
             const iso = d.toISOString().slice(0, 10);
-            const count = sorted.filter((r) => r.created_at <= iso).length;
+            const count = sorted.filter((r) => r.mention_at <= iso).length;
             cumLabels.push(iso);
             cumValues.push(count);
           }
