@@ -368,6 +368,9 @@
       .share-card-actions {
         margin-top: 0.4rem;
         margin-bottom: 0.55rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.52rem;
       }
 
       .share-card-download {
@@ -381,6 +384,12 @@
         border-radius: 8px;
         cursor: pointer;
         transition: background 0.2s ease, border-color 0.2s ease;
+      }
+
+      .share-card-share {
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
       }
 
       .share-card-download:hover {
@@ -468,7 +477,7 @@
         left: clamp(14px, 3.2vw, 34px);
         right: clamp(14px, 3.2vw, 34px);
         top: clamp(72px, 15vw, 140px);
-        bottom: clamp(14px, 3.2vw, 30px);
+        bottom: clamp(100px, 17.5vw, 136px);
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(clamp(36px, 6.1vw, 64px), 1fr));
         gap: clamp(8px, 1.35vw, 14px);
@@ -501,6 +510,60 @@
         font-size: clamp(0.64rem, 1.8vw, 1rem);
         color: var(--text-secondary);
         background: #ffffff12;
+      }
+
+      .twitter-share-footer {
+        position: absolute;
+        left: clamp(14px, 3.2vw, 34px);
+        right: clamp(14px, 3.2vw, 34px);
+        bottom: clamp(12px, 2.7vw, 28px);
+        padding: clamp(7px, 1.5vw, 12px) clamp(8px, 1.8vw, 14px);
+        border-radius: 12px;
+        border: 1px solid #ffffff29;
+        background: #0d0d13b8;
+      }
+
+      .twitter-value-prop {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: clamp(0.58rem, 1.5vw, 0.94rem);
+        color: #edeef8;
+        line-height: 1.3;
+      }
+
+      .twitter-cta-row {
+        margin-top: clamp(5px, 1.2vw, 8px);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: clamp(6px, 1.4vw, 10px);
+      }
+
+      .twitter-cta-link {
+        display: inline-flex;
+        align-items: center;
+        padding: clamp(3px, 0.7vw, 6px) clamp(7px, 1.4vw, 12px);
+        border-radius: 999px;
+        border: 1px solid #f9731692;
+        background: #f973161f;
+        color: #ffb179;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: clamp(0.55rem, 1.25vw, 0.86rem);
+        text-decoration: none;
+      }
+
+      .twitter-cta-link:hover {
+        border-color: #f97316;
+        background: #f9731630;
+      }
+
+      .twitter-cta-installs {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: clamp(0.55rem, 1.25vw, 0.86rem);
+        color: #c8c8d3;
+      }
+
+      .twitter-cta-installs strong {
+        color: #f0f0f5;
       }
 
       .footer {
@@ -685,9 +748,17 @@
 
       <section class="panel share-card-panel">
         <h2 class="chart-title">Starkzap Builders Twitter Card</h2>
-        <p class="chart-caption">Branded share card with builder PFPs for social posting.</p>
+        <p class="chart-caption">Branded share card with value proposition, CTA, and builder PFPs.</p>
         <div class="share-card-actions">
           <button class="share-card-download" id="download-twitter-card" type="button">Download 1200x630 PNG</button>
+          <a
+            class="share-card-download share-card-share"
+            id="share-twitter-link"
+            href="https://twitter.com/intent/tweet"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Share on X</a
+          >
         </div>
         <article class="twitter-share-card" id="twitter-share-card">
           <header class="twitter-share-head">
@@ -695,12 +766,24 @@
               <img src="https://starkzap.io/logo.png" alt="" class="twitter-brand-logo" />
               <div class="twitter-brand-text">
                 <span class="twitter-brand-title">Starkzap Builders</span>
-                <span class="twitter-brand-subtitle">Projects building with Starkzap</span>
+                <span class="twitter-brand-subtitle">Projects shipping with Starkzap</span>
               </div>
             </div>
             <span class="twitter-builders-chip"><strong id="twitter-builder-count">--</strong> builders</span>
           </header>
           <div class="twitter-pfp-grid" id="twitter-pfp-grid" aria-label="Builder profile images"></div>
+          <footer class="twitter-share-footer">
+            <p class="twitter-value-prop">
+              Starkzap helps teams launch gasless, session-key powered Starknet app flows in minutes.
+            </p>
+            <div class="twitter-cta-row">
+              <a class="twitter-cta-link" href="https://starkzap.io" target="_blank" rel="noreferrer noopener">starkzap.io</a>
+              <a class="twitter-cta-link" href="https://www.npmjs.com/package/starkzap" target="_blank" rel="noreferrer noopener"
+                >npm i starkzap</a
+              >
+              <span class="twitter-cta-installs"><strong id="twitter-npm-installs">--</strong> npm installs since Feb 2026</span>
+            </div>
+          </footer>
         </article>
       </section>
 
@@ -719,11 +802,18 @@
       const PACKAGE_NAME = "starkzap";
       const START_DATE = "2026-02-01";
       const GITHUB_MENTIONS_START = "2026-02-01";
+      const STARKZAP_WEBSITE_URL = "https://starkzap.io";
+      const STARKZAP_NPM_URL = "https://www.npmjs.com/package/starkzap";
+      const DASHBOARD_PUBLIC_URL = "https://welttowelt.github.io/starkzap-stats/";
       const FORMATTER = new Intl.NumberFormat(undefined);
       const COMPACT_FORMATTER = new Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 1 });
       const HUMAN_DATE = new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
       const MONTH_LABEL = new Intl.DateTimeFormat(undefined, { month: "short", year: "numeric", timeZone: "UTC" });
       const charts = new Map();
+      const shareState = {
+        builderCount: 0,
+        npmInstalls: 0
+      };
 
       const refs = {
         status: document.getElementById("status"),
@@ -745,7 +835,9 @@
         twitterShareCard: document.getElementById("twitter-share-card"),
         twitterPfpGrid: document.getElementById("twitter-pfp-grid"),
         twitterBuilderCount: document.getElementById("twitter-builder-count"),
-        downloadTwitterCardBtn: document.getElementById("download-twitter-card")
+        twitterNpmInstalls: document.getElementById("twitter-npm-installs"),
+        downloadTwitterCardBtn: document.getElementById("download-twitter-card"),
+        shareTwitterLink: document.getElementById("share-twitter-link")
       };
 
       refs.refreshBtn.addEventListener("click", () => {
@@ -756,6 +848,8 @@
       refs.downloadTwitterCardBtn.addEventListener("click", () => {
         void downloadTwitterCardPng();
       });
+
+      updateTwitterShareLink();
 
       void loadDashboard();
       void loadGithubRepos();
@@ -855,6 +949,9 @@
         refs.kpi7dNote.textContent = `${formatNum(Math.round(sum7d / Math.min(7, rows.length)))} per day avg`;
         refs.kpi30d.textContent = formatNum(sum30d);
         refs.kpi30dNote.textContent = `${formatNum(Math.round(sum30d / Math.min(30, rows.length)))} per day avg`;
+        shareState.npmInstalls = total;
+        refs.twitterNpmInstalls.textContent = formatNum(total);
+        updateTwitterShareLink();
       }
 
       function resetPanels() {
@@ -866,6 +963,9 @@
         refs.kpi7dNote.textContent = "Rolling weekly total";
         refs.kpi30d.textContent = "--";
         refs.kpi30dNote.textContent = "Rolling monthly total";
+        shareState.npmInstalls = 0;
+        refs.twitterNpmInstalls.textContent = "--";
+        updateTwitterShareLink();
 
         for (const chart of charts.values()) {
           chart.destroy();
@@ -1037,6 +1137,22 @@
         return `${year}-${month}-${day}`;
       }
 
+      function updateTwitterShareLink() {
+        if (!refs.shareTwitterLink) return;
+        const builders = formatNum(shareState.builderCount);
+        const installs = formatNum(shareState.npmInstalls);
+        const text = [
+          "Starkzap helps teams ship gasless, session-key powered Starknet app flows.",
+          `${builders} builders + ${installs} npm installs since Feb 2026.`,
+          `Build: ${STARKZAP_WEBSITE_URL}`,
+          `Install: ${STARKZAP_NPM_URL}`
+        ].join("\n");
+        const intent = new URL("https://twitter.com/intent/tweet");
+        intent.searchParams.set("text", text);
+        intent.searchParams.set("url", DASHBOARD_PUBLIC_URL);
+        refs.shareTwitterLink.href = intent.toString();
+      }
+
       function setStatus(text, tone) {
         refs.status.className = `status ${tone}`;
         refs.status.textContent = text;
@@ -1103,6 +1219,8 @@
       function renderTwitterBuilderCard(repos) {
         const builders = uniqueBuildersFromRepos(repos);
         refs.twitterBuilderCount.textContent = formatNum(builders.length);
+        shareState.builderCount = builders.length;
+        updateTwitterShareLink();
         refs.twitterPfpGrid.replaceChildren();
 
         if (!builders.length) {
