@@ -560,9 +560,20 @@
           .sort((a, b) => a.key.localeCompare(b.key));
       }
 
+      function getLastDayWithDataIndex(rows) {
+        for (let index = rows.length - 1; index >= 0; index -= 1) {
+          if (rows[index].downloads > 0) {
+            return index;
+          }
+        }
+        return rows.length - 1;
+      }
+
       function buildCumulativeSeries(rows) {
+        const lastWithDataIndex = getLastDayWithDataIndex(rows);
+        const visibleRows = rows.slice(0, lastWithDataIndex + 1);
         let running = 0;
-        return rows.map((row) => {
+        return visibleRows.map((row) => {
           running += row.downloads;
           return { day: row.day, value: running };
         });
@@ -570,7 +581,7 @@
 
       function updateKpis(rows) {
         const total = rows.reduce((sum, row) => sum + row.downloads, 0);
-        const latestWithData = [...rows].reverse().find((row) => row.downloads > 0) || rows[rows.length - 1];
+        const latestWithData = rows[getLastDayWithDataIndex(rows)];
         const sum7d = rows.slice(-7).reduce((sum, row) => sum + row.downloads, 0);
         const sum30d = rows.slice(-30).reduce((sum, row) => sum + row.downloads, 0);
         const avgDay = rows.length ? Math.round(total / rows.length) : 0;
