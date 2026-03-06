@@ -102,7 +102,7 @@
 
       .hero {
         text-align: center;
-        margin-bottom: 1.15rem;
+        margin-bottom: 1.3rem;
       }
 
       .hero-title {
@@ -110,11 +110,10 @@
         align-items: center;
         justify-content: center;
         gap: 0.65rem;
-        flex-wrap: wrap;
-        font-size: clamp(1.35rem, 3.2vw, 2rem);
-        font-weight: 400;
+        font-size: clamp(1.35rem, 3.2vw, 2.15rem);
+        font-weight: 700;
         letter-spacing: -0.02em;
-        line-height: 1.35;
+        line-height: 1.1;
       }
 
       .hero-logo-and-name {
@@ -138,11 +137,42 @@
         text-shadow: 0 0 24px var(--accent-glow);
       }
 
+      .hero-value-prop {
+        margin: 0.68rem auto 0;
+        width: min(1040px, 96%);
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: clamp(1.35rem, 3.2vw, 2.45rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1.12;
+        color: #f2f2fa;
+      }
+
       .hero-subtitle {
-        width: 100%;
-        text-align: center;
+        margin: 0.5rem auto 0;
+        width: min(940px, 94%);
         font-family: "Inter", system-ui, sans-serif;
-        color: var(--text-secondary);
+        font-size: clamp(0.92rem, 1.7vw, 1.18rem);
+        color: #d1d1de;
+        line-height: 1.45;
+      }
+
+      .hero-command-wrap {
+        margin-top: 0.62rem;
+      }
+
+      .hero-command {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.36rem 0.74rem;
+        border-radius: 999px;
+        border: 1px solid #f9731690;
+        background: linear-gradient(180deg, #f973162e, #f973160f);
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #ffb37d;
+        text-decoration: none;
       }
 
       .meta {
@@ -150,7 +180,7 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 0.55rem;
-        margin-top: 0.95rem;
+        margin-top: 0.72rem;
       }
 
       .chip {
@@ -162,6 +192,18 @@
         background: #ffffff05;
         border: 1px solid transparent;
         box-shadow: inset 0 1px #ffffff1a, inset 0 -1px #00000014;
+      }
+
+      .chip-link {
+        text-decoration: none;
+        color: #d6d6e3;
+        border-color: #ffffff24;
+      }
+
+      .chip-link:hover {
+        border-color: #f97316a8;
+        color: #ffbb8b;
+        background: #f973161a;
       }
 
       .panel {
@@ -587,6 +629,11 @@
         font-weight: 600;
         color: #ffb179;
         letter-spacing: 0.01em;
+        text-decoration: none;
+      }
+
+      .twitter-website-tag:hover {
+        color: #ffd1ad;
       }
 
       .footer {
@@ -645,6 +692,14 @@
           height: 56px;
         }
 
+        .hero-value-prop {
+          width: 100%;
+        }
+
+        .hero-subtitle {
+          width: 100%;
+        }
+
         .kpis {
           grid-template-columns: 1fr;
         }
@@ -670,13 +725,48 @@
             <img src="https://starkzap.io/logo.png" alt="" class="hero-logo" width="68" height="68" />
             <span class="hero-accent">Starkzap</span>
           </span>
-          <span class="hero-subtitle">Starkzap Stats: daily, weekly, monthly, and cumulative npm downloads</span>
         </h1>
+        <p class="hero-value-prop">Bring the Bitcoin economy into your app in minutes, not months.</p>
+        <p class="hero-subtitle">
+          Wallets, gasless transactions, bitcoin yield, DeFi rails. One SDK. No blockchain expertise required.
+        </p>
+        <p class="hero-command-wrap">
+          <a class="hero-command" href="https://www.npmjs.com/package/starkzap" target="_blank" rel="noreferrer noopener"
+            >npm install starkzap</a
+          >
+        </p>
 
         <div class="meta">
           <span class="chip">Package: starkzap</span>
           <span class="chip" id="range-chip">Range: --</span>
           <span class="chip" id="updated-chip">Updated: --</span>
+        </div>
+        <div class="meta">
+          <a class="chip chip-link" href="https://starkzap.io" target="_blank" rel="noreferrer noopener">Website</a>
+          <a class="chip chip-link" href="https://www.npmjs.com/package/starkzap" target="_blank" rel="noreferrer noopener"
+            >NPM Package</a
+          >
+          <a
+            class="chip chip-link"
+            href="https://npm-stat.com/charts.html?package=starkzap&from=2026-02-01"
+            target="_blank"
+            rel="noreferrer noopener"
+            >NPM Chart</a
+          >
+          <a class="chip chip-link" href="https://github.com/keep-starknet-strange/starkzap" target="_blank" rel="noreferrer noopener"
+            >Starkzap Repo</a
+          >
+          <a
+            class="chip chip-link"
+            href="https://github.com/keep-starknet-strange/awesome-starkzap"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Awesome Starkzap</a
+          >
+          <a class="chip chip-link" href="https://github.com/welttowelt/starkzap-stats" target="_blank" rel="noreferrer noopener"
+            >Stats Repo</a
+          >
+          <a class="chip chip-link" href="data/github-repos.json" target="_blank" rel="noreferrer noopener">Data JSON</a>
         </div>
       </section>
 
@@ -805,8 +895,10 @@
           <footer class="twitter-share-footer-minimal">
             <p class="twitter-value-line">Bring the Bitcoin economy into your app in minutes, not months.</p>
             <div class="twitter-footer-links">
-              <span class="twitter-command-tag">npm install starkzap</span>
-              <span class="twitter-website-tag">starkzap.io</span>
+              <a class="twitter-command-tag" href="https://www.npmjs.com/package/starkzap" target="_blank" rel="noreferrer noopener"
+                >npm install starkzap</a
+              >
+              <a class="twitter-website-tag" href="https://starkzap.io" target="_blank" rel="noreferrer noopener">starkzap.io</a>
             </div>
           </footer>
         </article>
