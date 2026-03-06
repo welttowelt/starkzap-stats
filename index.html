@@ -477,7 +477,7 @@
         left: clamp(14px, 3.2vw, 34px);
         right: clamp(14px, 3.2vw, 34px);
         top: clamp(72px, 15vw, 140px);
-        bottom: clamp(100px, 17.5vw, 136px);
+        bottom: clamp(16px, 3.2vw, 34px);
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(clamp(36px, 6.1vw, 64px), 1fr));
         gap: clamp(8px, 1.35vw, 14px);
@@ -510,74 +510,6 @@
         font-size: clamp(0.64rem, 1.8vw, 1rem);
         color: var(--text-secondary);
         background: #ffffff12;
-      }
-
-      .twitter-share-footer {
-        position: absolute;
-        left: clamp(14px, 3.2vw, 34px);
-        right: clamp(14px, 3.2vw, 34px);
-        bottom: clamp(12px, 2.7vw, 28px);
-        padding: clamp(10px, 2.2vw, 18px) clamp(10px, 2.2vw, 18px);
-        border-radius: 12px;
-        border: 1px solid #ffffff29;
-        background: #0d0d13b8;
-      }
-
-      .twitter-headline {
-        font-family: "Space Grotesk", system-ui, sans-serif;
-        font-size: clamp(1.14rem, 3.4vw, 2.18rem);
-        font-weight: 700;
-        color: #f5f5fb;
-        line-height: 1.12;
-        letter-spacing: -0.014em;
-        max-width: 36ch;
-      }
-
-      .twitter-cta-row {
-        margin-top: clamp(8px, 1.7vw, 14px);
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: clamp(7px, 1.5vw, 12px);
-      }
-
-      .twitter-cta-pill {
-        display: inline-flex;
-        align-items: center;
-        padding: clamp(4px, 0.95vw, 7px) clamp(8px, 1.6vw, 13px);
-        border-radius: 999px;
-        border: 1px solid #ffffff2f;
-        background: #ffffff0f;
-        font-family: "Inter", system-ui, sans-serif;
-        font-size: clamp(0.62rem, 1.45vw, 0.98rem);
-        color: #d8d8e4;
-      }
-
-      .twitter-cta-pill strong {
-        margin-right: 0.28em;
-      }
-
-      .twitter-cta-installs {
-        color: #e6e6ef;
-      }
-
-      .twitter-cta-installs strong {
-        color: #ffffff;
-      }
-
-      .twitter-cta-builders {
-        color: #d8d8e4;
-      }
-
-      .twitter-cta-builders strong {
-        color: #ffffff;
-      }
-
-      .twitter-website {
-        font-family: "Inter", system-ui, sans-serif;
-        font-size: clamp(0.62rem, 1.45vw, 0.98rem);
-        font-weight: 600;
-        color: #ffb179;
       }
 
       .footer {
@@ -769,10 +701,9 @@
       </section>
 
       <section class="panel share-card-panel">
-        <h2 class="chart-title">Starkzap Builders Twitter Card</h2>
-        <p class="chart-caption">Branded share card with value proposition, CTA, and builder PFPs.</p>
+        <h2 class="chart-title">Starkzap Builder's Kudos</h2>
         <div class="share-card-actions">
-          <button class="share-card-download" id="download-twitter-card" type="button">Download 1200x630 PNG</button>
+          <button class="share-card-download" id="download-twitter-card" type="button">Download PNG</button>
           <a
             class="share-card-download share-card-share"
             id="share-twitter-link"
@@ -787,21 +718,13 @@
             <div class="twitter-brand">
               <img src="https://starkzap.io/logo.png" alt="" class="twitter-brand-logo" crossorigin="anonymous" />
               <div class="twitter-brand-text">
-                <span class="twitter-brand-title">Starkzap Builders</span>
+                <span class="twitter-brand-title">Starkzap Builder's Kudos</span>
                 <span class="twitter-brand-subtitle">Projects shipping with Starkzap</span>
               </div>
             </div>
             <span class="twitter-builders-chip"><strong id="twitter-builder-count">--</strong> STARKs builders</span>
           </header>
           <div class="twitter-pfp-grid" id="twitter-pfp-grid" aria-label="Builder profile images"></div>
-          <footer class="twitter-share-footer">
-            <p class="twitter-headline">Bring the Bitcoin economy into your app</p>
-            <div class="twitter-cta-row">
-              <span class="twitter-cta-pill twitter-cta-builders"><strong id="twitter-builder-count-footer">--</strong> STARKs builders</span>
-              <span class="twitter-cta-pill twitter-cta-installs"><strong id="twitter-npm-installs">--</strong> npm installs since Feb 2026</span>
-              <span class="twitter-website">starkzap.io</span>
-            </div>
-          </footer>
         </article>
       </section>
 
@@ -828,6 +751,10 @@
       const PACKAGE_NAME = "starkzap";
       const START_DATE = "2026-02-01";
       const GITHUB_MENTIONS_START = "2026-02-01";
+      const TRANSPARENT_PIXEL_DATA_URI =
+        "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
+      const FALLBACK_AVATAR_DATA_URI =
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%23141725'/%3E%3Cpath d='M48 49c11 0 20-9 20-20S59 9 48 9s-20 9-20 20 9 20 20 20Zm0 8c-17.7 0-32 14.3-32 32v7h64v-7c0-17.7-14.3-32-32-32Z' fill='%23424a63'/%3E%3C/svg%3E";
       const FORMATTER = new Intl.NumberFormat(undefined);
       const COMPACT_FORMATTER = new Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 1 });
       const HUMAN_DATE = new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
@@ -860,8 +787,6 @@
         twitterShareCard: document.getElementById("twitter-share-card"),
         twitterPfpGrid: document.getElementById("twitter-pfp-grid"),
         twitterBuilderCount: document.getElementById("twitter-builder-count"),
-        twitterBuilderCountFooter: document.getElementById("twitter-builder-count-footer"),
-        twitterNpmInstalls: document.getElementById("twitter-npm-installs"),
         downloadTwitterCardBtn: document.getElementById("download-twitter-card"),
         shareTwitterLink: document.getElementById("share-twitter-link")
       };
@@ -981,7 +906,6 @@
         refs.kpi30d.textContent = formatNum(sum30d);
         refs.kpi30dNote.textContent = `${formatNum(Math.round(sum30d / Math.min(30, rows.length)))} per day avg`;
         shareState.npmInstalls = total;
-        refs.twitterNpmInstalls.textContent = formatNum(total);
         updateTwitterShareLink();
       }
 
@@ -995,7 +919,6 @@
         refs.kpi30d.textContent = "--";
         refs.kpi30dNote.textContent = "Rolling monthly total";
         shareState.npmInstalls = 0;
-        refs.twitterNpmInstalls.textContent = "--";
         updateTwitterShareLink();
 
         for (const chart of charts.values()) {
@@ -1190,6 +1113,28 @@
         refs.shareTwitterLink.href = shareState.tweetIntentUrl;
       }
 
+      function exportCardOptions() {
+        return {
+          cacheBust: true,
+          pixelRatio: 2,
+          backgroundColor: "#090a12",
+          imagePlaceholder: TRANSPARENT_PIXEL_DATA_URI,
+          skipFonts: true
+        };
+      }
+
+      function downloadBlob(blob, fileName) {
+        const objectUrl = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = objectUrl;
+        link.download = fileName;
+        link.style.display = "none";
+        document.body.append(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(objectUrl), 3000);
+      }
+
       function setStatus(text, tone) {
         refs.status.className = `status ${tone}`;
         refs.status.textContent = text;
@@ -1282,9 +1227,6 @@
       function renderTwitterBuilderCard(repos, extraBuilders = []) {
         const builders = uniqueBuildersFromRepos(repos, extraBuilders);
         refs.twitterBuilderCount.textContent = formatNum(builders.length);
-        if (refs.twitterBuilderCountFooter) {
-          refs.twitterBuilderCountFooter.textContent = formatNum(builders.length);
-        }
         shareState.builderCount = builders.length;
         updateTwitterShareLink();
         refs.twitterPfpGrid.replaceChildren();
@@ -1313,6 +1255,10 @@
           image.loading = "lazy";
           image.decoding = "async";
           image.crossOrigin = "anonymous";
+          image.referrerPolicy = "no-referrer";
+          image.addEventListener("error", () => {
+            image.src = FALLBACK_AVATAR_DATA_URI;
+          });
 
           link.append(image);
           refs.twitterPfpGrid.append(link);
@@ -1337,18 +1283,15 @@
 
         const originalLabel = button.textContent;
         button.disabled = true;
-        button.textContent = "Preparing PNG...";
+        button.textContent = "Preparing download...";
 
         try {
-          const dataUrl = await window.htmlToImage.toPng(refs.twitterShareCard, {
-            cacheBust: true,
-            pixelRatio: 2
-          });
-          const link = document.createElement("a");
-          link.href = dataUrl;
-          link.download = `starkzap-builders-${getTodayLocalIso()}.png`;
-          link.click();
-          setStatus("Twitter card PNG downloaded.", "ok");
+          const blob = await captureTwitterCardBlob();
+          if (!blob || blob.size < 1) {
+            throw new Error("Empty PNG blob");
+          }
+          downloadBlob(blob, `starkzap-builders-kudos-${getTodayLocalIso()}.png`);
+          setStatus("Builder's Kudos PNG downloaded.", "ok");
         } catch (error) {
           console.error(error);
           setStatus("PNG export failed. Please screenshot the card.", "error");
@@ -1362,16 +1305,14 @@
         if (!refs.twitterShareCard) return null;
         if (!window.htmlToImage) return null;
         if (typeof window.htmlToImage.toBlob === "function") {
-          return window.htmlToImage.toBlob(refs.twitterShareCard, {
-            cacheBust: true,
-            pixelRatio: 2
-          });
+          try {
+            return await window.htmlToImage.toBlob(refs.twitterShareCard, exportCardOptions());
+          } catch (error) {
+            console.warn("toBlob failed, retrying with toPng fallback", error);
+          }
         }
         if (typeof window.htmlToImage.toPng === "function") {
-          const dataUrl = await window.htmlToImage.toPng(refs.twitterShareCard, {
-            cacheBust: true,
-            pixelRatio: 2
-          });
+          const dataUrl = await window.htmlToImage.toPng(refs.twitterShareCard, exportCardOptions());
           const response = await fetch(dataUrl);
           return response.blob();
         }
