@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-06T12:12:49Z",
-  "total": 32,
+  "updated": "2026-03-06T12:34:16Z",
+  "total": 28,
   "repos": [
     {
       "full_name": "all-contributors/allcontributors.org",
@@ -40,19 +40,6 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/118723009?v=4",
       "match_sources": [
         "starkzap_repo_curated"
-      ]
-    },
-    {
-      "full_name": "cirosantilli/expired-domain-names-by-day-2022",
-      "url": "https://github.com/cirosantilli/expired-domain-names-by-day-2022",
-      "description": "Expired domain names by day 2022 (EDNBD) https://cirosantilli.com/cia-2010-covert-communication-websites#expired-domain-trackers",
-      "summary": "Expired domain names by day 2022 (EDNBD) https://cirosantilli.com/cia-2010-covert-communication-websites#ex...",
-      "stars": 19,
-      "created_at": "2023-10-24",
-      "first_seen_at": "2026-03-06",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/1429315?v=4",
-      "match_sources": [
-        "repo_wide"
       ]
     },
     {
@@ -102,19 +89,6 @@
       ]
     },
     {
-      "full_name": "A5hG0/Internship_Recommender",
-      "url": "https://github.com/A5hG0/Internship_Recommender",
-      "description": "A cutting-edge web application that matches students with internships using AI-powered resume analysis and intelligent ranking algorithms. Built with FastAPI, OpenAI embeddings, and a responsive modern frontend.",
-      "summary": "A cutting-edge web application that matches students with internships using AI-powered resume analysis and...",
-      "stars": 0,
-      "created_at": "2025-10-21",
-      "first_seen_at": "2026-03-06",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/162358157?v=4",
-      "match_sources": [
-        "repo_wide"
-      ]
-    },
-    {
       "full_name": "RealAdii/portfolio-2025",
       "url": "https://github.com/RealAdii/portfolio-2025",
       "description": "this is me. ",
@@ -139,26 +113,6 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/110780399?v=4",
       "match_sources": [
         "repo_wide"
-      ]
-    },
-    {
-      "full_name": "keep-starknet-strange/starknet-agentic",
-      "url": "https://github.com/keep-starknet-strange/starknet-agentic",
-      "description": "Smart contracts, tools, and skills for AI agents that transact on Starknet",
-      "summary": "Smart contracts, tools, and skills for AI agents that transact on Starknet",
-      "stars": 75,
-      "created_at": "2026-01-31",
-      "first_seen_at": "2026-03-06",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/118723009?v=4",
-      "match_sources": [
-        "docs_path",
-        "js_code",
-        "json_files",
-        "markdown_files",
-        "readme",
-        "repo_wide",
-        "ts_code",
-        "yaml_files"
       ]
     },
     {
@@ -262,25 +216,6 @@
       "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
       "match_sources": [
-        "markdown_files",
-        "readme",
-        "repo_wide",
-        "ts_code"
-      ]
-    },
-    {
-      "full_name": "GravitySignal/skuldrift-almm",
-      "url": "https://github.com/GravitySignal/skuldrift-almm",
-      "description": "Skuldrift ALMM",
-      "summary": "Skuldrift ALMM",
-      "stars": 0,
-      "created_at": "2026-02-25",
-      "first_seen_at": "2026-03-06",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/261995388?v=4",
-      "match_sources": [
-        "docs_path",
-        "js_code",
-        "json_files",
         "markdown_files",
         "readme",
         "repo_wide",
@@ -515,22 +450,6 @@
       ]
     },
     {
-      "login": "A5hG0",
-      "url": "https://github.com/A5hG0",
-      "avatar_url": "https://avatars.githubusercontent.com/u/162358157?v=4",
-      "sources": [
-        "repo_owner"
-      ]
-    },
-    {
-      "login": "welttowelt",
-      "url": "https://github.com/welttowelt",
-      "avatar_url": "https://github.com/welttowelt.png?size=96",
-      "sources": [
-        "starkzap_repo_profiles"
-      ]
-    },
-    {
       "login": "AbdelStark",
       "url": "https://github.com/AbdelStark",
       "avatar_url": "https://avatars.githubusercontent.com/u/45264458?v=4",
@@ -575,14 +494,6 @@
       ]
     },
     {
-      "login": "cirosantilli",
-      "url": "https://github.com/cirosantilli",
-      "avatar_url": "https://avatars.githubusercontent.com/u/1429315?v=4",
-      "sources": [
-        "repo_owner"
-      ]
-    },
-    {
       "login": "coppolajulien",
       "url": "https://github.com/coppolajulien",
       "avatar_url": "https://avatars.githubusercontent.com/u/3055154?v=4",
@@ -604,14 +515,6 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/89799857?v=4",
       "sources": [
         "awesome_starkzap_contributors",
-        "repo_owner"
-      ]
-    },
-    {
-      "login": "GravitySignal",
-      "url": "https://github.com/GravitySignal",
-      "avatar_url": "https://avatars.githubusercontent.com/u/261995388?v=4",
-      "sources": [
         "repo_owner"
       ]
     },
@@ -746,6 +649,14 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/110780399?v=4",
       "sources": [
         "repo_owner"
+      ]
+    },
+    {
+      "login": "welttowelt",
+      "url": "https://github.com/welttowelt",
+      "avatar_url": "https://github.com/welttowelt.png?size=96",
+      "sources": [
+        "starkzap_repo_profiles"
       ]
     }
   ],

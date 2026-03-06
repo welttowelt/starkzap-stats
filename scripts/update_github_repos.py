@@ -26,6 +26,7 @@ STARKZAP_BUILDERS_SOURCE = "starkzap_repo_profiles"
 CURATED_PROJECT_SOURCES = {AWESOME_SOURCE, STARKZAP_SOURCE}
 MENTIONS_START = "2026-02-01"
 DATA_FILE = Path("data/github-repos.json")
+DISALLOWED_MENTION_QUERY = "starkzapp"
 
 EXCLUDE_REPOS = {
     STARKZAP_REPO,
@@ -214,6 +215,37 @@ def main() -> None:
         if item.get("login")
     }
 
+    disallowed_repos: Set[str] = set()
+
+    def collect_repo_names_for_query(query: str) -> Set[str]:
+        found: Set[str] = set()
+        page = 1
+        while True:
+            qs = urllib.parse.urlencode({"q": query, "per_page": PER_PAGE, "page": page})
+            url = f"{GITHUB_API_BASE}/search/code?{qs}"
+            data = client.request_json(url)
+            items = data.get("items", [])
+            for item in items:
+                repo = item.get("repository") or {}
+                full_name = (repo.get("full_name") or "").strip()
+                if full_name:
+                    found.add(full_name.lower())
+            if len(items) < PER_PAGE:
+                break
+            if page * PER_PAGE >= MAX_RESULTS:
+                break
+            page += 1
+            time.sleep(0.25)
+        return found
+
+    try:
+        disallowed_repos = collect_repo_names_for_query(DISALLOWED_MENTION_QUERY)
+        disallowed_repos -= EXCLUDE_REPOS_LOWER
+        print(f"excluded typo repos ({DISALLOWED_MENTION_QUERY}): {len(disallowed_repos)}")
+    except Exception as exc:
+        print(f"Typo exclusion query failed ({DISALLOWED_MENTION_QUERY}): {exc}")
+        disallowed_repos = set()
+
     repos: Dict[str, dict] = {}
     builders: Dict[str, dict] = {}
 
@@ -225,10 +257,12 @@ def main() -> None:
         return today_iso
 
     def upsert_repo_by_name(full_name: str, source: str) -> Optional[dict]:
-        if not full_name or full_name.lower() in EXCLUDE_REPOS_LOWER:
+        if not full_name:
             return None
 
         key = full_name.lower()
+        if key in EXCLUDE_REPOS_LOWER or key in disallowed_repos:
+            return None
         existing = previous_repo_map.get(key, {})
         if key not in repos:
             owner = full_name.split("/")[0] if "/" in full_name else ""
