@@ -785,6 +785,7 @@
       const PACKAGE_NAME = "starkzap";
       const START_DATE = "2026-02-01";
       const GITHUB_MENTIONS_START = "2026-02-01";
+      const EXCLUDED_KUDOS_BUILDERS = new Set(["abdelstark", "welttowelt", "starknet-io"]);
       const TRANSPARENT_PIXEL_DATA_URI =
         "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
       const FALLBACK_AVATAR_DATA_URI =
@@ -1236,6 +1237,7 @@
           if (typeof repo.full_name !== "string" || !repo.full_name.includes("/")) continue;
           const owner = repo.full_name.split("/")[0];
           const ownerKey = owner.toLowerCase();
+          if (EXCLUDED_KUDOS_BUILDERS.has(ownerKey)) continue;
           if (!owner || byOwner.has(ownerKey)) continue;
           byOwner.set(ownerKey, {
             owner,
@@ -1247,6 +1249,7 @@
           if (!builder || typeof builder.login !== "string") continue;
           const login = builder.login.trim();
           const loginKey = login.toLowerCase();
+          if (EXCLUDED_KUDOS_BUILDERS.has(loginKey)) continue;
           if (!login || byOwner.has(loginKey)) continue;
           const profileUrl = typeof builder.url === "string" && builder.url ? builder.url : `https://github.com/${login}`;
           const avatarUrl = typeof builder.avatar_url === "string" && builder.avatar_url
