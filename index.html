@@ -477,7 +477,7 @@
         left: clamp(14px, 3.2vw, 34px);
         right: clamp(14px, 3.2vw, 34px);
         top: clamp(72px, 15vw, 140px);
-        bottom: clamp(16px, 3.2vw, 34px);
+        bottom: clamp(58px, 10vw, 86px);
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(clamp(36px, 6.1vw, 64px), 1fr));
         gap: clamp(8px, 1.35vw, 14px);
@@ -510,6 +510,36 @@
         font-size: clamp(0.64rem, 1.8vw, 1rem);
         color: var(--text-secondary);
         background: #ffffff12;
+      }
+
+      .twitter-share-footer-minimal {
+        position: absolute;
+        left: clamp(14px, 3.2vw, 34px);
+        right: clamp(14px, 3.2vw, 34px);
+        bottom: clamp(12px, 2.7vw, 28px);
+        display: flex;
+        align-items: center;
+        gap: clamp(8px, 1.8vw, 14px);
+      }
+
+      .twitter-command-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: clamp(4px, 0.95vw, 7px) clamp(9px, 1.7vw, 14px);
+        border-radius: 999px;
+        border: 1px solid #f9731692;
+        background: #f973161f;
+        color: #ffb179;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: clamp(0.6rem, 1.45vw, 1rem);
+        line-height: 1;
+      }
+
+      .twitter-website-tag {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: clamp(0.66rem, 1.55vw, 1rem);
+        font-weight: 600;
+        color: #ffb179;
       }
 
       .footer {
@@ -725,6 +755,10 @@
             <span class="twitter-builders-chip"><strong id="twitter-builder-count">--</strong> STARKs builders</span>
           </header>
           <div class="twitter-pfp-grid" id="twitter-pfp-grid" aria-label="Builder profile images"></div>
+          <footer class="twitter-share-footer-minimal">
+            <span class="twitter-command-tag">npm install starkzap</span>
+            <span class="twitter-website-tag">starkzap.io</span>
+          </footer>
         </article>
       </section>
 
@@ -1012,7 +1046,8 @@
                 borderRadius: config.type === "bar" ? 4 : 0,
                 fill: config.type === "line",
                 tension: 0.18,
-                pointRadius: config.type === "line" ? 0 : 2
+                pointRadius: config.type === "line" ? (config.values.length <= 1 ? 4 : 0) : 2,
+                pointHoverRadius: config.type === "line" ? 5 : 3
               }
             ]
           },
@@ -1184,11 +1219,13 @@
       }
 
       function repoMentionDate(repo) {
-        if (typeof repo.first_seen_at === "string" && /^\d{4}-\d{2}-\d{2}$/.test(repo.first_seen_at)) {
-          return repo.first_seen_at;
+        const createdAt = typeof repo.created_at === "string" ? repo.created_at : "";
+        if (/^\d{4}-\d{2}-\d{2}$/.test(createdAt) && createdAt >= GITHUB_MENTIONS_START) {
+          return createdAt;
         }
-        if (typeof repo.created_at === "string" && /^\d{4}-\d{2}-\d{2}$/.test(repo.created_at)) {
-          return repo.created_at;
+        const firstSeenAt = typeof repo.first_seen_at === "string" ? repo.first_seen_at : "";
+        if (/^\d{4}-\d{2}-\d{2}$/.test(firstSeenAt) && firstSeenAt >= GITHUB_MENTIONS_START) {
+          return firstSeenAt;
         }
         return "";
       }
@@ -1524,6 +1561,11 @@
             const count = sorted.filter((r) => r.mention_at <= iso).length;
             cumLabels.push(iso);
             cumValues.push(count);
+          }
+          const endIso = endDate.toISOString().slice(0, 10);
+          if (cumLabels[cumLabels.length - 1] !== endIso) {
+            cumLabels.push(endIso);
+            cumValues.push(sorted.length);
           }
 
           renderChart("gh-mentions-chart", {
