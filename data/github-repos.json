@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-05T06:35:27Z",
-  "total": 11,
+  "updated": "2026-03-06T06:33:13Z",
+  "total": 14,
   "repos": [
     {
       "full_name": "mediolano-app/mediolano-app",
@@ -39,14 +39,14 @@
       "stars": 74,
       "created_at": "2026-01-31",
       "match_sources": [
-        "ts_code"
+        "js_code"
       ]
     },
     {
       "full_name": "starkience/winky-starkzap",
       "url": "https://github.com/starkience/winky-starkzap",
       "description": "Every blink is a transaction on Starknet. Powered by session keys and Gasless transactions. Seamless integration with the Starkzap SDK.",
-      "stars": 2,
+      "stars": 3,
       "created_at": "2026-02-19",
       "match_sources": [
         "js_code"
@@ -83,9 +83,19 @@
       ]
     },
     {
+      "full_name": "azeemshaik025/stark-split",
+      "url": "https://github.com/azeemshaik025/stark-split",
+      "description": " Group expense splitting on Starknet. Gasless settlements with Bitcoin-on-Starknet. Idle funds stake for yield while debts stay open.",
+      "stars": 0,
+      "created_at": "2026-03-01",
+      "match_sources": [
+        "ts_code"
+      ]
+    },
+    {
       "full_name": "hoddukzoa12/BTCLP",
       "url": "https://github.com/hoddukzoa12/BTCLP",
-      "description": "",
+      "description": "BTCFi Strategy Vault \u2014 Automated LP/Lending yield optimizer on Starknet. Escapes idle capital when BTC exits LP range, returns when profitable again.",
       "stars": 0,
       "created_at": "2026-03-01",
       "match_sources": [
@@ -110,6 +120,26 @@
       "created_at": "2026-03-04",
       "match_sources": [
         "ts_code"
+      ]
+    },
+    {
+      "full_name": "argentum3/zaptic",
+      "url": "https://github.com/argentum3/zaptic",
+      "description": "",
+      "stars": 0,
+      "created_at": "2026-03-06",
+      "match_sources": [
+        "js_code"
+      ]
+    },
+    {
+      "full_name": "argentum3/zaptic-hex",
+      "url": "https://github.com/argentum3/zaptic-hex",
+      "description": "",
+      "stars": 0,
+      "created_at": "2026-03-06",
+      "match_sources": [
+        "js_code"
       ]
     }
   ],
