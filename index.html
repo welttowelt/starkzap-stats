@@ -406,14 +406,37 @@
         position: relative;
         width: 100%;
         aspect-ratio: 1200 / 630;
-        border-radius: 18px;
-        border: 1px solid #ffffff26;
+        border-radius: 22px;
+        border: 1px solid #ffffff33;
         background:
-          radial-gradient(circle at 8% 18%, rgba(249, 115, 22, 0.38), rgba(249, 115, 22, 0) 36%),
-          radial-gradient(circle at 88% 80%, rgba(249, 115, 22, 0.22), rgba(249, 115, 22, 0) 40%),
-          linear-gradient(180deg, #050508 0%, #090a12 100%);
+          radial-gradient(110% 140% at 8% 22%, rgba(249, 115, 22, 0.48), rgba(249, 115, 22, 0.12) 28%, rgba(249, 115, 22, 0) 60%),
+          radial-gradient(95% 120% at 92% 84%, rgba(249, 115, 22, 0.25), rgba(249, 115, 22, 0.06) 36%, rgba(249, 115, 22, 0) 72%),
+          linear-gradient(165deg, #04050a 0%, #070a15 56%, #180f0b 100%);
         overflow: hidden;
-        box-shadow: inset 0 1px #ffffff28, inset 0 -1px #0000004d;
+        box-shadow:
+          0 20px 44px rgba(0, 0, 0, 0.42),
+          inset 0 1px rgba(255, 255, 255, 0.2),
+          inset 0 -1px rgba(0, 0, 0, 0.45);
+      }
+
+      .twitter-share-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(120deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.01) 38%, rgba(255, 255, 255, 0) 70%),
+          radial-gradient(circle at 66% 32%, rgba(99, 102, 241, 0.14), rgba(99, 102, 241, 0) 52%);
+        pointer-events: none;
+      }
+
+      .twitter-share-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.06) 0.6px, transparent 0.6px);
+        background-size: 3px 3px;
+        opacity: 0.15;
+        pointer-events: none;
       }
 
       .twitter-share-head {
@@ -425,6 +448,11 @@
         justify-content: space-between;
         align-items: center;
         gap: 0.9rem;
+        padding: clamp(8px, 1.6vw, 12px) clamp(9px, 1.7vw, 14px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: linear-gradient(180deg, rgba(14, 16, 30, 0.72) 0%, rgba(14, 16, 30, 0.36) 100%);
+        backdrop-filter: blur(3px);
       }
 
       .twitter-brand {
@@ -455,17 +483,17 @@
         margin-top: 0.13rem;
         font-family: "Inter", system-ui, sans-serif;
         font-size: clamp(0.62rem, 1.8vw, 0.95rem);
-        color: var(--card-text);
+        color: #bb9e8a;
       }
 
       .twitter-builders-chip {
         padding: clamp(5px, 1.4vw, 10px) clamp(8px, 2vw, 14px);
         border-radius: 999px;
-        border: 1px solid #ffffff2f;
-        background: #ffffff0f;
+        border: 1px solid #ffffff4a;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
         font-family: "Inter", system-ui, sans-serif;
         font-size: clamp(0.62rem, 1.8vw, 0.94rem);
-        color: #f2f2f8;
+        color: #f7f8ff;
       }
 
       .twitter-builders-chip strong {
@@ -476,8 +504,8 @@
         position: absolute;
         left: clamp(14px, 3.2vw, 34px);
         right: clamp(14px, 3.2vw, 34px);
-        top: clamp(72px, 15vw, 140px);
-        bottom: clamp(58px, 10vw, 86px);
+        top: clamp(96px, 17vw, 160px);
+        bottom: clamp(84px, 13vw, 120px);
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(clamp(36px, 6.1vw, 64px), 1fr));
         gap: clamp(8px, 1.35vw, 14px);
@@ -488,10 +516,10 @@
         width: 100%;
         aspect-ratio: 1 / 1;
         border-radius: 999px;
-        border: 1px solid #ffffff35;
+        border: 1px solid #ffffff4f;
         overflow: hidden;
-        background: #ffffff14;
-        box-shadow: 0 0 0 1px #00000038 inset;
+        background: #ffffff18;
+        box-shadow: 0 0 0 1px #0000003f inset, 0 8px 18px rgba(0, 0, 0, 0.3);
         text-decoration: none;
       }
 
@@ -508,8 +536,8 @@
         justify-content: center;
         font-family: "Inter", system-ui, sans-serif;
         font-size: clamp(0.64rem, 1.8vw, 1rem);
-        color: var(--text-secondary);
-        background: #ffffff12;
+        color: #d7dae7;
+        background: rgba(255, 255, 255, 0.12);
       }
 
       .twitter-share-footer-minimal {
@@ -517,9 +545,27 @@
         left: clamp(14px, 3.2vw, 34px);
         right: clamp(14px, 3.2vw, 34px);
         bottom: clamp(12px, 2.7vw, 28px);
+        padding: clamp(8px, 1.5vw, 12px) clamp(10px, 2vw, 16px);
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: linear-gradient(180deg, rgba(10, 11, 18, 0.87), rgba(10, 11, 18, 0.58));
+        backdrop-filter: blur(3px);
+      }
+
+      .twitter-value-line {
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: clamp(0.72rem, 1.55vw, 1.03rem);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: #f4f5fb;
+        line-height: 1.18;
+      }
+
+      .twitter-footer-links {
+        margin-top: clamp(6px, 1.15vw, 10px);
         display: flex;
         align-items: center;
-        gap: clamp(8px, 1.8vw, 14px);
+        gap: clamp(9px, 1.9vw, 15px);
       }
 
       .twitter-command-tag {
@@ -528,7 +574,7 @@
         padding: clamp(4px, 0.95vw, 7px) clamp(9px, 1.7vw, 14px);
         border-radius: 999px;
         border: 1px solid #f9731692;
-        background: #f973161f;
+        background: linear-gradient(180deg, rgba(249, 115, 22, 0.26), rgba(249, 115, 22, 0.08));
         color: #ffb179;
         font-family: "Space Grotesk", system-ui, sans-serif;
         font-size: clamp(0.6rem, 1.45vw, 1rem);
@@ -540,6 +586,7 @@
         font-size: clamp(0.66rem, 1.55vw, 1rem);
         font-weight: 600;
         color: #ffb179;
+        letter-spacing: 0.01em;
       }
 
       .footer {
@@ -756,8 +803,11 @@
           </header>
           <div class="twitter-pfp-grid" id="twitter-pfp-grid" aria-label="Builder profile images"></div>
           <footer class="twitter-share-footer-minimal">
-            <span class="twitter-command-tag">npm install starkzap</span>
-            <span class="twitter-website-tag">starkzap.io</span>
+            <p class="twitter-value-line">Bring the Bitcoin economy into your app in minutes, not months.</p>
+            <div class="twitter-footer-links">
+              <span class="twitter-command-tag">npm install starkzap</span>
+              <span class="twitter-website-tag">starkzap.io</span>
+            </div>
           </footer>
         </article>
       </section>
