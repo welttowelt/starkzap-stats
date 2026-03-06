@@ -1,7 +1,20 @@
 {
-  "updated": "2026-03-06T12:04:03Z",
-  "total": 28,
+  "updated": "2026-03-06T12:12:49Z",
+  "total": 32,
   "repos": [
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8027,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
     {
       "full_name": "starknet-io/starknet-docs",
       "url": "https://github.com/starknet-io/starknet-docs",
@@ -9,11 +22,24 @@
       "summary": "Starknet's developer documentation",
       "stars": 167,
       "created_at": "2022-01-24",
-      "first_seen_at": "2022-01-24",
+      "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/104390117?v=4",
       "match_sources": [
         "json_files",
         "repo_wide"
+      ]
+    },
+    {
+      "full_name": "keep-starknet-strange/alexandria",
+      "url": "https://github.com/keep-starknet-strange/alexandria",
+      "description": "Community maintained Cairo  libraries and set of well maintained, optimised and secure components.",
+      "summary": "Community maintained Cairo libraries and set of well maintained, optimised and secure components.",
+      "stars": 263,
+      "created_at": "2022-11-25",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/118723009?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
       ]
     },
     {
@@ -23,7 +49,7 @@
       "summary": "Expired domain names by day 2022 (EDNBD) https://cirosantilli.com/cia-2010-covert-communication-websites#ex...",
       "stars": 19,
       "created_at": "2023-10-24",
-      "first_seen_at": "2023-10-24",
+      "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/1429315?v=4",
       "match_sources": [
         "repo_wide"
@@ -36,7 +62,7 @@
       "summary": "IP Creator permissionless dapp with Zero Fees \u2013 Programmable IP for the Integrity Web",
       "stars": 13,
       "created_at": "2024-11-15",
-      "first_seen_at": "2024-11-15",
+      "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/181981249?v=4",
       "match_sources": [
         "json_files",
@@ -52,7 +78,7 @@
       "summary": "Newsletter Agent",
       "stars": 11,
       "created_at": "2025-04-15",
-      "first_seen_at": "2025-04-15",
+      "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/187839878?v=4",
       "match_sources": [
         "markdown_files",
@@ -66,7 +92,7 @@
       "summary": "EngiPay is the Venmo of Web3 - but better. We make DeFi as simple as traditional banking while adding priva...",
       "stars": 3,
       "created_at": "2025-09-20",
-      "first_seen_at": "2025-09-20",
+      "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/232935429?v=4",
       "match_sources": [
         "js_code",
@@ -82,7 +108,7 @@
       "summary": "A cutting-edge web application that matches students with internships using AI-powered resume analysis and...",
       "stars": 0,
       "created_at": "2025-10-21",
-      "first_seen_at": "2025-10-21",
+      "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/162358157?v=4",
       "match_sources": [
         "repo_wide"
@@ -95,7 +121,7 @@
       "summary": "this is me.",
       "stars": 1,
       "created_at": "2025-11-08",
-      "first_seen_at": "2025-11-08",
+      "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
       "match_sources": [
         "js_code",
@@ -109,7 +135,7 @@
       "summary": "hirek cache",
       "stars": 0,
       "created_at": "2026-01-04",
-      "first_seen_at": "2026-01-04",
+      "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/110780399?v=4",
       "match_sources": [
         "repo_wide"
@@ -122,7 +148,7 @@
       "summary": "Smart contracts, tools, and skills for AI agents that transact on Starknet",
       "stars": 75,
       "created_at": "2026-01-31",
-      "first_seen_at": "2026-01-31",
+      "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/118723009?v=4",
       "match_sources": [
         "docs_path",
@@ -142,205 +168,13 @@
       "summary": "Privacy protocols force you to choose: hide everything (and scare regulators) or expose everything (and los...",
       "stars": 0,
       "created_at": "2026-02-09",
-      "first_seen_at": "2026-02-09",
+      "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/101935656?v=4",
       "match_sources": [
         "json_files",
         "markdown_files",
         "readme",
         "repo_wide"
-      ]
-    },
-    {
-      "full_name": "keep-starknet-strange/awesome-starkzap",
-      "url": "https://github.com/keep-starknet-strange/awesome-starkzap",
-      "description": "Curated list of projects using Starkzap",
-      "summary": "Curated list of projects using Starkzap",
-      "stars": 34,
-      "created_at": "2026-02-19",
-      "first_seen_at": "2026-02-19",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/118723009?v=4",
-      "match_sources": [
-        "json_files",
-        "markdown_files",
-        "readme",
-        "repo_wide"
-      ]
-    },
-    {
-      "full_name": "starkience/winky-starkzap",
-      "url": "https://github.com/starkience/winky-starkzap",
-      "description": "Every blink is a transaction on Starknet. Powered by session keys and Gasless transactions. Seamless integration with the Starkzap SDK.",
-      "summary": "Every blink is a transaction on Starknet. Powered by session keys and Gasless transactions. Seamless integr...",
-      "stars": 3,
-      "created_at": "2026-02-19",
-      "first_seen_at": "2026-02-19",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/129275548?v=4",
-      "match_sources": [
-        "awesome_starkzap_curated",
-        "js_code",
-        "json_files",
-        "markdown_files",
-        "readme",
-        "repo_wide",
-        "ts_code"
-      ]
-    },
-    {
-      "full_name": "RealAdii/raffletest-starknet",
-      "url": "https://github.com/RealAdii/raffletest-starknet",
-      "description": "Gasless on-chain raffles on Starknet \u2014 Cyberpunk Edition",
-      "summary": "Gasless on-chain raffles on Starknet \u2014 Cyberpunk Edition",
-      "stars": 0,
-      "created_at": "2026-02-24",
-      "first_seen_at": "2026-02-24",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
-      "match_sources": [
-        "markdown_files",
-        "readme",
-        "repo_wide",
-        "ts_code"
-      ]
-    },
-    {
-      "full_name": "RajVarsani/skill-builder",
-      "url": "https://github.com/RajVarsani/skill-builder",
-      "description": "",
-      "summary": "Starkzap mention found in repository files.",
-      "stars": 0,
-      "created_at": "2026-02-26",
-      "first_seen_at": "2026-02-26",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/74860406?v=4",
-      "match_sources": [
-        "json_files",
-        "repo_wide"
-      ]
-    },
-    {
-      "full_name": "RealAdii/typeracer",
-      "url": "https://github.com/RealAdii/typeracer",
-      "description": "",
-      "summary": "Starkzap mention found in repository files.",
-      "stars": 0,
-      "created_at": "2026-02-26",
-      "first_seen_at": "2026-02-26",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
-      "match_sources": [
-        "awesome_starkzap_curated",
-        "json_files",
-        "repo_wide"
-      ]
-    },
-    {
-      "full_name": "sainathr19/starkyield",
-      "url": "https://github.com/sainathr19/starkyield",
-      "description": "One click, one Sat, one journey to yield",
-      "summary": "One click, one Sat, one journey to yield",
-      "stars": 0,
-      "created_at": "2026-02-26",
-      "first_seen_at": "2026-02-26",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/88471927?v=4",
-      "match_sources": [
-        "awesome_starkzap_curated",
-        "json_files",
-        "markdown_files",
-        "readme",
-        "repo_wide",
-        "ts_code"
-      ]
-    },
-    {
-      "full_name": "azeemshaik025/stark-split",
-      "url": "https://github.com/azeemshaik025/stark-split",
-      "description": " Group expense splitting on Starknet. Gasless settlements with Bitcoin-on-Starknet. Idle funds stake for yield while debts stay open.",
-      "summary": "Group expense splitting on Starknet. Gasless settlements with Bitcoin-on-Starknet. Idle funds stake for yie...",
-      "stars": 0,
-      "created_at": "2026-03-01",
-      "first_seen_at": "2026-03-01",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/108066377?v=4",
-      "match_sources": [
-        "awesome_starkzap_curated",
-        "json_files",
-        "markdown_files",
-        "readme",
-        "repo_wide",
-        "ts_code"
-      ]
-    },
-    {
-      "full_name": "hoddukzoa12/BTCLP",
-      "url": "https://github.com/hoddukzoa12/BTCLP",
-      "description": "BTCFi Strategy Vault \u2014 Automated LP/Lending yield optimizer on Starknet. Escapes idle capital when BTC exits LP range, returns when profitable again.",
-      "summary": "BTCFi Strategy Vault \u2014 Automated LP/Lending yield optimizer on Starknet. Escapes idle capital when BTC exit...",
-      "stars": 0,
-      "created_at": "2026-03-01",
-      "first_seen_at": "2026-03-01",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/61504598?v=4",
-      "match_sources": [
-        "json_files",
-        "repo_wide",
-        "ts_code"
-      ]
-    },
-    {
-      "full_name": "ShauryaSwarup/satkey",
-      "url": "https://github.com/ShauryaSwarup/satkey",
-      "description": "",
-      "summary": "**One-click Bitcoin \u2192 Starknet. No seed phrase. No bridge friction.**",
-      "stars": 0,
-      "created_at": "2026-03-01",
-      "first_seen_at": "2026-03-01",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/116101909?v=4",
-      "match_sources": [
-        "json_files",
-        "repo_wide",
-        "ts_code"
-      ]
-    },
-    {
-      "full_name": "coppolajulien/winky-duel",
-      "url": "https://github.com/coppolajulien/winky-duel",
-      "description": "Blink to win. Every blink is a transaction on MegaETH.",
-      "summary": "Blink to win. Every blink is a transaction on MegaETH.",
-      "stars": 0,
-      "created_at": "2026-03-02",
-      "first_seen_at": "2026-03-02",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/3055154?v=4",
-      "match_sources": [
-        "markdown_files",
-        "repo_wide"
-      ]
-    },
-    {
-      "full_name": "ivedmohan/Callout",
-      "url": "https://github.com/ivedmohan/Callout",
-      "description": "",
-      "summary": "> Bet STRK tokens on anything with your friend group. No wallet setup, no gas fees, no friction.",
-      "stars": 2,
-      "created_at": "2026-03-03",
-      "first_seen_at": "2026-03-03",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/118909117?v=4",
-      "match_sources": [
-        "json_files",
-        "markdown_files",
-        "readme",
-        "repo_wide",
-        "ts_code"
-      ]
-    },
-    {
-      "full_name": "eliashezron/starkdeep",
-      "url": "https://github.com/eliashezron/starkdeep",
-      "description": "",
-      "summary": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/do...",
-      "stars": 0,
-      "created_at": "2026-03-04",
-      "first_seen_at": "2026-03-04",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/60871378?v=4",
-      "match_sources": [
-        "json_files",
-        "repo_wide",
-        "ts_code"
       ]
     },
     {
@@ -357,6 +191,55 @@
       ]
     },
     {
+      "full_name": "Akashneelesh/awesome-starkzap",
+      "url": "https://github.com/Akashneelesh/awesome-starkzap",
+      "description": "Curated list of projects using Starkzap",
+      "summary": "Curated list of projects using Starkzap",
+      "stars": 0,
+      "created_at": "2026-02-19",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/66639153?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "keep-starknet-strange/awesome-starkzap",
+      "url": "https://github.com/keep-starknet-strange/awesome-starkzap",
+      "description": "Curated list of projects using Starkzap",
+      "summary": "Curated list of projects using Starkzap",
+      "stars": 34,
+      "created_at": "2026-02-19",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/118723009?v=4",
+      "match_sources": [
+        "json_files",
+        "markdown_files",
+        "readme",
+        "repo_wide",
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "starkience/winky-starkzap",
+      "url": "https://github.com/starkience/winky-starkzap",
+      "description": "Every blink is a transaction on Starknet. Powered by session keys and Gasless transactions. Seamless integration with the Starkzap SDK.",
+      "summary": "Every blink is a transaction on Starknet. Powered by session keys and Gasless transactions. Seamless integr...",
+      "stars": 3,
+      "created_at": "2026-02-19",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/129275548?v=4",
+      "match_sources": [
+        "awesome_starkzap_curated",
+        "js_code",
+        "json_files",
+        "markdown_files",
+        "readme",
+        "repo_wide",
+        "ts_code"
+      ]
+    },
+    {
       "full_name": "Akashneelesh/giftapp-starkzap",
       "url": "https://github.com/Akashneelesh/giftapp-starkzap",
       "description": "",
@@ -367,6 +250,41 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/66639153?v=4",
       "match_sources": [
         "awesome_starkzap_curated"
+      ]
+    },
+    {
+      "full_name": "RealAdii/raffletest-starknet",
+      "url": "https://github.com/RealAdii/raffletest-starknet",
+      "description": "Gasless on-chain raffles on Starknet \u2014 Cyberpunk Edition",
+      "summary": "Gasless on-chain raffles on Starknet \u2014 Cyberpunk Edition",
+      "stars": 0,
+      "created_at": "2026-02-24",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
+      "match_sources": [
+        "markdown_files",
+        "readme",
+        "repo_wide",
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "GravitySignal/skuldrift-almm",
+      "url": "https://github.com/GravitySignal/skuldrift-almm",
+      "description": "Skuldrift ALMM",
+      "summary": "Skuldrift ALMM",
+      "stars": 0,
+      "created_at": "2026-02-25",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/261995388?v=4",
+      "match_sources": [
+        "docs_path",
+        "js_code",
+        "json_files",
+        "markdown_files",
+        "readme",
+        "repo_wide",
+        "ts_code"
       ]
     },
     {
@@ -393,6 +311,147 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/89799857?v=4",
       "match_sources": [
         "awesome_starkzap_curated"
+      ]
+    },
+    {
+      "full_name": "RajVarsani/skill-builder",
+      "url": "https://github.com/RajVarsani/skill-builder",
+      "description": "",
+      "summary": "Starkzap mention found in repository files.",
+      "stars": 0,
+      "created_at": "2026-02-26",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/74860406?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "RealAdii/typeracer",
+      "url": "https://github.com/RealAdii/typeracer",
+      "description": "",
+      "summary": "Starkzap mention found in repository files.",
+      "stars": 0,
+      "created_at": "2026-02-26",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
+      "match_sources": [
+        "awesome_starkzap_curated",
+        "json_files",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "sainathr19/starkyield",
+      "url": "https://github.com/sainathr19/starkyield",
+      "description": "One click, one Sat, one journey to yield",
+      "summary": "One click, one Sat, one journey to yield",
+      "stars": 0,
+      "created_at": "2026-02-26",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/88471927?v=4",
+      "match_sources": [
+        "awesome_starkzap_curated",
+        "json_files",
+        "markdown_files",
+        "readme",
+        "repo_wide",
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "azeemshaik025/stark-split",
+      "url": "https://github.com/azeemshaik025/stark-split",
+      "description": " Group expense splitting on Starknet. Gasless settlements with Bitcoin-on-Starknet. Idle funds stake for yield while debts stay open.",
+      "summary": "Group expense splitting on Starknet. Gasless settlements with Bitcoin-on-Starknet. Idle funds stake for yie...",
+      "stars": 0,
+      "created_at": "2026-03-01",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/108066377?v=4",
+      "match_sources": [
+        "awesome_starkzap_curated",
+        "json_files",
+        "markdown_files",
+        "readme",
+        "repo_wide",
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "hoddukzoa12/BTCLP",
+      "url": "https://github.com/hoddukzoa12/BTCLP",
+      "description": "BTCFi Strategy Vault \u2014 Automated LP/Lending yield optimizer on Starknet. Escapes idle capital when BTC exits LP range, returns when profitable again.",
+      "summary": "BTCFi Strategy Vault \u2014 Automated LP/Lending yield optimizer on Starknet. Escapes idle capital when BTC exit...",
+      "stars": 0,
+      "created_at": "2026-03-01",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/61504598?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide",
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "ShauryaSwarup/satkey",
+      "url": "https://github.com/ShauryaSwarup/satkey",
+      "description": "",
+      "summary": "**One-click Bitcoin \u2192 Starknet. No seed phrase. No bridge friction.**",
+      "stars": 0,
+      "created_at": "2026-03-01",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/116101909?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide",
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "coppolajulien/winky-duel",
+      "url": "https://github.com/coppolajulien/winky-duel",
+      "description": "Blink to win. Every blink is a transaction on MegaETH.",
+      "summary": "Blink to win. Every blink is a transaction on MegaETH.",
+      "stars": 0,
+      "created_at": "2026-03-02",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/3055154?v=4",
+      "match_sources": [
+        "markdown_files",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "ivedmohan/Callout",
+      "url": "https://github.com/ivedmohan/Callout",
+      "description": "",
+      "summary": "> Bet STRK tokens on anything with your friend group. No wallet setup, no gas fees, no friction.",
+      "stars": 2,
+      "created_at": "2026-03-03",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/118909117?v=4",
+      "match_sources": [
+        "json_files",
+        "markdown_files",
+        "readme",
+        "repo_wide",
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "eliashezron/starkdeep",
+      "url": "https://github.com/eliashezron/starkdeep",
+      "description": "",
+      "summary": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/do...",
+      "stars": 0,
+      "created_at": "2026-03-04",
+      "first_seen_at": "2026-03-06",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/60871378?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide",
+        "ts_code"
       ]
     },
     {
@@ -440,7 +499,8 @@
       "url": "https://github.com/0xLucqs",
       "avatar_url": "https://avatars.githubusercontent.com/u/70894690?v=4",
       "sources": [
-        "starkzap_core_contributors"
+        "starkzap_core_contributors",
+        "starkzap_repo_profiles"
       ]
     },
     {
@@ -450,7 +510,8 @@
       "sources": [
         "awesome_starkzap_contributors",
         "repo_owner",
-        "starkzap_core_contributors"
+        "starkzap_core_contributors",
+        "starkzap_repo_profiles"
       ]
     },
     {
@@ -459,6 +520,14 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/162358157?v=4",
       "sources": [
         "repo_owner"
+      ]
+    },
+    {
+      "login": "abdelhamidbakhta",
+      "url": "https://github.com/abdelhamidbakhta",
+      "avatar_url": "https://github.com/abdelhamidbakhta.png?size=96",
+      "sources": [
+        "starkzap_repo_profiles"
       ]
     },
     {
@@ -476,7 +545,16 @@
       "sources": [
         "awesome_starkzap_contributors",
         "repo_owner",
-        "starkzap_core_contributors"
+        "starkzap_core_contributors",
+        "starkzap_repo_profiles"
+      ]
+    },
+    {
+      "login": "all-contributors",
+      "url": "https://github.com/all-contributors",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "sources": [
+        "repo_owner"
       ]
     },
     {
@@ -530,6 +608,14 @@
       ]
     },
     {
+      "login": "GravitySignal",
+      "url": "https://github.com/GravitySignal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/261995388?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
       "login": "hoddukzoa12",
       "url": "https://github.com/hoddukzoa12",
       "avatar_url": "https://avatars.githubusercontent.com/u/61504598?v=4",
@@ -566,7 +652,8 @@
       "url": "https://github.com/micbakos",
       "avatar_url": "https://avatars.githubusercontent.com/u/6217006?v=4",
       "sources": [
-        "starkzap_core_contributors"
+        "starkzap_core_contributors",
+        "starkzap_repo_profiles"
       ]
     },
     {
@@ -662,7 +749,7 @@
       ]
     }
   ],
-  "query_mode": "deep_repo_wide_mentions_with_awesome_curated",
+  "query_mode": "deep_repo_wide_mentions_with_curated_sources",
   "queries": {
     "repo_wide": "starkzap",
     "package_json": "starkzap path:package.json",
@@ -684,6 +771,8 @@
   "curated_sources": {
     "awesome_starkzap_curated": "https://github.com/keep-starknet-strange/awesome-starkzap",
     "awesome_starkzap_contributors": "https://github.com/keep-starknet-strange/awesome-starkzap#contributors",
+    "starkzap_repo_curated": "https://github.com/keep-starknet-strange/starkzap",
+    "starkzap_repo_profiles": "https://github.com/keep-starknet-strange/starkzap",
     "starkzap_core_contributors": "https://github.com/keep-starknet-strange/starkzap"
   }
 }

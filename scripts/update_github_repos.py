@@ -17,14 +17,18 @@ from typing import Dict, List, Optional, Set, Tuple
 PER_PAGE = 100
 MAX_RESULTS = 1000
 GITHUB_API_BASE = "https://api.github.com"
+STARKZAP_REPO = "keep-starknet-strange/starkzap"
 AWESOME_REPO = "keep-starknet-strange/awesome-starkzap"
 AWESOME_SOURCE = "awesome_starkzap_curated"
 AWESOME_BUILDERS_SOURCE = "awesome_starkzap_contributors"
+STARKZAP_SOURCE = "starkzap_repo_curated"
+STARKZAP_BUILDERS_SOURCE = "starkzap_repo_profiles"
+CURATED_PROJECT_SOURCES = {AWESOME_SOURCE, STARKZAP_SOURCE}
 MENTIONS_START = "2026-02-01"
 DATA_FILE = Path("data/github-repos.json")
 
 EXCLUDE_REPOS = {
-    "keep-starknet-strange/starkzap",
+    STARKZAP_REPO,
     "welttowelt/starkzap-stats",
     "starkience/starkzap-stats",
 }
@@ -241,8 +245,8 @@ def main() -> None:
         if source not in entry["match_sources"]:
             entry["match_sources"].append(source)
 
-        # Curated awesome entries should be represented in post-Feb 2026 stats.
-        if source == AWESOME_SOURCE and entry["first_seen_at"] < MENTIONS_START:
+        # Curated project sources should be represented in post-Feb 2026 stats.
+        if source in CURATED_PROJECT_SOURCES and entry["first_seen_at"] < MENTIONS_START:
             entry["first_seen_at"] = today_iso
         return entry
 
@@ -327,6 +331,24 @@ def main() -> None:
     except Exception as exc:
         print(f"Curated source failed ({AWESOME_REPO}): {exc}")
 
+    # Curated pass: include projects and people linked from the main Starkzap repo.
+    try:
+        starkzap_readme = client.request_text(f"{GITHUB_API_BASE}/repos/{STARKZAP_REPO}/readme")
+        starkzap_repos = extract_repo_full_names(starkzap_readme)
+        starkzap_repos.discard(STARKZAP_REPO)
+
+        for full_name in starkzap_repos:
+            upsert_repo_by_name(full_name, STARKZAP_SOURCE)
+
+        starkzap_profiles = extract_profile_logins(starkzap_readme)
+        for login in starkzap_profiles:
+            upsert_builder(login, STARKZAP_BUILDERS_SOURCE)
+
+        print(f"ok: {STARKZAP_SOURCE} ({len(starkzap_repos)} repos)")
+        print(f"ok: {STARKZAP_BUILDERS_SOURCE} ({len(starkzap_profiles)} builders)")
+    except Exception as exc:
+        print(f"Curated source failed ({STARKZAP_REPO}): {exc}")
+
     # Enrich repo details + summaries.
     resolved_repos: List[dict] = []
     for key, info in repos.items():
@@ -367,10 +389,10 @@ def main() -> None:
                     info["first_seen_at"] = info["created_at"]
                 info["summary"] = build_summary(info.get("description", ""), "")
                 resolved_repos.append(info)
-            elif AWESOME_SOURCE in (info.get("match_sources") or []):
+            elif set(info.get("match_sources") or []).intersection(CURATED_PROJECT_SOURCES):
                 if not is_iso_date(info.get("first_seen_at", "")):
                     info["first_seen_at"] = today_iso
-                info["summary"] = info.get("summary") or "Listed in awesome-starkzap."
+                info["summary"] = info.get("summary") or "Listed in curated Starkzap project sources."
                 resolved_repos.append(info)
                 print(f"Keeping curated repo with unresolved API record {full_name}: {exc}")
             else:
@@ -380,7 +402,7 @@ def main() -> None:
     try:
         page = 1
         while True:
-            url = f"{GITHUB_API_BASE}/repos/keep-starknet-strange/starkzap/contributors?per_page=100&page={page}"
+            url = f"{GITHUB_API_BASE}/repos/{STARKZAP_REPO}/contributors?per_page=100&page={page}"
             contributors = client.request_json(url)
             if not isinstance(contributors, list) or not contributors:
                 break
@@ -393,7 +415,7 @@ def main() -> None:
                 break
             page += 1
     except Exception as exc:
-        print(f"Optional contributors fetch failed (keep-starknet-strange/starkzap): {exc}")
+        print(f"Optional contributors fetch failed ({STARKZAP_REPO}): {exc}")
 
     for item in resolved_repos:
         item["match_sources"] = sorted(set(item.get("match_sources") or []))
@@ -412,12 +434,14 @@ def main() -> None:
         "total": len(repos_sorted),
         "repos": repos_sorted,
         "builders": builders_sorted,
-        "query_mode": "deep_repo_wide_mentions_with_awesome_curated",
+        "query_mode": "deep_repo_wide_mentions_with_curated_sources",
         "queries": {source: query for source, query in QUERY_SETS},
         "curated_sources": {
             AWESOME_SOURCE: f"https://github.com/{AWESOME_REPO}",
             AWESOME_BUILDERS_SOURCE: f"https://github.com/{AWESOME_REPO}#contributors",
-            "starkzap_core_contributors": "https://github.com/keep-starknet-strange/starkzap",
+            STARKZAP_SOURCE: f"https://github.com/{STARKZAP_REPO}",
+            STARKZAP_BUILDERS_SOURCE: f"https://github.com/{STARKZAP_REPO}",
+            "starkzap_core_contributors": f"https://github.com/{STARKZAP_REPO}",
         },
     }
 
