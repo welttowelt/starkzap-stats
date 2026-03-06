@@ -112,7 +112,7 @@ class GithubClient:
 
             req = urllib.request.Request(url, headers=headers)
             try:
-                with urllib.request.urlopen(req) as resp:
+                with urllib.request.urlopen(req, timeout=45) as resp:
                     return resp.read()
             except urllib.error.HTTPError as exc:
                 retryable = exc.code in {403, 429, 502, 503, 504}
@@ -128,6 +128,10 @@ class GithubClient:
                     except ValueError:
                         pass
                 time.sleep(sleep_seconds)
+            except (urllib.error.URLError, TimeoutError):
+                if attempt == retries - 1:
+                    raise
+                time.sleep(1.2 * (2 ** attempt))
 
     def request_json(self, url: str) -> dict:
         return json.loads(self.request(url).decode("utf-8"))
