@@ -287,6 +287,79 @@
         height: 280px;
       }
 
+      .repo-directory {
+        margin-top: 1rem;
+      }
+
+      .repo-list {
+        margin-top: 0.3rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem;
+      }
+
+      .repo-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.65rem;
+        padding: 0.58rem 0.62rem;
+        border-radius: 12px;
+        border: 1px solid #ffffff16;
+        background: #ffffff04;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+      }
+
+      .repo-item:hover {
+        border-color: #f9731670;
+        background: #f9731610;
+        transform: translateY(-1px);
+      }
+
+      .repo-avatar {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1px solid #ffffff22;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+      .repo-body {
+        min-width: 0;
+      }
+
+      .repo-name {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 0.86rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        line-height: 1.2;
+      }
+
+      .repo-meta {
+        margin-top: 0.12rem;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 0.74rem;
+        color: var(--card-text);
+      }
+
+      .repo-summary {
+        margin-top: 0.22rem;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        line-height: 1.32;
+      }
+
+      .repo-empty {
+        font-family: "Inter", system-ui, sans-serif;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        padding: 0.25rem 0;
+      }
+
       .footer {
         margin-top: 1rem;
         text-align: center;
@@ -316,6 +389,10 @@
         }
 
         .charts {
+          grid-template-columns: 1fr;
+        }
+
+        .repo-list {
           grid-template-columns: 1fr;
         }
       }
@@ -398,12 +475,12 @@
         <article class="panel kpi">
           <p
             class="kpi-title"
-            title="GitHub Code Search includes package.json and lockfiles (package-lock.json, pnpm-lock.yaml, yarn.lock)."
+            title="Deep GitHub Code Search across source, dependency files, lockfiles, docs, and configs for starkzap."
           >
             GitHub Repos
           </p>
           <p class="kpi-value" id="kpi-repos">--</p>
-          <p class="kpi-note" id="kpi-repos-note">Inside + outside package.json</p>
+          <p class="kpi-note" id="kpi-repos-note">Deep repo-wide mention scan</p>
         </article>
       </section>
 
@@ -434,7 +511,7 @@
         <article class="panel">
           <h2
             class="chart-title"
-            title="GitHub Code Search includes package.json and lockfiles (package-lock.json, pnpm-lock.yaml, yarn.lock)."
+            title="Deep GitHub Code Search across source, dependency files, lockfiles, docs, and configs for starkzap."
           >
             Monthly GitHub Mentions
           </h2>
@@ -444,13 +521,23 @@
         <article class="panel">
           <h2
             class="chart-title"
-            title="GitHub Code Search includes package.json and lockfiles (package-lock.json, pnpm-lock.yaml, yarn.lock)."
+            title="Deep GitHub Code Search across source, dependency files, lockfiles, docs, and configs for starkzap."
           >
             Cumulative GitHub Mentions
           </h2>
           <p class="chart-caption">Running total of public repos mentioning starkzap since February 2026.</p>
           <div class="chart-wrap"><canvas id="gh-mentions-chart"></canvas></div>
         </article>
+      </section>
+
+      <section class="panel repo-directory">
+        <h2 class="chart-title">Starkzap Repositories Found on GitHub</h2>
+        <p class="chart-caption" id="gh-repo-list-caption">
+          Public repos mentioning starkzap since February 2026.
+        </p>
+        <div class="repo-list" id="gh-repo-list" aria-live="polite">
+          <p class="repo-empty">Loading repositories...</p>
+        </div>
       </section>
 
       <p class="footer">
@@ -488,7 +575,9 @@
         kpi30d: document.getElementById("kpi-30d"),
         kpi30dNote: document.getElementById("kpi-30d-note"),
         kpiRepos: document.getElementById("kpi-repos"),
-        kpiReposNote: document.getElementById("kpi-repos-note")
+        kpiReposNote: document.getElementById("kpi-repos-note"),
+        ghRepoListCaption: document.getElementById("gh-repo-list-caption"),
+        ghRepoList: document.getElementById("gh-repo-list")
       };
 
       refs.refreshBtn.addEventListener("click", () => {
@@ -792,9 +881,87 @@
         }
       }
 
+      function setGithubRepoListEmpty(message) {
+        refs.ghRepoList.replaceChildren();
+        const empty = document.createElement("p");
+        empty.className = "repo-empty";
+        empty.textContent = message;
+        refs.ghRepoList.append(empty);
+      }
+
+      function toRepoSummary(repo) {
+        const raw = typeof repo.summary === "string" && repo.summary.trim()
+          ? repo.summary
+          : typeof repo.description === "string"
+            ? repo.description
+            : "";
+        const compact = raw.replace(/\s+/g, " ").trim();
+        if (!compact) {
+          return "Mention found in repository files.";
+        }
+        if (compact.length <= 120) {
+          return compact;
+        }
+        return `${compact.slice(0, 117).trimEnd()}...`;
+      }
+
+      function repoAvatarUrl(repo) {
+        if (typeof repo.owner_avatar_url === "string" && repo.owner_avatar_url) {
+          return repo.owner_avatar_url;
+        }
+        const owner = typeof repo.full_name === "string" ? repo.full_name.split("/")[0] : "";
+        return owner ? `https://github.com/${owner}.png?size=96` : "https://github.githubassets.com/favicons/favicon.svg";
+      }
+
+      function renderGithubRepoList(repos) {
+        refs.ghRepoList.replaceChildren();
+        if (!repos.length) {
+          setGithubRepoListEmpty("No public repositories found in this date window yet.");
+          return;
+        }
+
+        const display = [...repos].sort((a, b) => b.created_at.localeCompare(a.created_at));
+        for (const repo of display) {
+          const item = document.createElement("a");
+          item.className = "repo-item";
+          item.href = repo.url;
+          item.target = "_blank";
+          item.rel = "noreferrer noopener";
+
+          const avatar = document.createElement("img");
+          avatar.className = "repo-avatar";
+          avatar.src = repoAvatarUrl(repo);
+          avatar.alt = "";
+          avatar.loading = "lazy";
+          avatar.decoding = "async";
+
+          const body = document.createElement("div");
+          body.className = "repo-body";
+
+          const name = document.createElement("p");
+          name.className = "repo-name";
+          name.textContent = repo.full_name;
+
+          const meta = document.createElement("p");
+          meta.className = "repo-meta";
+          const stars = Number(repo.stars) > 0 ? ` · ${formatNum(repo.stars)}★` : "";
+          meta.textContent = `Created ${toHumanDate(repo.created_at)}${stars}`;
+
+          const summary = document.createElement("p");
+          summary.className = "repo-summary";
+          summary.textContent = toRepoSummary(repo);
+
+          body.append(name, meta, summary);
+          item.append(avatar, body);
+          refs.ghRepoList.append(item);
+        }
+      }
+
       function resetGithubMentions() {
         refs.kpiRepos.textContent = "--";
-        refs.kpiReposNote.textContent = "Inside + outside package.json";
+        refs.kpiReposNote.textContent = "Deep repo-wide mention scan";
+        refs.ghRepoListCaption.textContent = "Public repos mentioning starkzap since February 2026.";
+        setGithubRepoListEmpty("Repository list unavailable right now.");
         clearGithubCharts();
       }
 
@@ -819,33 +986,30 @@
           refs.kpiReposNote.textContent = updatedDay
             ? `Updated ${toHumanDate(updatedDay)} · Since ${toHumanDate(GITHUB_MENTIONS_START)}`
             : `Since ${toHumanDate(GITHUB_MENTIONS_START)}`;
+          refs.ghRepoListCaption.textContent = `${formatNum(sorted.length)} public repos mentioning starkzap since ${toHumanDate(GITHUB_MENTIONS_START)}.`;
+          renderGithubRepoList(sorted);
 
           if (!sorted.length) {
             const today = getTodayLocalIso();
-          renderChart("gh-monthly-chart", {
-            type: "bar",
-            labels: [toMonthLabel(today.slice(0, 7))],
-            values: [0],
-            label: "New repos",
-            borderColor: "#a855f7",
-            backgroundColor: "rgba(168, 85, 247, 0.35)",
-            integerAxis: true
-          });
-          renderChart("gh-mentions-chart", {
-            type: "line",
-            labels: [today],
-            values: [0],
-            label: "Cumulative GitHub mentions",
-            borderColor: "#a855f7",
-            backgroundColor: "rgba(168, 85, 247, 0.2)",
-            integerAxis: true
-          });
+            renderChart("gh-monthly-chart", {
+              type: "bar",
+              labels: [toMonthLabel(today.slice(0, 7))],
+              values: [0],
+              label: "New repos",
+              borderColor: "#a855f7",
+              backgroundColor: "rgba(168, 85, 247, 0.35)",
+              integerAxis: true
+            });
+            renderChart("gh-mentions-chart", {
+              type: "line",
+              labels: [today],
+              values: [0],
+              label: "Cumulative GitHub mentions",
+              borderColor: "#a855f7",
+              backgroundColor: "rgba(168, 85, 247, 0.2)",
+              integerAxis: true
+            });
             return;
-          }
-
-          const dailyCounts = new Map();
-          for (const repo of sorted) {
-            dailyCounts.set(repo.created_at, (dailyCounts.get(repo.created_at) || 0) + 1);
           }
 
           const monthlyCounts = new Map();
@@ -872,7 +1036,7 @@
           });
 
           const startDate = toUtcDate(sorted[0].created_at);
-          const endDate = new Date();
+          const endDate = toUtcDate(sorted[sorted.length - 1].created_at);
           const cumLabels = [];
           const cumValues = [];
           for (let d = new Date(startDate); d <= endDate; d.setUTCDate(d.getUTCDate() + 4)) {
