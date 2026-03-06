@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.13/dist/html-to-image.min.js"></script>
     <style>
       :root {
         --bg-dark: #050508;
@@ -360,6 +361,148 @@
         padding: 0.25rem 0;
       }
 
+      .share-card-panel {
+        margin-top: 1rem;
+      }
+
+      .share-card-actions {
+        margin-top: 0.4rem;
+        margin-bottom: 0.55rem;
+      }
+
+      .share-card-download {
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: 0.84rem;
+        font-weight: 500;
+        padding: 0.45rem 0.72rem;
+        background: #f973161e;
+        color: var(--accent);
+        border: 1px solid #f9731645;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease;
+      }
+
+      .share-card-download:hover {
+        background: #f9731630;
+        border-color: #f97316aa;
+      }
+
+      .share-card-download:disabled {
+        opacity: 0.55;
+        cursor: default;
+      }
+
+      .twitter-share-card {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1200 / 630;
+        border-radius: 18px;
+        border: 1px solid #ffffff26;
+        background:
+          radial-gradient(circle at 8% 18%, rgba(249, 115, 22, 0.38), rgba(249, 115, 22, 0) 36%),
+          radial-gradient(circle at 88% 80%, rgba(249, 115, 22, 0.22), rgba(249, 115, 22, 0) 40%),
+          linear-gradient(180deg, #050508 0%, #090a12 100%);
+        overflow: hidden;
+        box-shadow: inset 0 1px #ffffff28, inset 0 -1px #0000004d;
+      }
+
+      .twitter-share-head {
+        position: absolute;
+        left: clamp(14px, 3.2vw, 34px);
+        top: clamp(12px, 2.8vw, 30px);
+        right: clamp(14px, 3.2vw, 34px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.9rem;
+      }
+
+      .twitter-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.62rem;
+      }
+
+      .twitter-brand-logo {
+        width: clamp(28px, 4vw, 44px);
+        height: clamp(28px, 4vw, 44px);
+        object-fit: contain;
+      }
+
+      .twitter-brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.08;
+      }
+
+      .twitter-brand-title {
+        font-size: clamp(0.95rem, 2.8vw, 1.56rem);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .twitter-brand-subtitle {
+        margin-top: 0.13rem;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: clamp(0.62rem, 1.8vw, 0.95rem);
+        color: var(--card-text);
+      }
+
+      .twitter-builders-chip {
+        padding: clamp(5px, 1.4vw, 10px) clamp(8px, 2vw, 14px);
+        border-radius: 999px;
+        border: 1px solid #ffffff2f;
+        background: #ffffff0f;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: clamp(0.62rem, 1.8vw, 0.94rem);
+        color: #f2f2f8;
+      }
+
+      .twitter-builders-chip strong {
+        color: var(--accent);
+      }
+
+      .twitter-pfp-grid {
+        position: absolute;
+        left: clamp(14px, 3.2vw, 34px);
+        right: clamp(14px, 3.2vw, 34px);
+        top: clamp(72px, 15vw, 140px);
+        bottom: clamp(14px, 3.2vw, 30px);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(clamp(36px, 6.1vw, 64px), 1fr));
+        gap: clamp(8px, 1.35vw, 14px);
+        align-content: start;
+      }
+
+      .twitter-pfp {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 999px;
+        border: 1px solid #ffffff35;
+        overflow: hidden;
+        background: #ffffff14;
+        box-shadow: 0 0 0 1px #00000038 inset;
+        text-decoration: none;
+      }
+
+      .twitter-pfp img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .twitter-pfp.more {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: clamp(0.64rem, 1.8vw, 1rem);
+        color: var(--text-secondary);
+        background: #ffffff12;
+      }
+
       .footer {
         margin-top: 1rem;
         text-align: center;
@@ -540,6 +683,27 @@
         </div>
       </section>
 
+      <section class="panel share-card-panel">
+        <h2 class="chart-title">Starkzap Builders Twitter Card</h2>
+        <p class="chart-caption">Branded share card with builder PFPs for social posting.</p>
+        <div class="share-card-actions">
+          <button class="share-card-download" id="download-twitter-card" type="button">Download 1200x630 PNG</button>
+        </div>
+        <article class="twitter-share-card" id="twitter-share-card">
+          <header class="twitter-share-head">
+            <div class="twitter-brand">
+              <img src="https://starkzap.io/logo.png" alt="" class="twitter-brand-logo" />
+              <div class="twitter-brand-text">
+                <span class="twitter-brand-title">Starkzap Builders</span>
+                <span class="twitter-brand-subtitle">Projects building with Starkzap</span>
+              </div>
+            </div>
+            <span class="twitter-builders-chip"><strong id="twitter-builder-count">--</strong> builders</span>
+          </header>
+          <div class="twitter-pfp-grid" id="twitter-pfp-grid" aria-label="Builder profile images"></div>
+        </article>
+      </section>
+
       <p class="footer">
         Reference view:
         <a
@@ -577,12 +741,20 @@
         kpiRepos: document.getElementById("kpi-repos"),
         kpiReposNote: document.getElementById("kpi-repos-note"),
         ghRepoListCaption: document.getElementById("gh-repo-list-caption"),
-        ghRepoList: document.getElementById("gh-repo-list")
+        ghRepoList: document.getElementById("gh-repo-list"),
+        twitterShareCard: document.getElementById("twitter-share-card"),
+        twitterPfpGrid: document.getElementById("twitter-pfp-grid"),
+        twitterBuilderCount: document.getElementById("twitter-builder-count"),
+        downloadTwitterCardBtn: document.getElementById("download-twitter-card")
       };
 
       refs.refreshBtn.addEventListener("click", () => {
         void loadDashboard();
         void loadGithubRepos();
+      });
+
+      refs.downloadTwitterCardBtn.addEventListener("click", () => {
+        void downloadTwitterCardPng();
       });
 
       void loadDashboard();
@@ -913,6 +1085,94 @@
         return owner ? `https://github.com/${owner}.png?size=96` : "https://github.githubassets.com/favicons/favicon.svg";
       }
 
+      function uniqueBuildersFromRepos(repos) {
+        const byOwner = new Map();
+        for (const repo of repos) {
+          if (typeof repo.full_name !== "string" || !repo.full_name.includes("/")) continue;
+          const owner = repo.full_name.split("/")[0];
+          if (!owner || byOwner.has(owner)) continue;
+          byOwner.set(owner, {
+            owner,
+            profileUrl: `https://github.com/${owner}`,
+            avatarUrl: repoAvatarUrl(repo)
+          });
+        }
+        return [...byOwner.values()].sort((a, b) => a.owner.localeCompare(b.owner));
+      }
+
+      function renderTwitterBuilderCard(repos) {
+        const builders = uniqueBuildersFromRepos(repos);
+        refs.twitterBuilderCount.textContent = formatNum(builders.length);
+        refs.twitterPfpGrid.replaceChildren();
+
+        if (!builders.length) {
+          const empty = document.createElement("div");
+          empty.className = "twitter-pfp more";
+          empty.textContent = "No builders";
+          refs.twitterPfpGrid.append(empty);
+          return;
+        }
+
+        const maxAvatars = 56;
+        const visibleBuilders = builders.slice(0, maxAvatars);
+        for (const builder of visibleBuilders) {
+          const link = document.createElement("a");
+          link.className = "twitter-pfp";
+          link.href = builder.profileUrl;
+          link.target = "_blank";
+          link.rel = "noreferrer noopener";
+          link.title = builder.owner;
+
+          const image = document.createElement("img");
+          image.src = builder.avatarUrl;
+          image.alt = "";
+          image.loading = "lazy";
+          image.decoding = "async";
+
+          link.append(image);
+          refs.twitterPfpGrid.append(link);
+        }
+
+        const remaining = builders.length - visibleBuilders.length;
+        if (remaining > 0) {
+          const more = document.createElement("div");
+          more.className = "twitter-pfp more";
+          more.textContent = `+${remaining}`;
+          refs.twitterPfpGrid.append(more);
+        }
+      }
+
+      async function downloadTwitterCardPng() {
+        const button = refs.downloadTwitterCardBtn;
+        if (!button || !refs.twitterShareCard) return;
+        if (!window.htmlToImage || typeof window.htmlToImage.toPng !== "function") {
+          setStatus("PNG export library not available. Please screenshot the card.", "error");
+          return;
+        }
+
+        const originalLabel = button.textContent;
+        button.disabled = true;
+        button.textContent = "Preparing PNG...";
+
+        try {
+          const dataUrl = await window.htmlToImage.toPng(refs.twitterShareCard, {
+            cacheBust: true,
+            pixelRatio: 2
+          });
+          const link = document.createElement("a");
+          link.href = dataUrl;
+          link.download = `starkzap-builders-${getTodayLocalIso()}.png`;
+          link.click();
+          setStatus("Twitter card PNG downloaded.", "ok");
+        } catch (error) {
+          console.error(error);
+          setStatus("PNG export failed. Please screenshot the card.", "error");
+        } finally {
+          button.disabled = false;
+          button.textContent = originalLabel;
+        }
+      }
+
       function renderGithubRepoList(repos) {
         refs.ghRepoList.replaceChildren();
         if (!repos.length) {
@@ -962,6 +1222,7 @@
         refs.kpiReposNote.textContent = "Deep repo-wide mention scan";
         refs.ghRepoListCaption.textContent = "Public repos mentioning starkzap since February 2026.";
         setGithubRepoListEmpty("Repository list unavailable right now.");
+        renderTwitterBuilderCard([]);
         clearGithubCharts();
       }
 
@@ -988,6 +1249,7 @@
             : `Since ${toHumanDate(GITHUB_MENTIONS_START)}`;
           refs.ghRepoListCaption.textContent = `${formatNum(sorted.length)} public repos mentioning starkzap since ${toHumanDate(GITHUB_MENTIONS_START)}.`;
           renderGithubRepoList(sorted);
+          renderTwitterBuilderCard(sorted);
 
           if (!sorted.length) {
             const today = getTodayLocalIso();
