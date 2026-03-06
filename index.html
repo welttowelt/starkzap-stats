@@ -569,6 +569,12 @@
         color: #f0f0f5;
       }
 
+      .twitter-website {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: clamp(0.55rem, 1.25vw, 0.86rem);
+        color: #ffb179;
+      }
+
       .footer {
         margin-top: 1rem;
         text-align: center;
@@ -766,7 +772,7 @@
         <article class="twitter-share-card" id="twitter-share-card">
           <header class="twitter-share-head">
             <div class="twitter-brand">
-              <img src="https://starkzap.io/logo.png" alt="" class="twitter-brand-logo" />
+              <img src="https://starkzap.io/logo.png" alt="" class="twitter-brand-logo" crossorigin="anonymous" />
               <div class="twitter-brand-text">
                 <span class="twitter-brand-title">Starkzap Builders</span>
                 <span class="twitter-brand-subtitle">Projects shipping with Starkzap</span>
@@ -787,6 +793,7 @@
             <div class="twitter-cta-row">
               <span class="twitter-command">npm install starkzap</span>
               <span class="twitter-cta-installs"><strong id="twitter-npm-installs">--</strong> npm installs since Feb 2026</span>
+              <span class="twitter-website">starkzap.io</span>
             </div>
           </footer>
         </article>
@@ -814,7 +821,9 @@
       const charts = new Map();
       const shareState = {
         builderCount: 0,
-        npmInstalls: 0
+        npmInstalls: 0,
+        tweetText: "",
+        tweetIntentUrl: "https://twitter.com/intent/tweet"
       };
 
       const refs = {
@@ -849,6 +858,11 @@
 
       refs.downloadTwitterCardBtn.addEventListener("click", () => {
         void downloadTwitterCardPng();
+      });
+
+      refs.shareTwitterLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        void shareOnTwitter();
       });
 
       updateTwitterShareLink();
@@ -1154,9 +1168,11 @@
           "",
           `${builders} builders + ${installs} npm installs since Feb 2026.`
         ].join("\n");
+        shareState.tweetText = text;
         const intent = new URL("https://twitter.com/intent/tweet");
         intent.searchParams.set("text", text);
-        refs.shareTwitterLink.href = intent.toString();
+        shareState.tweetIntentUrl = intent.toString();
+        refs.shareTwitterLink.href = shareState.tweetIntentUrl;
       }
 
       function setStatus(text, tone) {
@@ -1252,6 +1268,7 @@
           image.alt = "";
           image.loading = "lazy";
           image.decoding = "async";
+          image.crossOrigin = "anonymous";
 
           link.append(image);
           refs.twitterPfpGrid.append(link);
@@ -1293,6 +1310,91 @@
           setStatus("PNG export failed. Please screenshot the card.", "error");
         } finally {
           button.disabled = false;
+          button.textContent = originalLabel;
+        }
+      }
+
+      async function captureTwitterCardBlob() {
+        if (!refs.twitterShareCard) return null;
+        if (!window.htmlToImage) return null;
+        if (typeof window.htmlToImage.toBlob === "function") {
+          return window.htmlToImage.toBlob(refs.twitterShareCard, {
+            cacheBust: true,
+            pixelRatio: 2
+          });
+        }
+        if (typeof window.htmlToImage.toPng === "function") {
+          const dataUrl = await window.htmlToImage.toPng(refs.twitterShareCard, {
+            cacheBust: true,
+            pixelRatio: 2
+          });
+          const response = await fetch(dataUrl);
+          return response.blob();
+        }
+        return null;
+      }
+
+      async function shareOnTwitter() {
+        const button = refs.shareTwitterLink;
+        if (!button) return;
+
+        const originalLabel = button.textContent;
+        button.setAttribute("aria-disabled", "true");
+        button.style.pointerEvents = "none";
+        button.textContent = "Preparing share...";
+
+        try {
+          const blob = await captureTwitterCardBlob();
+          let file = null;
+
+          if (blob) {
+            file = new File([blob], `starkzap-builders-${getTodayLocalIso()}.png`, { type: "image/png" });
+            const localUrl = URL.createObjectURL(blob);
+            const download = document.createElement("a");
+            download.href = localUrl;
+            download.download = file.name;
+            download.click();
+            setTimeout(() => URL.revokeObjectURL(localUrl), 2000);
+          }
+
+          let sharedWithFile = false;
+          const canNativeShare =
+            !!file &&
+            typeof navigator !== "undefined" &&
+            typeof navigator.share === "function" &&
+            typeof navigator.canShare === "function" &&
+            navigator.canShare({ files: [file] });
+
+          if (canNativeShare) {
+            try {
+              await navigator.share({
+                title: "Starkzap Builders",
+                text: shareState.tweetText,
+                files: [file]
+              });
+              sharedWithFile = true;
+            } catch (error) {
+              if (error && error.name !== "AbortError") {
+                console.warn("Native share fallback to X intent:", error);
+              }
+            }
+          }
+
+          if (!sharedWithFile) {
+            window.open(shareState.tweetIntentUrl, "_blank", "noopener,noreferrer");
+            if (file) {
+              setStatus("Image downloaded. Add it in X composer.", "ok");
+            } else {
+              setStatus("Opened X composer. If image export fails, use a screenshot.", "error");
+            }
+          }
+        } catch (error) {
+          console.error(error);
+          window.open(shareState.tweetIntentUrl, "_blank", "noopener,noreferrer");
+          setStatus("Opened X composer. Attach image manually if needed.", "error");
+        } finally {
+          button.style.pointerEvents = "";
+          button.removeAttribute("aria-disabled");
           button.textContent = originalLabel;
         }
       }
