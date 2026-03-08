@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-07T06:23:47Z",
+  "updated": "2026-03-08T06:28:21Z",
   "total": 30,
   "repos": [
     {
@@ -34,7 +34,7 @@
       "url": "https://github.com/mediolano-app/mediolano-app",
       "description": "IP Creator permissionless dapp with Zero Fees \u2013 Programmable IP for the Integrity Web",
       "summary": "IP Creator permissionless dapp with Zero Fees \u2013 Programmable IP for the Integrity Web",
-      "stars": 13,
+      "stars": 14,
       "created_at": "2024-11-15",
       "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/181981249?v=4",
@@ -262,6 +262,7 @@
       "match_sources": [
         "awesome_starkzap_curated",
         "json_files",
+        "markdown_files",
         "repo_wide"
       ]
     },
@@ -416,19 +417,6 @@
       ]
     },
     {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8027,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-03-07",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
-      ]
-    },
-    {
       "full_name": "FutureXRP/The-Blair-Crypto-Report",
       "url": "https://github.com/FutureXRP/The-Blair-Crypto-Report",
       "description": "Crypto News From Around The Industry",
@@ -458,6 +446,19 @@
         "repo_wide",
         "ts_code",
         "yaml_files"
+      ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8027,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-03-08",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
       ]
     }
   ],
