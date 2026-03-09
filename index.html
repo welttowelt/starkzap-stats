@@ -868,7 +868,7 @@
       </section>
 
       <section class="panel share-card-panel">
-        <h2 class="chart-title">Starkzap Builder's Kudos</h2>
+        <h2 class="chart-title">Starkzap Contributor Kudos</h2>
         <div class="share-card-actions">
           <button class="share-card-download" id="download-twitter-card" type="button">Download PNG</button>
           <a
@@ -885,13 +885,13 @@
             <div class="twitter-brand">
               <img src="https://starkzap.io/logo.png" alt="" class="twitter-brand-logo" crossorigin="anonymous" />
               <div class="twitter-brand-text">
-                <span class="twitter-brand-title">Starkzap Builder's Kudos</span>
-                <span class="twitter-brand-subtitle">Projects shipping with Starkzap</span>
+                <span class="twitter-brand-title">Starkzap Contributor Kudos</span>
+                <span class="twitter-brand-subtitle">Contributors shipping with Starkzap</span>
               </div>
             </div>
-            <span class="twitter-builders-chip"><strong id="twitter-builder-count">--</strong> STARKs builders</span>
+            <span class="twitter-builders-chip"><strong id="twitter-builder-count">--</strong> STARKs contributors</span>
           </header>
-          <div class="twitter-pfp-grid" id="twitter-pfp-grid" aria-label="Builder profile images"></div>
+          <div class="twitter-pfp-grid" id="twitter-pfp-grid" aria-label="Contributor profile images"></div>
           <footer class="twitter-share-footer-minimal">
             <p class="twitter-value-line">Bring the Bitcoin economy into your app in minutes, not months.</p>
             <div class="twitter-footer-links">
@@ -1282,7 +1282,7 @@
           "",
           "npm install starkzap",
           "",
-          `${builders} builders + ${installs} npm installs since Feb 2026.`
+          `${builders} contributors + ${installs} npm installs since Feb 2026.`
         ].join("\n");
         shareState.tweetText = text;
         const intent = new URL("https://twitter.com/intent/tweet");
@@ -1416,7 +1416,7 @@
         if (!builders.length) {
           const empty = document.createElement("div");
           empty.className = "twitter-pfp more";
-          empty.textContent = "No builders";
+          empty.textContent = "No contributors";
           refs.twitterPfpGrid.append(empty);
           return;
         }
@@ -1473,7 +1473,7 @@
             throw new Error("Empty PNG blob");
           }
           downloadBlob(blob, `starkzap-builders-kudos-${getTodayLocalIso()}.png`);
-          setStatus("Builder's Kudos PNG downloaded.", "ok");
+          setStatus("Contributor Kudos PNG downloaded.", "ok");
         } catch (error) {
           console.error(error);
           setStatus("PNG export failed. Please screenshot the card.", "error");
@@ -1535,7 +1535,7 @@
           if (canNativeShare) {
             try {
               await navigator.share({
-                title: "Starkzap Builders",
+                title: "Starkzap Contributors",
                 text: shareState.tweetText,
                 files: [file]
               });
