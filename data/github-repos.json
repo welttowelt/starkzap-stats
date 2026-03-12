@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-11T06:36:36Z",
-  "total": 35,
+  "updated": "2026-03-12T06:38:48Z",
+  "total": 37,
   "repos": [
     {
       "full_name": "starknet-io/starknet-docs",
@@ -50,7 +50,7 @@
       "url": "https://github.com/Turi-Labs/Newsletter-Editor-Agents",
       "description": "Newsletter Agent",
       "summary": "Newsletter Agent",
-      "stars": 11,
+      "stars": 12,
       "created_at": "2025-04-15",
       "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/187839878?v=4",
@@ -502,19 +502,6 @@
       ]
     },
     {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8028,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-03-11",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
-      ]
-    },
-    {
       "full_name": "dojoengine/game-jams",
       "url": "https://github.com/dojoengine/game-jams",
       "description": "Sharpen your Katana, it's time to Jam",
@@ -544,6 +531,50 @@
         "repo_wide",
         "ts_code"
       ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8028,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-03-12",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "0xshikhar/hyperx-terminal",
+      "url": "https://github.com/0xshikhar/hyperx-terminal",
+      "description": "",
+      "summary": "Starkzap mention found in repository files.",
+      "stars": 0,
+      "created_at": "2026-02-23",
+      "first_seen_at": "2026-03-12",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/64684053?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide",
+        "ts_code",
+        "yaml_files"
+      ]
+    },
+    {
+      "full_name": "hidd3n19/StarkVeil",
+      "url": "https://github.com/hidd3n19/StarkVeil",
+      "description": "",
+      "summary": "StarkVeil is intended as a Starknet/Cairo port of Semaphore that reuses the upstream Semaphore v4 circuit a...",
+      "stars": 0,
+      "created_at": "2026-03-06",
+      "first_seen_at": "2026-03-12",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/101340153?v=4",
+      "match_sources": [
+        "js_code",
+        "json_files",
+        "repo_wide"
+      ]
     }
   ],
   "builders": [
@@ -554,6 +585,14 @@
       "sources": [
         "starkzap_core_contributors",
         "starkzap_repo_profiles"
+      ]
+    },
+    {
+      "login": "0xshikhar",
+      "url": "https://github.com/0xshikhar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/64684053?v=4",
+      "sources": [
+        "repo_owner"
       ]
     },
     {
@@ -649,6 +688,14 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/89799857?v=4",
       "sources": [
         "awesome_starkzap_contributors",
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "hidd3n19",
+      "url": "https://github.com/hidd3n19",
+      "avatar_url": "https://avatars.githubusercontent.com/u/101340153?v=4",
+      "sources": [
         "repo_owner"
       ]
     },
