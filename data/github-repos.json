@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-12T06:38:48Z",
-  "total": 37,
+  "updated": "2026-03-13T06:36:49Z",
+  "total": 38,
   "repos": [
     {
       "full_name": "starknet-io/starknet-docs",
@@ -152,7 +152,7 @@
       "url": "https://github.com/keep-starknet-strange/awesome-starkzap",
       "description": "Curated list of projects using Starkzap",
       "summary": "Curated list of projects using Starkzap",
-      "stars": 35,
+      "stars": 36,
       "created_at": "2026-02-19",
       "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/118723009?v=4",
@@ -533,19 +533,6 @@
       ]
     },
     {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8028,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-03-12",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
-      ]
-    },
-    {
       "full_name": "0xshikhar/hyperx-terminal",
       "url": "https://github.com/0xshikhar/hyperx-terminal",
       "description": "",
@@ -574,6 +561,34 @@
         "js_code",
         "json_files",
         "repo_wide"
+      ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8027,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-03-13",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "Galmanus/phantom",
+      "url": "https://github.com/Galmanus/phantom",
+      "description": "Private BTC Yield Manager",
+      "summary": "Private BTC Yield Manager",
+      "stars": 0,
+      "created_at": "2026-03-11",
+      "first_seen_at": "2026-03-13",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/60741154?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide",
+        "ts_code"
       ]
     }
   ],
@@ -688,6 +703,14 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/89799857?v=4",
       "sources": [
         "awesome_starkzap_contributors",
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "Galmanus",
+      "url": "https://github.com/Galmanus",
+      "avatar_url": "https://avatars.githubusercontent.com/u/60741154?v=4",
+      "sources": [
         "repo_owner"
       ]
     },
