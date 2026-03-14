@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-13T06:36:49Z",
-  "total": 38,
+  "updated": "2026-03-14T06:31:50Z",
+  "total": 40,
   "repos": [
     {
       "full_name": "starknet-io/starknet-docs",
@@ -244,7 +244,7 @@
       "url": "https://github.com/RajVarsani/skill-builder",
       "description": "",
       "summary": "Starkzap mention found in repository files.",
-      "stars": 0,
+      "stars": 1,
       "created_at": "2026-02-26",
       "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/74860406?v=4",
@@ -425,21 +425,6 @@
       ]
     },
     {
-      "full_name": "keep-starknet-strange/starknet-skills",
-      "url": "https://github.com/keep-starknet-strange/starknet-skills",
-      "description": "Cairo and Starknet security skills for AI agents. 7 modules, 24 audits, 217 findings.",
-      "summary": "Cairo and Starknet security skills for AI agents. 7 modules, 24 audits, 217 findings.",
-      "stars": 0,
-      "created_at": "2026-03-07",
-      "first_seen_at": "2026-03-09",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/118723009?v=4",
-      "match_sources": [
-        "markdown_files",
-        "readme",
-        "repo_wide"
-      ]
-    },
-    {
       "full_name": "mitmelon/ziondefi-community",
       "url": "https://github.com/mitmelon/ziondefi-community",
       "description": "Create and manage your own cards yourself, Let your card yield using Zara (financial adviser) using Starkzap and Nova 2 Lite Model",
@@ -564,19 +549,6 @@
       ]
     },
     {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8027,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-03-13",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
-      ]
-    },
-    {
       "full_name": "Galmanus/phantom",
       "url": "https://github.com/Galmanus/phantom",
       "description": "Private BTC Yield Manager",
@@ -589,6 +561,64 @@
         "json_files",
         "repo_wide",
         "ts_code"
+      ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8027,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-03-14",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "ahmetenesdur/starkfi",
+      "url": "https://github.com/ahmetenesdur/starkfi",
+      "description": "",
+      "summary": "<a href=\"https://starkfi.app\">",
+      "stars": 0,
+      "created_at": "2026-02-27",
+      "first_seen_at": "2026-03-14",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/70810472?v=4",
+      "match_sources": [
+        "js_code",
+        "json_files",
+        "repo_wide",
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "AmaanSayyad/Starknomo",
+      "url": "https://github.com/AmaanSayyad/Starknomo",
+      "description": "",
+      "summary": "**The first on-chain binary options trading dApp on Starknet Sepolia.**",
+      "stars": 0,
+      "created_at": "2026-03-09",
+      "first_seen_at": "2026-03-14",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/69464744?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide",
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "GravitySignal/vegvisir-cluster-map",
+      "url": "https://github.com/GravitySignal/vegvisir-cluster-map",
+      "description": "Starknet token holder bubble map visualization \u2014 force-directed graph showing top holders and transfer connections",
+      "summary": "Starknet token holder bubble map visualization \u2014 force-directed graph showing top holders and transfer conn...",
+      "stars": 0,
+      "created_at": "2026-03-13",
+      "first_seen_at": "2026-03-14",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/261995388?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide"
       ]
     }
   ],
@@ -630,6 +660,14 @@
       ]
     },
     {
+      "login": "ahmetenesdur",
+      "url": "https://github.com/ahmetenesdur",
+      "avatar_url": "https://avatars.githubusercontent.com/u/70810472?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
       "login": "Akashneelesh",
       "url": "https://github.com/Akashneelesh",
       "avatar_url": "https://avatars.githubusercontent.com/u/66639153?v=4",
@@ -644,6 +682,14 @@
       "login": "all-contributors",
       "url": "https://github.com/all-contributors",
       "avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "AmaanSayyad",
+      "url": "https://github.com/AmaanSayyad",
+      "avatar_url": "https://avatars.githubusercontent.com/u/69464744?v=4",
       "sources": [
         "repo_owner"
       ]
@@ -710,6 +756,14 @@
       "login": "Galmanus",
       "url": "https://github.com/Galmanus",
       "avatar_url": "https://avatars.githubusercontent.com/u/60741154?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "GravitySignal",
+      "url": "https://github.com/GravitySignal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/261995388?v=4",
       "sources": [
         "repo_owner"
       ]
