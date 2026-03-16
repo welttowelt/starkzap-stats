@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-15T06:41:45Z",
-  "total": 50,
+  "updated": "2026-03-16T07:02:54Z",
+  "total": 54,
   "repos": [
     {
       "full_name": "starknet-io/starknet-docs",
@@ -43,20 +43,6 @@
         "markdown_files",
         "repo_wide",
         "ts_code"
-      ]
-    },
-    {
-      "full_name": "Turi-Labs/Newsletter-Editor-Agents",
-      "url": "https://github.com/Turi-Labs/Newsletter-Editor-Agents",
-      "description": "Newsletter Agent",
-      "summary": "Newsletter Agent",
-      "stars": 12,
-      "created_at": "2025-04-15",
-      "first_seen_at": "2026-03-06",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/187839878?v=4",
-      "match_sources": [
-        "markdown_files",
-        "repo_wide"
       ]
     },
     {
@@ -152,7 +138,7 @@
       "url": "https://github.com/keep-starknet-strange/awesome-starkzap",
       "description": "Curated list of projects using Starkzap",
       "summary": "Curated list of projects using Starkzap",
-      "stars": 41,
+      "stars": 42,
       "created_at": "2026-02-19",
       "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/118723009?v=4",
@@ -355,7 +341,7 @@
       "full_name": "eliashezron/starkdeep",
       "url": "https://github.com/eliashezron/starkdeep",
       "description": "",
-      "summary": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/do...",
+      "summary": "A StarkNet wallet experience built with Next.js and [StarkZap](https://www.starkzap.io/) that lets anyone o...",
       "stars": 0,
       "created_at": "2026-03-04",
       "first_seen_at": "2026-03-06",
@@ -364,6 +350,7 @@
         "docs_path",
         "json_files",
         "markdown_files",
+        "readme",
         "repo_wide",
         "ts_code"
       ]
@@ -473,20 +460,6 @@
       ]
     },
     {
-      "full_name": "ayush-ranjan-official/Covenant-CAD",
-      "url": "https://github.com/ayush-ranjan-official/Covenant-CAD",
-      "description": "This project simulates Bitcoin OP_CAT capabilities to demonstrate Starknet as an execution layer for Bitcoin covenant logic.",
-      "summary": "This project simulates Bitcoin OP_CAT capabilities to demonstrate Starknet as an execution layer for Bitcoi...",
-      "stars": 0,
-      "created_at": "2026-03-09",
-      "first_seen_at": "2026-03-10",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/93761136?v=4",
-      "match_sources": [
-        "markdown_files",
-        "repo_wide"
-      ]
-    },
-    {
       "full_name": "dojoengine/game-jams",
       "url": "https://github.com/dojoengine/game-jams",
       "description": "Sharpen your Katana, it's time to Jam",
@@ -568,7 +541,7 @@
       "url": "https://github.com/ahmetenesdur/starkfi",
       "description": "",
       "summary": "<a href=\"https://starkfi.app\">",
-      "stars": 0,
+      "stars": 1,
       "created_at": "2026-02-27",
       "first_seen_at": "2026-03-14",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/70810472?v=4",
@@ -613,19 +586,6 @@
         "readme",
         "repo_wide",
         "ts_code"
-      ]
-    },
-    {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8027,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-03-15",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
       ]
     },
     {
@@ -788,6 +748,107 @@
         "markdown_files",
         "repo_wide"
       ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8029,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-03-16",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "Arshad-WD/touch-grass",
+      "url": "https://github.com/Arshad-WD/touch-grass",
+      "description": "",
+      "summary": "> Stake STRK. Go outside. Unlock yield.",
+      "stars": 0,
+      "created_at": "2026-03-15",
+      "first_seen_at": "2026-03-16",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/117998690?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "dhanush-devx/zklend",
+      "url": "https://github.com/dhanush-devx/zklend",
+      "description": "",
+      "summary": "> Borrow without overcollateralizing. Prove your income range with ZK. No wallet. No gas. No collateral.",
+      "stars": 0,
+      "created_at": "2026-03-15",
+      "first_seen_at": "2026-03-16",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/196496870?v=4",
+      "match_sources": [
+        "json_files",
+        "readme",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "owizdom/zap",
+      "url": "https://github.com/owizdom/zap",
+      "description": "",
+      "summary": "Email-based crypto transfers on Starknet. Send STRK/ETH/USDC to any email address \u2014 recipient claims with a...",
+      "stars": 0,
+      "created_at": "2026-03-15",
+      "first_seen_at": "2026-03-16",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/154702154?v=4",
+      "match_sources": [
+        "json_files",
+        "readme",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "sahil22-06/Starkbet-BlockChain",
+      "url": "https://github.com/sahil22-06/Starkbet-BlockChain",
+      "description": "",
+      "summary": "> Prediction market where losers' money earns yield while the bet is live",
+      "stars": 0,
+      "created_at": "2026-03-15",
+      "first_seen_at": "2026-03-16",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/182225075?v=4",
+      "match_sources": [
+        "json_files",
+        "readme",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "saiisback/yapper",
+      "url": "https://github.com/saiisback/yapper",
+      "description": "",
+      "summary": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/do...",
+      "stars": 0,
+      "created_at": "2026-03-15",
+      "first_seen_at": "2026-03-16",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/69042752?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "Ravipaygan296/proof-of-touch-grasss",
+      "url": "https://github.com/Ravipaygan296/proof-of-touch-grasss",
+      "description": "\ud83c\udf3f Stake STRK, go outside weekly, earn boosted yield. DeFi protocol where your APR multiplies with your outdoor streak. Built on Starknet with Starkzap SDK.",
+      "summary": "\ud83c\udf3f Stake STRK, go outside weekly, earn boosted yield. DeFi protocol where your APR multiplies with your outd...",
+      "stars": 0,
+      "created_at": "2026-03-16",
+      "first_seen_at": "2026-03-16",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/190931130?v=4",
+      "match_sources": [
+        "json_files",
+        "readme",
+        "repo_wide"
+      ]
     }
   ],
   "builders": [
@@ -879,9 +940,9 @@
       ]
     },
     {
-      "login": "ayush-ranjan-official",
-      "url": "https://github.com/ayush-ranjan-official",
-      "avatar_url": "https://avatars.githubusercontent.com/u/93761136?v=4",
+      "login": "Arshad-WD",
+      "url": "https://github.com/Arshad-WD",
+      "avatar_url": "https://avatars.githubusercontent.com/u/117998690?v=4",
       "sources": [
         "repo_owner"
       ]
@@ -931,6 +992,14 @@
       "login": "debojyoti10CC",
       "url": "https://github.com/debojyoti10CC",
       "avatar_url": "https://avatars.githubusercontent.com/u/181591356?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "dhanush-devx",
+      "url": "https://github.com/dhanush-devx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/196496870?v=4",
       "sources": [
         "repo_owner"
       ]
@@ -1082,9 +1151,25 @@
       ]
     },
     {
+      "login": "owizdom",
+      "url": "https://github.com/owizdom",
+      "avatar_url": "https://avatars.githubusercontent.com/u/154702154?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
       "login": "RajVarsani",
       "url": "https://github.com/RajVarsani",
       "avatar_url": "https://avatars.githubusercontent.com/u/74860406?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "Ravipaygan296",
+      "url": "https://github.com/Ravipaygan296",
+      "avatar_url": "https://avatars.githubusercontent.com/u/190931130?v=4",
       "sources": [
         "repo_owner"
       ]
@@ -1105,6 +1190,22 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/36516516?v=4",
       "sources": [
         "starkzap_core_contributors"
+      ]
+    },
+    {
+      "login": "sahil22-06",
+      "url": "https://github.com/sahil22-06",
+      "avatar_url": "https://avatars.githubusercontent.com/u/182225075?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "saiisback",
+      "url": "https://github.com/saiisback",
+      "avatar_url": "https://avatars.githubusercontent.com/u/69042752?v=4",
+      "sources": [
+        "repo_owner"
       ]
     },
     {
@@ -1169,14 +1270,6 @@
       "login": "The-Engineer-Network",
       "url": "https://github.com/The-Engineer-Network",
       "avatar_url": "https://avatars.githubusercontent.com/u/232935429?v=4",
-      "sources": [
-        "repo_owner"
-      ]
-    },
-    {
-      "login": "Turi-Labs",
-      "url": "https://github.com/Turi-Labs",
-      "avatar_url": "https://avatars.githubusercontent.com/u/187839878?v=4",
       "sources": [
         "repo_owner"
       ]
