@@ -1248,8 +1248,15 @@
       }
 
       function toWeekLabel(weekKey) {
-        const [year, week] = weekKey.split("-W");
-        return `W${week} ${year}`;
+        const [year, week] = weekKey.split("-W").map(Number);
+        const jan4 = new Date(Date.UTC(year, 0, 4));
+        const dow = (jan4.getUTCDay() + 6) % 7;
+        const mon = new Date(jan4);
+        mon.setUTCDate(jan4.getUTCDate() - dow + (week - 1) * 7);
+        const sun = new Date(mon);
+        sun.setUTCDate(mon.getUTCDate() + 6);
+        const fmt = (d) => `${d.getUTCDate()} ${d.toLocaleString("en", { month: "short", timeZone: "UTC" })}`;
+        return `${fmt(mon)} – ${fmt(sun)}`;
       }
 
       function toMonthLabel(monthKey) {
@@ -1644,9 +1651,17 @@
             .sort((a, b) => a.mention_at.localeCompare(b.mention_at));
 
           refs.kpiRepos.textContent = formatNum(sorted.length);
-          refs.kpiReposNote.textContent = updatedDay
-            ? `Updated ${toHumanDate(updatedDay)} · Since ${toHumanDate(GITHUB_MENTIONS_START)}`
-            : `Since ${toHumanDate(GITHUB_MENTIONS_START)}`;
+          const quality = data.quality || {};
+          const funnel = data.funnel || {};
+          const qualityParts = [];
+          if (quality.non_fork != null) qualityParts.push(`${quality.non_fork} non-fork`);
+          if (funnel.repos_with_code_import) qualityParts.push(`${funnel.repos_with_code_import} code`);
+          if (funnel.repos_with_package_dependency) qualityParts.push(`${funnel.repos_with_package_dependency} deps`);
+          refs.kpiReposNote.textContent = qualityParts.length
+            ? qualityParts.join(" · ")
+            : updatedDay
+              ? `Updated ${toHumanDate(updatedDay)} · Since ${toHumanDate(GITHUB_MENTIONS_START)}`
+              : `Since ${toHumanDate(GITHUB_MENTIONS_START)}`;
           refs.ghRepoListCaption.textContent = `${formatNum(sorted.length)} public repos mentioning starkzap since ${toHumanDate(GITHUB_MENTIONS_START)}.`;
           renderGithubRepoList(sorted);
           renderTwitterBuilderCard(sorted, curatedBuilders);
