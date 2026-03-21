@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-20T06:39:09Z",
-  "total": 75,
+  "updated": "2026-03-21T06:28:06Z",
+  "total": 76,
   "repos": [
     {
       "full_name": "starknet-io/starknet-docs",
@@ -693,7 +693,7 @@
       "full_name": "UtkarshArjariya/Starkzap",
       "url": "https://github.com/UtkarshArjariya/Starkzap",
       "description": "",
-      "summary": "Starkzap is a Starknet-based social challenge platform where users can create public dares, attach on-chain...",
+      "summary": "<h1 align=\"center\">Dare Board</h1>",
       "stars": 0,
       "created_at": "2026-03-14",
       "first_seen_at": "2026-03-15",
@@ -815,7 +815,7 @@
       "url": "https://github.com/Turi-Labs/Newsletter-Editor-Agents",
       "description": "Newsletter Agent",
       "summary": "Newsletter Agent",
-      "stars": 12,
+      "stars": 13,
       "created_at": "2025-04-15",
       "first_seen_at": "2026-03-17",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/187839878?v=4",
@@ -901,7 +901,7 @@
       "full_name": "ahmetenesdur/starkfi-telegram-bot",
       "url": "https://github.com/ahmetenesdur/starkfi-telegram-bot",
       "description": "",
-      "summary": "AI-powered Telegram bot for [StarkFi](https://starkfi.app) DeFi on Starknet. Users bring their own AI model...",
+      "summary": "AI-powered Telegram bot for [StarkFi](https://starkfi.app) DeFi on Starknet. Each user brings their own AI...",
       "stars": 0,
       "created_at": "2026-03-16",
       "first_seen_at": "2026-03-18",
@@ -1210,12 +1210,27 @@
       "url": "https://github.com/all-contributors/allcontributors.org",
       "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
       "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8031,
+      "stars": 8032,
       "created_at": "2016-02-28",
-      "first_seen_at": "2026-03-20",
+      "first_seen_at": "2026-03-21",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
       "match_sources": [
         "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "joshington/sasa",
+      "url": "https://github.com/joshington/sasa",
+      "description": "Programmable money for the real world.  Pesasa lets institutions, NGOs, and families distribute funds with built-in spending controls, ensuring money is used exactly as intended.",
+      "summary": "Programmable money for the real world. Pesasa lets institutions, NGOs, and families distribute funds with b...",
+      "stars": 1,
+      "created_at": "2025-11-22",
+      "first_seen_at": "2026-03-21",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/18496928?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide",
+        "ts_code"
       ]
     }
   ],
@@ -1522,6 +1537,14 @@
       "login": "jedstroke",
       "url": "https://github.com/jedstroke",
       "avatar_url": "https://avatars.githubusercontent.com/u/86930056?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "joshington",
+      "url": "https://github.com/joshington",
+      "avatar_url": "https://avatars.githubusercontent.com/u/18496928?v=4",
       "sources": [
         "repo_owner"
       ]
