@@ -549,8 +549,8 @@
         top: clamp(96px, 17vw, 160px);
         bottom: clamp(84px, 13vw, 120px);
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(clamp(36px, 6.1vw, 64px), 1fr));
-        gap: clamp(8px, 1.35vw, 14px);
+        grid-template-columns: repeat(var(--kudos-cols, 15), minmax(0, 1fr));
+        gap: var(--kudos-gap, 8px);
         align-content: start;
       }
 
@@ -1406,6 +1406,44 @@
         return [...byOwner.values()].sort((a, b) => a.owner.localeCompare(b.owner));
       }
 
+      function applyContributorGridLayout(totalCount) {
+        const grid = refs.twitterPfpGrid;
+        if (!grid || totalCount <= 0) return;
+
+        const rect = grid.getBoundingClientRect();
+        const width = Math.max(1, rect.width);
+        const height = Math.max(1, rect.height);
+
+        let best = null;
+        for (let cols = 1; cols <= totalCount; cols += 1) {
+          const rows = Math.ceil(totalCount / cols);
+          const gap = rows <= 4 ? 10 : rows <= 6 ? 8 : rows <= 8 ? 6 : 4;
+          const cellByWidth = (width - (cols - 1) * gap) / cols;
+          const cellByHeight = (height - (rows - 1) * gap) / rows;
+          const cell = Math.min(cellByWidth, cellByHeight);
+          if (cell < 12) continue;
+
+          const candidate = { cols, rows, gap, cell };
+          if (
+            !best ||
+            candidate.cell > best.cell + 0.05 ||
+            (Math.abs(candidate.cell - best.cell) <= 0.05 && candidate.rows < best.rows)
+          ) {
+            best = candidate;
+          }
+        }
+
+        if (!best) {
+          const fallbackCols = Math.max(1, Math.ceil(Math.sqrt((totalCount * width) / height)));
+          grid.style.setProperty("--kudos-cols", String(fallbackCols));
+          grid.style.setProperty("--kudos-gap", "4px");
+          return;
+        }
+
+        grid.style.setProperty("--kudos-cols", String(best.cols));
+        grid.style.setProperty("--kudos-gap", `${best.gap}px`);
+      }
+
       function renderTwitterBuilderCard(repos, extraBuilders = []) {
         const builders = uniqueBuildersFromRepos(repos, extraBuilders);
         refs.twitterBuilderCount.textContent = formatNum(builders.length);
@@ -1421,9 +1459,8 @@
           return;
         }
 
-        const maxAvatars = 56;
-        const visibleBuilders = builders.slice(0, maxAvatars);
-        for (const builder of visibleBuilders) {
+        applyContributorGridLayout(builders.length);
+        for (const builder of builders) {
           const link = document.createElement("a");
           link.className = "twitter-pfp";
           link.href = builder.profileUrl;
@@ -1444,14 +1481,6 @@
 
           link.append(image);
           refs.twitterPfpGrid.append(link);
-        }
-
-        const remaining = builders.length - visibleBuilders.length;
-        if (remaining > 0) {
-          const more = document.createElement("div");
-          more.className = "twitter-pfp more";
-          more.textContent = `+${remaining}`;
-          refs.twitterPfpGrid.append(more);
         }
       }
 
