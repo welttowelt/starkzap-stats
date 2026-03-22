@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-21T06:28:06Z",
-  "total": 76,
+  "updated": "2026-03-22T06:35:47Z",
+  "total": 78,
   "repos": [
     {
       "full_name": "starknet-io/starknet-docs",
@@ -1160,7 +1160,7 @@
       "url": "https://github.com/AvinashNayak27/strk-upi-escrow",
       "description": "",
       "summary": "**P2P INR(via UPI)<>STRK Marketplace for on/offramp with off-chain UPI payments, verified by an Eigen TEE.",
-      "stars": 0,
+      "stars": 1,
       "created_at": "2026-03-17",
       "first_seen_at": "2026-03-19",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/92907147?v=4",
@@ -1206,23 +1206,10 @@
       ]
     },
     {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8032,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-03-21",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
-      ]
-    },
-    {
       "full_name": "joshington/sasa",
       "url": "https://github.com/joshington/sasa",
-      "description": "Programmable money for the real world.  Pesasa lets institutions, NGOs, and families distribute funds with built-in spending controls, ensuring money is used exactly as intended.",
-      "summary": "Programmable money for the real world. Pesasa lets institutions, NGOs, and families distribute funds with b...",
+      "description": "Send money, Control Spend.  Pesasa lets institutions, NGOs, and families distribute funds with built-in spending controls, ensuring money is used exactly as intended.",
+      "summary": "Send money, Control Spend. Pesasa lets institutions, NGOs, and families distribute funds with built-in spen...",
       "stars": 1,
       "created_at": "2025-11-22",
       "first_seen_at": "2026-03-21",
@@ -1231,6 +1218,47 @@
         "json_files",
         "repo_wide",
         "ts_code"
+      ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8033,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-03-22",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "owizdom/bobIsAlive",
+      "url": "https://github.com/owizdom/bobIsAlive",
+      "description": "An autonomous digital organism that must earn to survive. It reads biology news, creates art, completes tasks, trades on DeFi, and stakes STRK,  all inside an EigenCompute TEE. If its balance hits zero, it dies. No human bailout.",
+      "summary": "An autonomous digital organism that must earn to survive. It reads biology news, creates art, completes tas...",
+      "stars": 0,
+      "created_at": "2026-03-21",
+      "first_seen_at": "2026-03-22",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/154702154?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "patelchaitany/blockagent",
+      "url": "https://github.com/patelchaitany/blockagent",
+      "description": "Private DeFi Advisory Agent \u2014 Venice AI + Uniswap + EigenCompute TEE",
+      "summary": "Private DeFi Advisory Agent \u2014 Venice AI + Uniswap + EigenCompute TEE",
+      "stars": 0,
+      "created_at": "2026-03-21",
+      "first_seen_at": "2026-03-22",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/67532224?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide"
       ]
     }
   ],
@@ -1642,6 +1670,14 @@
       "login": "owizdom",
       "url": "https://github.com/owizdom",
       "avatar_url": "https://avatars.githubusercontent.com/u/154702154?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "patelchaitany",
+      "url": "https://github.com/patelchaitany",
+      "avatar_url": "https://avatars.githubusercontent.com/u/67532224?v=4",
       "sources": [
         "repo_owner"
       ]
