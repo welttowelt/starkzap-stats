@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-27T06:54:06Z",
-  "total": 78,
+  "updated": "2026-03-28T06:42:47Z",
+  "total": 82,
   "repos": [
     {
       "full_name": "keep-starknet-strange/alexandria",
@@ -1103,7 +1103,8 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/61504598?v=4",
       "match_sources": [
         "json_files",
-        "repo_wide"
+        "repo_wide",
+        "ts_code"
       ]
     },
     {
@@ -1200,7 +1201,8 @@
       "first_seen_at": "2026-03-26",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/32478597?v=4",
       "match_sources": [
-        "json_files"
+        "json_files",
+        "repo_wide"
       ]
     },
     {
@@ -1213,20 +1215,9 @@
       "first_seen_at": "2026-03-26",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/60741154?v=4",
       "match_sources": [
-        "json_files"
-      ]
-    },
-    {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8034,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-03-27",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
+        "json_files",
+        "repo_wide",
+        "ts_code"
       ]
     },
     {
@@ -1239,7 +1230,8 @@
       "first_seen_at": "2026-03-27",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/19796784?v=4",
       "match_sources": [
-        "repo_wide"
+        "repo_wide",
+        "ts_code"
       ]
     },
     {
@@ -1253,6 +1245,74 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/186802781?v=4",
       "match_sources": [
         "markdown_files"
+      ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8034,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-03-28",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "lethanhson9901/repo-dashboard",
+      "url": "https://github.com/lethanhson9901/repo-dashboard",
+      "description": "",
+      "summary": "<div align=\"center\">",
+      "stars": 2,
+      "created_at": "2024-12-11",
+      "first_seen_at": "2026-03-28",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/49090718?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "ahmetenesdur/starkfi-telegram-bot",
+      "url": "https://github.com/ahmetenesdur/starkfi-telegram-bot",
+      "description": "",
+      "summary": "AI-powered Telegram bot for [StarkFi](https://starkfi.app) DeFi on Starknet. Each user brings their own AI...",
+      "stars": 0,
+      "created_at": "2026-03-16",
+      "first_seen_at": "2026-03-28",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/70810472?v=4",
+      "match_sources": [
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "memosr/road-racer",
+      "url": "https://github.com/memosr/road-racer",
+      "description": "",
+      "summary": "Starkzap mention found in repository files.",
+      "stars": 0,
+      "created_at": "2026-03-24",
+      "first_seen_at": "2026-03-28",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/96793918?v=4",
+      "match_sources": [
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "memosr/starksplit",
+      "url": "https://github.com/memosr/starksplit",
+      "description": "",
+      "summary": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/do...",
+      "stars": 0,
+      "created_at": "2026-03-27",
+      "first_seen_at": "2026-03-28",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/96793918?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide",
+        "ts_code"
       ]
     }
   ],
@@ -1588,6 +1648,14 @@
       ]
     },
     {
+      "login": "lethanhson9901",
+      "url": "https://github.com/lethanhson9901",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49090718?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
       "login": "Mageshk100",
       "url": "https://github.com/Mageshk100",
       "avatar_url": "https://avatars.githubusercontent.com/u/147421609?v=4",
@@ -1607,6 +1675,14 @@
       "login": "mediolano-app",
       "url": "https://github.com/mediolano-app",
       "avatar_url": "https://avatars.githubusercontent.com/u/181981249?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "memosr",
+      "url": "https://github.com/memosr",
+      "avatar_url": "https://avatars.githubusercontent.com/u/96793918?v=4",
       "sources": [
         "repo_owner"
       ]
