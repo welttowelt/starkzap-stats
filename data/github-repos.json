@@ -1,6 +1,6 @@
 {
-  "updated": "2026-03-31T06:59:22Z",
-  "total": 85,
+  "updated": "2026-04-01T07:06:13Z",
+  "total": 87,
   "repos": [
     {
       "full_name": "keep-starknet-strange/alexandria",
@@ -1255,7 +1255,7 @@
       "url": "https://github.com/Akashneelesh/starkzap-skill",
       "description": "",
       "summary": "Starkzap mention found in repository files.",
-      "stars": 0,
+      "stars": 1,
       "created_at": "2026-03-14",
       "first_seen_at": "2026-03-29",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/66639153?v=4",
@@ -1281,19 +1281,6 @@
         "markdown_files",
         "readme",
         "repo_wide"
-      ]
-    },
-    {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8035,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-03-31",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
       ]
     },
     {
@@ -1364,6 +1351,51 @@
         "repo_wide",
         "ts_code",
         "yaml_files"
+      ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8035,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-04-01",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "Obsqra-Labs/zkdefi",
+      "url": "https://github.com/Obsqra-Labs/zkdefi",
+      "description": "Proof-gated execution for private DeFi on Starknet. SNARK-in-STARK dual-lane proving, zkML-gated agent composition, portable ZK reputation, tri-chain settlement.",
+      "summary": "Proof-gated execution for private DeFi on Starknet. SNARK-in-STARK dual-lane proving, zkML-gated agent comp...",
+      "stars": 0,
+      "created_at": "2026-01-30",
+      "first_seen_at": "2026-04-01",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/247914483?v=4",
+      "match_sources": [
+        "json_files",
+        "repo_wide",
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "ankushKun/pl-hackathon",
+      "url": "https://github.com/ankushKun/pl-hackathon",
+      "description": "",
+      "summary": "**Autonomous Pokemon TCG Card Perpetual Futures Trader on Solana**",
+      "stars": 0,
+      "created_at": "2026-03-31",
+      "first_seen_at": "2026-04-01",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/50258860?v=4",
+      "match_sources": [
+        "json_files",
+        "markdown_files",
+        "readme",
+        "repo_wide",
+        "ts_code"
       ]
     }
   ],
@@ -1452,6 +1484,14 @@
       "login": "AmaanSayyad",
       "url": "https://github.com/AmaanSayyad",
       "avatar_url": "https://avatars.githubusercontent.com/u/69464744?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "ankushKun",
+      "url": "https://github.com/ankushKun",
+      "avatar_url": "https://avatars.githubusercontent.com/u/50258860?v=4",
       "sources": [
         "repo_owner"
       ]
@@ -1775,6 +1815,14 @@
       "login": "nagavaishak",
       "url": "https://github.com/nagavaishak",
       "avatar_url": "https://avatars.githubusercontent.com/u/125856537?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "Obsqra-Labs",
+      "url": "https://github.com/Obsqra-Labs",
+      "avatar_url": "https://avatars.githubusercontent.com/u/247914483?v=4",
       "sources": [
         "repo_owner"
       ]
