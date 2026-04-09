@@ -1,6 +1,6 @@
 {
-  "updated": "2026-04-08T07:03:50Z",
-  "total": 90,
+  "updated": "2026-04-09T07:07:41Z",
+  "total": 92,
   "repos": [
     {
       "full_name": "keep-starknet-strange/alexandria",
@@ -64,7 +64,7 @@
       "url": "https://github.com/keep-starknet-strange/awesome-starkzap",
       "description": "Curated list of projects using Starkzap",
       "summary": "Curated list of projects using Starkzap",
-      "stars": 50,
+      "stars": 51,
       "created_at": "2026-02-19",
       "first_seen_at": "2026-03-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/118723009?v=4",
@@ -1159,6 +1159,7 @@
       "first_seen_at": "2026-04-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/191975780?v=4",
       "match_sources": [
+        "js_code",
         "json_files"
       ]
     },
@@ -1212,23 +1213,12 @@
       "first_seen_at": "2026-04-07",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/82191216?v=4",
       "match_sources": [
+        "js_code",
         "json_files",
         "markdown_files",
         "readme",
+        "repo_wide",
         "ts_code"
-      ]
-    },
-    {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8036,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-04-08",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
       ]
     },
     {
@@ -1241,7 +1231,8 @@
       "first_seen_at": "2026-04-08",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/121522969?v=4",
       "match_sources": [
-        "markdown_files"
+        "markdown_files",
+        "repo_wide"
       ]
     },
     {
@@ -1267,8 +1258,10 @@
       "first_seen_at": "2026-04-08",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/232935429?v=4",
       "match_sources": [
+        "js_code",
         "markdown_files",
-        "readme"
+        "readme",
+        "repo_wide"
       ]
     },
     {
@@ -1282,7 +1275,8 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
       "match_sources": [
         "markdown_files",
-        "readme"
+        "readme",
+        "ts_code"
       ]
     },
     {
@@ -1322,7 +1316,8 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/145249749?v=4",
       "match_sources": [
         "markdown_files",
-        "readme"
+        "readme",
+        "repo_wide"
       ]
     },
     {
@@ -1335,8 +1330,10 @@
       "first_seen_at": "2026-04-08",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/104635627?v=4",
       "match_sources": [
+        "js_code",
         "markdown_files",
-        "readme"
+        "readme",
+        "repo_wide"
       ]
     },
     {
@@ -1390,6 +1387,7 @@
       "first_seen_at": "2026-04-08",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/212873664?v=4",
       "match_sources": [
+        "js_code",
         "markdown_files",
         "readme"
       ]
@@ -1405,7 +1403,8 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/260130638?v=4",
       "match_sources": [
         "markdown_files",
-        "readme"
+        "readme",
+        "repo_wide"
       ]
     },
     {
@@ -1420,6 +1419,46 @@
       "match_sources": [
         "json_files",
         "ts_code"
+      ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8034,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-04-09",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "RealAdii/portfolio-2025",
+      "url": "https://github.com/RealAdii/portfolio-2025",
+      "description": "this is me. ",
+      "summary": "this is me.",
+      "stars": 1,
+      "created_at": "2025-11-08",
+      "first_seen_at": "2026-04-09",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
+      "match_sources": [
+        "js_code"
+      ]
+    },
+    {
+      "full_name": "hidd3n19/StarkVeil",
+      "url": "https://github.com/hidd3n19/StarkVeil",
+      "description": "",
+      "summary": "StarkVeil is intended as a Starknet/Cairo port of Semaphore that reuses the upstream Semaphore v4 circuit a...",
+      "stars": 0,
+      "created_at": "2026-03-06",
+      "first_seen_at": "2026-04-09",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/101340153?v=4",
+      "match_sources": [
+        "js_code",
+        "json_files"
       ]
     }
   ],
@@ -1686,6 +1725,14 @@
       "login": "Grinta-Protocol",
       "url": "https://github.com/Grinta-Protocol",
       "avatar_url": "https://avatars.githubusercontent.com/u/265169796?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "hidd3n19",
+      "url": "https://github.com/hidd3n19",
+      "avatar_url": "https://avatars.githubusercontent.com/u/101340153?v=4",
       "sources": [
         "repo_owner"
       ]
