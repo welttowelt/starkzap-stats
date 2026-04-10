@@ -1,6 +1,6 @@
 {
-  "updated": "2026-04-09T07:07:41Z",
-  "total": 92,
+  "updated": "2026-04-10T07:12:43Z",
+  "total": 96,
   "repos": [
     {
       "full_name": "keep-starknet-strange/alexandria",
@@ -1053,6 +1053,7 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/18496928?v=4",
       "match_sources": [
         "json_files",
+        "repo_wide",
         "ts_code"
       ]
     },
@@ -1067,6 +1068,7 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/247914483?v=4",
       "match_sources": [
         "json_files",
+        "repo_wide",
         "ts_code"
       ]
     },
@@ -1094,6 +1096,7 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/61504598?v=4",
       "match_sources": [
         "json_files",
+        "repo_wide",
         "ts_code"
       ]
     },
@@ -1107,7 +1110,8 @@
       "first_seen_at": "2026-04-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/45628811?v=4",
       "match_sources": [
-        "json_files"
+        "json_files",
+        "repo_wide"
       ]
     },
     {
@@ -1133,7 +1137,8 @@
       "first_seen_at": "2026-04-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/154702154?v=4",
       "match_sources": [
-        "json_files"
+        "json_files",
+        "repo_wide"
       ]
     },
     {
@@ -1146,7 +1151,8 @@
       "first_seen_at": "2026-04-06",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/67532224?v=4",
       "match_sources": [
-        "json_files"
+        "json_files",
+        "repo_wide"
       ]
     },
     {
@@ -1160,7 +1166,8 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/191975780?v=4",
       "match_sources": [
         "js_code",
-        "json_files"
+        "json_files",
+        "repo_wide"
       ]
     },
     {
@@ -1174,6 +1181,7 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/60741154?v=4",
       "match_sources": [
         "json_files",
+        "repo_wide",
         "ts_code"
       ]
     },
@@ -1187,6 +1195,7 @@
       "first_seen_at": "2026-04-07",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/19796784?v=4",
       "match_sources": [
+        "repo_wide",
         "ts_code"
       ]
     },
@@ -1200,6 +1209,7 @@
       "first_seen_at": "2026-04-07",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/70810472?v=4",
       "match_sources": [
+        "repo_wide",
         "ts_code"
       ]
     },
@@ -1240,12 +1250,13 @@
       "url": "https://github.com/Turi-Labs/Newsletter-Editor-Agents",
       "description": "Newsletter Agent",
       "summary": "Newsletter Agent",
-      "stars": 13,
+      "stars": 12,
       "created_at": "2025-04-15",
       "first_seen_at": "2026-04-08",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/187839878?v=4",
       "match_sources": [
-        "markdown_files"
+        "markdown_files",
+        "repo_wide"
       ]
     },
     {
@@ -1276,6 +1287,7 @@
       "match_sources": [
         "markdown_files",
         "readme",
+        "repo_wide",
         "ts_code"
       ]
     },
@@ -1289,7 +1301,8 @@
       "first_seen_at": "2026-04-08",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/3055154?v=4",
       "match_sources": [
-        "markdown_files"
+        "markdown_files",
+        "repo_wide"
       ]
     },
     {
@@ -1347,7 +1360,8 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/147421609?v=4",
       "match_sources": [
         "markdown_files",
-        "readme"
+        "readme",
+        "repo_wide"
       ]
     },
     {
@@ -1389,7 +1403,8 @@
       "match_sources": [
         "js_code",
         "markdown_files",
-        "readme"
+        "readme",
+        "repo_wide"
       ]
     },
     {
@@ -1411,27 +1426,17 @@
       "full_name": "unifyWeb3/remityield",
       "url": "https://github.com/unifyWeb3/remityield",
       "description": "",
-      "summary": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/do...",
+      "summary": "> built for the [Starknet Hackathon](https://starkzap.devfolio.co/) \u00b7 Future of Work Track \u00b7 Powered by [St...",
       "stars": 0,
       "created_at": "2026-04-07",
       "first_seen_at": "2026-04-08",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/135211789?v=4",
       "match_sources": [
         "json_files",
+        "markdown_files",
+        "readme",
+        "repo_wide",
         "ts_code"
-      ]
-    },
-    {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8034,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-04-09",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
       ]
     },
     {
@@ -1444,7 +1449,8 @@
       "first_seen_at": "2026-04-09",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
       "match_sources": [
-        "js_code"
+        "js_code",
+        "repo_wide"
       ]
     },
     {
@@ -1458,7 +1464,77 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/101340153?v=4",
       "match_sources": [
         "js_code",
-        "json_files"
+        "json_files",
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8032,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-04-10",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "memosr/road-racer",
+      "url": "https://github.com/memosr/road-racer",
+      "description": "",
+      "summary": "Starkzap mention found in repository files.",
+      "stars": 0,
+      "created_at": "2026-03-24",
+      "first_seen_at": "2026-04-10",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/96793918?v=4",
+      "match_sources": [
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "harshad-dhokane/using-starkzap-sdk-v2-launch-features-on-starknet-i-want-to-build-a-social-tipping-platform...",
+      "url": "https://github.com/harshad-dhokane/using-starkzap-sdk-v2-launch-features-on-starknet-i-want-to-build-a-social-tipping-platform...",
+      "description": "",
+      "summary": "TODO: Document your project here",
+      "stars": 0,
+      "created_at": "2026-04-07",
+      "first_seen_at": "2026-04-10",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/162972524?v=4",
+      "match_sources": [
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "maheshgadi-ai/CryptoCompass",
+      "url": "https://github.com/maheshgadi-ai/CryptoCompass",
+      "description": "End-to-end ML pipeline that predicts Bitcoin's next-day price direction using live news sentiment from Hacker News + technical indicators.",
+      "summary": "End-to-end ML pipeline that predicts Bitcoin's next-day price direction using live news sentiment from Hack...",
+      "stars": 0,
+      "created_at": "2026-04-08",
+      "first_seen_at": "2026-04-10",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/242104848?v=4",
+      "match_sources": [
+        "repo_wide"
+      ]
+    },
+    {
+      "full_name": "cilokcimol/Starkjar",
+      "url": "https://github.com/cilokcimol/Starkjar",
+      "description": "Gasless tipping platform on Starknet Sepolia. Fans send STRK tokens to creators without paying gas fees, powered by Starkzap paymaster and Privy email authentication. Built with Next.js 15, React 19, and Cairo smart contracts. Creators get a shareable tip page in seconds.",
+      "summary": "Gasless tipping platform on Starknet Sepolia. Fans send STRK tokens to creators without paying gas fees, po...",
+      "stars": 0,
+      "created_at": "2026-04-09",
+      "first_seen_at": "2026-04-10",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/64710698?v=4",
+      "match_sources": [
+        "json_files",
+        "markdown_files",
+        "readme",
+        "repo_wide",
+        "ts_code"
       ]
     }
   ],
@@ -1633,6 +1709,14 @@
       ]
     },
     {
+      "login": "cilokcimol",
+      "url": "https://github.com/cilokcimol",
+      "avatar_url": "https://avatars.githubusercontent.com/u/64710698?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
       "login": "CodeswithrohStudio",
       "url": "https://github.com/CodeswithrohStudio",
       "avatar_url": "https://avatars.githubusercontent.com/u/248224014?v=4",
@@ -1730,6 +1814,14 @@
       ]
     },
     {
+      "login": "harshad-dhokane",
+      "url": "https://github.com/harshad-dhokane",
+      "avatar_url": "https://avatars.githubusercontent.com/u/162972524?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
       "login": "hidd3n19",
       "url": "https://github.com/hidd3n19",
       "avatar_url": "https://avatars.githubusercontent.com/u/101340153?v=4",
@@ -1821,6 +1913,14 @@
       "login": "Mageshk100",
       "url": "https://github.com/Mageshk100",
       "avatar_url": "https://avatars.githubusercontent.com/u/147421609?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "maheshgadi-ai",
+      "url": "https://github.com/maheshgadi-ai",
+      "avatar_url": "https://avatars.githubusercontent.com/u/242104848?v=4",
       "sources": [
         "repo_owner"
       ]
