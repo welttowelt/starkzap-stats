@@ -1201,7 +1201,7 @@
               legend: { display: false },
               tooltip: {
                 callbacks: {
-                  title: (items) => toHumanDate(items[0].label),
+                  title: (items) => formatTooltipTitle(items[0].label),
                   label: (item) => `${config.label}: ${formatNum(item.raw)}`
                 }
               }
@@ -1255,6 +1255,14 @@
       function toMonthLabel(monthKey) {
         const [year, month] = monthKey.split("-").map(Number);
         return MONTH_LABEL.format(new Date(Date.UTC(year, month - 1, 1)));
+      }
+
+      function formatTooltipTitle(label) {
+        const value = String(label ?? "");
+        if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+          return toHumanDate(value);
+        }
+        return value;
       }
 
       function formatNum(value) {
