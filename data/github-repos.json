@@ -1,6 +1,6 @@
 {
-  "updated": "2026-04-18T06:54:00Z",
-  "total": 110,
+  "updated": "2026-04-19T07:03:59Z",
+  "total": 107,
   "repos": [
     {
       "full_name": "keep-starknet-strange/alexandria",
@@ -1606,25 +1606,12 @@
       "url": "https://github.com/rust-lang/crates.io-index",
       "description": "Registry index for crates.io",
       "summary": "Registry index for crates.io",
-      "stars": 698,
+      "stars": 699,
       "created_at": "2014-11-04",
       "first_seen_at": "2026-04-18",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/5430905?v=4",
       "match_sources": [
         "repo_wide"
-      ]
-    },
-    {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8035,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-04-18",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
       ]
     },
     {
@@ -1638,19 +1625,6 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/153971735?v=4",
       "match_sources": [
         "js_code"
-      ]
-    },
-    {
-      "full_name": "ZeroxMachina/Degen0x",
-      "url": "https://github.com/ZeroxMachina/Degen0x",
-      "description": "",
-      "summary": "Starkzap mention found in repository files.",
-      "stars": 0,
-      "created_at": "2026-03-11",
-      "first_seen_at": "2026-04-18",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/267402889?v=4",
-      "match_sources": [
-        "repo_wide"
       ]
     },
     {
@@ -1708,29 +1682,16 @@
       ]
     },
     {
-      "full_name": "harshad-dhokane/using-starkzap-sdk-v2-launch-features-on-starknet-i-want-to-build-a-social-tipping-platform...",
-      "url": "https://github.com/harshad-dhokane/using-starkzap-sdk-v2-launch-features-on-starknet-i-want-to-build-a-social-tipping-platform...",
-      "description": "",
-      "summary": "TODO: Document your project here",
-      "stars": 0,
-      "created_at": "2026-04-07",
-      "first_seen_at": "2026-04-18",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/162972524?v=4",
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8036,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-04-19",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
       "match_sources": [
-        "repo_wide"
-      ]
-    },
-    {
-      "full_name": "maheshgadi-ai/CryptoCompass",
-      "url": "https://github.com/maheshgadi-ai/CryptoCompass",
-      "description": "End-to-end ML pipeline that predicts Bitcoin's next-day price direction using live news sentiment from Hacker News + technical indicators.",
-      "summary": "End-to-end ML pipeline that predicts Bitcoin's next-day price direction using live news sentiment from Hack...",
-      "stars": 0,
-      "created_at": "2026-04-08",
-      "first_seen_at": "2026-04-18",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/242104848?v=4",
-      "match_sources": [
-        "repo_wide"
+        "starkzap_repo_curated"
       ]
     }
   ],
@@ -2162,14 +2123,6 @@
       ]
     },
     {
-      "login": "maheshgadi-ai",
-      "url": "https://github.com/maheshgadi-ai",
-      "avatar_url": "https://avatars.githubusercontent.com/u/242104848?v=4",
-      "sources": [
-        "repo_owner"
-      ]
-    },
-    {
       "login": "Mansi2007275",
       "url": "https://github.com/Mansi2007275",
       "avatar_url": "https://avatars.githubusercontent.com/u/186802781?v=4",
@@ -2549,14 +2502,6 @@
       "sources": [
         "awesome_starkzap_contributors",
         "starkzap_core_contributors"
-      ]
-    },
-    {
-      "login": "ZeroxMachina",
-      "url": "https://github.com/ZeroxMachina",
-      "avatar_url": "https://avatars.githubusercontent.com/u/267402889?v=4",
-      "sources": [
-        "repo_owner"
       ]
     }
   ],
