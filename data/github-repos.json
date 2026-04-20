@@ -1,6 +1,6 @@
 {
-  "updated": "2026-04-19T07:03:59Z",
-  "total": 107,
+  "updated": "2026-04-20T07:47:11Z",
+  "total": 109,
   "repos": [
     {
       "full_name": "keep-starknet-strange/alexandria",
@@ -1598,6 +1598,7 @@
       "first_seen_at": "2026-04-17",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/128307596?v=4",
       "match_sources": [
+        "repo_wide",
         "ts_code"
       ]
     },
@@ -1688,10 +1689,38 @@
       "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
       "stars": 8036,
       "created_at": "2016-02-28",
-      "first_seen_at": "2026-04-19",
+      "first_seen_at": "2026-04-20",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
       "match_sources": [
         "starkzap_repo_curated"
+      ]
+    },
+    {
+      "full_name": "YATHARTH-Sriv/backendstarkzap",
+      "url": "https://github.com/YATHARTH-Sriv/backendstarkzap",
+      "description": "",
+      "summary": "Starkzap mention found in repository files.",
+      "stars": 0,
+      "created_at": "2026-04-19",
+      "first_seen_at": "2026-04-20",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/126802444?v=4",
+      "match_sources": [
+        "json_files",
+        "ts_code"
+      ]
+    },
+    {
+      "full_name": "YATHARTH-Sriv/mobilestarkzap",
+      "url": "https://github.com/YATHARTH-Sriv/mobilestarkzap",
+      "description": "",
+      "summary": "This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/...",
+      "stars": 0,
+      "created_at": "2026-04-19",
+      "first_seen_at": "2026-04-20",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/126802444?v=4",
+      "match_sources": [
+        "js_code",
+        "json_files"
       ]
     }
   ],
@@ -2491,6 +2520,14 @@
       "login": "YanYuanFE",
       "url": "https://github.com/YanYuanFE",
       "avatar_url": "https://avatars.githubusercontent.com/u/17774285?v=4",
+      "sources": [
+        "repo_owner"
+      ]
+    },
+    {
+      "login": "YATHARTH-Sriv",
+      "url": "https://github.com/YATHARTH-Sriv",
+      "avatar_url": "https://avatars.githubusercontent.com/u/126802444?v=4",
       "sources": [
         "repo_owner"
       ]
