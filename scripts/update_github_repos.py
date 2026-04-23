@@ -57,6 +57,27 @@ QUERY_SETS: List[Tuple[str, str]] = [
     ("markdown_files", "starkzap language:Markdown"),
 ]
 
+WEAK_SOURCES = frozenset([
+    "readme", "docs_path", "markdown_files", "repo_wide",
+    "awesome_starkzap_curated", "starkzap_repo_curated",
+])
+IMPORT_SOURCES = frozenset(["ts_code", "js_code"])
+DEP_SOURCES = frozenset([
+    "package_json_dependency", "package_json_dev_dependency",
+    "package_json_peer_dependency", "package_json_optional_dependency",
+])
+LOCKFILE_SOURCES = frozenset(["package_lock", "pnpm_lock", "yarn_lock"])
+CODE_SOURCES = frozenset([
+    "ts_code", "js_code", "python_code", "rust_code",
+    "go_code", "solidity_code",
+])
+DEP_FIELD_MAP = {
+    "dependencies": "package_json_dependency",
+    "devDependencies": "package_json_dev_dependency",
+    "peerDependencies": "package_json_peer_dependency",
+    "optionalDependencies": "package_json_optional_dependency",
+}
+
 
 def utc_now() -> datetime.datetime:
     return datetime.datetime.now(datetime.timezone.utc)
@@ -274,8 +295,12 @@ def main() -> None:
                 "stars": int(existing.get("stars") or 0),
                 "created_at": existing.get("created_at") or "",
                 "first_seen_at": initial_first_seen(existing),
+                "last_seen_at": today_iso,
                 "owner_avatar_url": existing.get("owner_avatar_url") or (f"https://github.com/{owner}.png?size=96" if owner else ""),
                 "match_sources": list(existing.get("match_sources") or []),
+                "is_fork": existing.get("is_fork", False),
+                "archived": existing.get("archived", False),
+                "pushed_at": existing.get("pushed_at", ""),
             }
 
         entry = repos[key]
@@ -406,6 +431,9 @@ def main() -> None:
             info["stars"] = repo_data.get("stargazers_count", info.get("stars", 0))
             info["description"] = repo_data.get("description") or info.get("description") or ""
             info["owner_avatar_url"] = owner.get("avatar_url") or info.get("owner_avatar_url") or ""
+            info["is_fork"] = bool(repo_data.get("fork", False))
+            info["archived"] = bool(repo_data.get("archived", False))
+            info["pushed_at"] = (repo_data.get("pushed_at") or "")[:10]
 
             if not is_iso_date(info.get("first_seen_at", "")):
                 info["first_seen_at"] = created_at if is_iso_date(created_at) else today_iso
@@ -458,6 +486,24 @@ def main() -> None:
     except Exception as exc:
         print(f"Optional contributors fetch failed ({STARKZAP_REPO}): {exc}")
 
+    # Verify package.json dependencies by parsing file content.
+    pkg_repos = [r for r in resolved_repos if "package_json" in (r.get("match_sources") or [])]
+    print(f"Verifying package.json for {len(pkg_repos)} repos...")
+    for info in pkg_repos:
+        full_name = info["full_name"]
+        try:
+            raw = client.request_text(
+                f"{GITHUB_API_BASE}/repos/{full_name}/contents/package.json"
+            )
+            pkg = json.loads(raw)
+            for field, source_name in DEP_FIELD_MAP.items():
+                deps = pkg.get(field, {})
+                if isinstance(deps, dict) and "starkzap" in deps:
+                    if source_name not in info["match_sources"]:
+                        info["match_sources"].append(source_name)
+        except Exception:
+            pass
+
     for item in resolved_repos:
         item["match_sources"] = sorted(set(item.get("match_sources") or []))
 
@@ -470,9 +516,39 @@ def main() -> None:
     )
     builders_sorted = sorted(builders.values(), key=lambda b: b["login"].lower())
 
+    def has_any_source(repo: dict, source_set: frozenset) -> bool:
+        return bool(source_set & set(repo.get("match_sources") or []))
+
+    def is_weak_only(repo: dict) -> bool:
+        sources = set(repo.get("match_sources") or [])
+        return bool(sources) and sources.issubset(WEAK_SOURCES)
+
+    dep_count = sum(1 for r in repos_sorted if has_any_source(r, DEP_SOURCES))
+    import_count = sum(1 for r in repos_sorted if has_any_source(r, CODE_SOURCES))
+    weak_only_count = sum(1 for r in repos_sorted if is_weak_only(r))
+    non_fork = sum(1 for r in repos_sorted if not r.get("is_fork"))
+    non_archived = sum(1 for r in repos_sorted if not r.get("archived"))
+    cutoff_7d = (now - datetime.timedelta(days=7)).strftime("%Y-%m-%d")
+    cutoff_30d = (now - datetime.timedelta(days=30)).strftime("%Y-%m-%d")
+    seen_7d = sum(1 for r in repos_sorted if (r.get("last_seen_at") or "") >= cutoff_7d)
+    seen_30d = sum(1 for r in repos_sorted if (r.get("last_seen_at") or "") >= cutoff_30d)
+    stale_30d = sum(1 for r in repos_sorted if (r.get("last_seen_at") or "") < cutoff_30d)
+
     result = {
         "updated": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "total": len(repos_sorted),
+        "funnel": {
+            "repos_with_package_dependency": dep_count,
+            "repos_with_code_import": import_count,
+            "repos_with_only_weak_mentions": weak_only_count,
+        },
+        "quality": {
+            "non_fork": non_fork,
+            "non_archived": non_archived,
+            "seen_last_7d": seen_7d,
+            "seen_last_30d": seen_30d,
+            "stale_30d": stale_30d,
+        },
         "repos": repos_sorted,
         "builders": builders_sorted,
         "query_mode": "deep_repo_wide_mentions_with_curated_sources",
@@ -491,6 +567,8 @@ def main() -> None:
         json.dump(result, f, indent=2)
 
     print(f"Deep repo-wide starkzap mentions: {len(repos_sorted)} repos")
+    print(f"  Funnel: deps={dep_count} code={import_count} weak_only={weak_only_count}")
+    print(f"  Quality: non_fork={non_fork} non_archived={non_archived} active_7d={seen_7d} active_30d={seen_30d} stale={stale_30d}")
     print(f"Tracked builders: {len(builders_sorted)}")
 
 
