@@ -1,6 +1,6 @@
 {
-  "updated": "2026-04-25T07:00:03Z",
-  "total": 124,
+  "updated": "2026-04-26T07:14:21Z",
+  "total": 117,
   "repos": [
     {
       "full_name": "keep-starknet-strange/alexandria",
@@ -1512,22 +1512,6 @@
       ]
     },
     {
-      "full_name": "tomevault-io/copilot-plugins",
-      "url": "https://github.com/tomevault-io/copilot-plugins",
-      "description": "AI instruction files for VS Code / GitHub Copilot \u2014 custom marketplace",
-      "summary": "AI instruction files for VS Code / GitHub Copilot \u2014 custom marketplace",
-      "stars": 0,
-      "created_at": "2026-04-03",
-      "first_seen_at": "2026-04-22",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/273110059?v=4",
-      "match_sources": [
-        "json_files",
-        "markdown_files",
-        "readme",
-        "repo_wide"
-      ]
-    },
-    {
       "full_name": "tomevault-io/cursor-plugins",
       "url": "https://github.com/tomevault-io/cursor-plugins",
       "description": "AI instruction files for Cursor \u2014 Team Marketplace plugins",
@@ -1673,7 +1657,7 @@
       "url": "https://github.com/rust-lang/crates.io-index",
       "description": "Registry index for crates.io",
       "summary": "Registry index for crates.io",
-      "stars": 700,
+      "stars": 701,
       "created_at": "2014-11-04",
       "first_seen_at": "2026-04-24",
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/5430905?v=4",
@@ -1724,32 +1708,6 @@
       ]
     },
     {
-      "full_name": "YATHARTH-Sriv/templaterepo",
-      "url": "https://github.com/YATHARTH-Sriv/templaterepo",
-      "description": "",
-      "summary": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/do...",
-      "stars": 0,
-      "created_at": "2026-04-18",
-      "first_seen_at": "2026-04-24",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/126802444?v=4",
-      "match_sources": [
-        "repo_wide"
-      ]
-    },
-    {
-      "full_name": "all-contributors/allcontributors.org",
-      "url": "https://github.com/all-contributors/allcontributors.org",
-      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
-      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
-      "stars": 8037,
-      "created_at": "2016-02-28",
-      "first_seen_at": "2026-04-25",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "match_sources": [
-        "starkzap_repo_curated"
-      ]
-    },
-    {
       "full_name": "RealAdii/portfolio-2025",
       "url": "https://github.com/RealAdii/portfolio-2025",
       "description": "this is me. ",
@@ -1764,20 +1722,6 @@
       ]
     },
     {
-      "full_name": "avinashh10x/newPortfolio",
-      "url": "https://github.com/avinashh10x/newPortfolio",
-      "description": "",
-      "summary": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/do...",
-      "stars": 0,
-      "created_at": "2026-01-14",
-      "first_seen_at": "2026-04-25",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/116658044?v=4",
-      "match_sources": [
-        "repo_wide",
-        "ts_code"
-      ]
-    },
-    {
       "full_name": "ayush-ranjan-official/Covenant-CAD",
       "url": "https://github.com/ayush-ranjan-official/Covenant-CAD",
       "description": "This project simulates Bitcoin OP_CAT capabilities to demonstrate Starknet as an execution layer for Bitcoin covenant logic.",
@@ -1788,19 +1732,6 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/93761136?v=4",
       "match_sources": [
         "markdown_files"
-      ]
-    },
-    {
-      "full_name": "ZeroxMachina/Degen0x",
-      "url": "https://github.com/ZeroxMachina/Degen0x",
-      "description": "",
-      "summary": "Starkzap mention found in repository files.",
-      "stars": 0,
-      "created_at": "2026-03-11",
-      "first_seen_at": "2026-04-25",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/267402889?v=4",
-      "match_sources": [
-        "repo_wide"
       ]
     },
     {
@@ -1874,19 +1805,6 @@
       ]
     },
     {
-      "full_name": "memosr/road-racer",
-      "url": "https://github.com/memosr/road-racer",
-      "description": "",
-      "summary": "Starkzap mention found in repository files.",
-      "stars": 0,
-      "created_at": "2026-03-24",
-      "first_seen_at": "2026-04-25",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/96793918?v=4",
-      "match_sources": [
-        "repo_wide"
-      ]
-    },
-    {
       "full_name": "karlostoteles/guessmyNFT",
       "url": "https://github.com/karlostoteles/guessmyNFT",
       "description": "guessmyNFT \u2014 On-chain deduction game with ZK privacy on Starknet",
@@ -1917,32 +1835,6 @@
       ]
     },
     {
-      "full_name": "harshad-dhokane/using-starkzap-sdk-v2-launch-features-on-starknet-i-want-to-build-a-social-tipping-platform...",
-      "url": "https://github.com/harshad-dhokane/using-starkzap-sdk-v2-launch-features-on-starknet-i-want-to-build-a-social-tipping-platform...",
-      "description": "",
-      "summary": "TODO: Document your project here",
-      "stars": 0,
-      "created_at": "2026-04-07",
-      "first_seen_at": "2026-04-25",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/162972524?v=4",
-      "match_sources": [
-        "repo_wide"
-      ]
-    },
-    {
-      "full_name": "maheshgadi-ai/CryptoCompass",
-      "url": "https://github.com/maheshgadi-ai/CryptoCompass",
-      "description": "End-to-end ML pipeline that predicts Bitcoin's next-day price direction using live news sentiment from Hacker News + technical indicators.",
-      "summary": "End-to-end ML pipeline that predicts Bitcoin's next-day price direction using live news sentiment from Hack...",
-      "stars": 0,
-      "created_at": "2026-04-08",
-      "first_seen_at": "2026-04-25",
-      "owner_avatar_url": "https://avatars.githubusercontent.com/u/242104848?v=4",
-      "match_sources": [
-        "repo_wide"
-      ]
-    },
-    {
       "full_name": "Expat-Q/equlibria",
       "url": "https://github.com/Expat-Q/equlibria",
       "description": "A shared vault protocol built on lifi",
@@ -1953,6 +1845,19 @@
       "owner_avatar_url": "https://avatars.githubusercontent.com/u/128307596?v=4",
       "match_sources": [
         "ts_code"
+      ]
+    },
+    {
+      "full_name": "all-contributors/allcontributors.org",
+      "url": "https://github.com/all-contributors/allcontributors.org",
+      "description": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who push code \u2728",
+      "summary": "\u2728 The all-contributors bot website and documentation. Recognize all contributors, not just the ones who pus...",
+      "stars": 8039,
+      "created_at": "2016-02-28",
+      "first_seen_at": "2026-04-26",
+      "owner_avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
+      "match_sources": [
+        "starkzap_repo_curated"
       ]
     }
   ],
@@ -2081,14 +1986,6 @@
       "login": "Arshad-WD",
       "url": "https://github.com/Arshad-WD",
       "avatar_url": "https://avatars.githubusercontent.com/u/117998690?v=4",
-      "sources": [
-        "repo_owner"
-      ]
-    },
-    {
-      "login": "avinashh10x",
-      "url": "https://github.com/avinashh10x",
-      "avatar_url": "https://avatars.githubusercontent.com/u/116658044?v=4",
       "sources": [
         "repo_owner"
       ]
@@ -2427,14 +2324,6 @@
       "login": "Mageshk100",
       "url": "https://github.com/Mageshk100",
       "avatar_url": "https://avatars.githubusercontent.com/u/147421609?v=4",
-      "sources": [
-        "repo_owner"
-      ]
-    },
-    {
-      "login": "maheshgadi-ai",
-      "url": "https://github.com/maheshgadi-ai",
-      "avatar_url": "https://avatars.githubusercontent.com/u/242104848?v=4",
       "sources": [
         "repo_owner"
       ]
@@ -2835,14 +2724,6 @@
       "sources": [
         "awesome_starkzap_contributors",
         "starkzap_core_contributors"
-      ]
-    },
-    {
-      "login": "ZeroxMachina",
-      "url": "https://github.com/ZeroxMachina",
-      "avatar_url": "https://avatars.githubusercontent.com/u/267402889?v=4",
-      "sources": [
-        "repo_owner"
       ]
     }
   ],
